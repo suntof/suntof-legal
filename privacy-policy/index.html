@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ayah AI | Privacy Policy</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f8f9;
+        --panel: #ffffff;
+        --text: #1f2937;
+        --muted: #4b5563;
+        --line: #e5e7eb;
+        --brand: #0f766e;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Segoe UI", Roboto, Arial, sans-serif;
+        line-height: 1.55;
+      }
+
+      .wrap {
+        max-width: 920px;
+        margin: 24px auto;
+        padding: 0 16px 32px;
+      }
+
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 22px;
+      }
+
+      .top {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 30px;
+      }
+
+      h2 {
+        margin: 22px 0 8px;
+        font-size: 20px;
+      }
+
+      p {
+        margin: 8px 0;
+      }
+
+      ul {
+        margin: 8px 0;
+        padding-left: 22px;
+      }
+
+      li {
+        margin: 6px 0;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      .lang-switch {
+        display: flex;
+        gap: 8px;
+      }
+
+      .lang-switch button {
+        border: 1px solid var(--line);
+        background: #f9fafb;
+        color: var(--text);
+        border-radius: 10px;
+        padding: 8px 12px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      .lang-switch button.active {
+        background: #e6fffb;
+        border-color: #99f6e4;
+        color: #0f766e;
+      }
+
+      a {
+        color: var(--brand);
+      }
+
+      code {
+        background: #f3f4f6;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 1px 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="panel">
+        <header class="top">
+          <h1 id="title">Privacy Policy</h1>
+          <nav class="lang-switch" aria-label="Language switcher">
+            <button id="btn-en" type="button">English</button>
+            <button id="btn-tr" type="button">Turkce</button>
+          </nav>
+        </header>
+
+        <p class="muted" id="last-updated"></p>
+        <p id="intro"></p>
+
+        <div id="content"></div>
+      </section>
+    </main>
+
+    <script>
+      const COMPANY_NAME = "Suntof Solutions";
+      const APP_NAME = "Ayah AI";
+      const SUPPORT_EMAIL = "ayah.ai.rahle@gmail.com";
+      const WEBSITE_URL = "https://suntof.github.io/suntof-legal/privacy-policy/";
+      const DELETE_REQUEST_URL =
+        "mailto:ayah.ai.rahle@gmail.com?subject=Data%20Deletion%20Request";
+
+      const locales = {
+        en: {
+          title: "Privacy Policy",
+          updated: "Last updated: February 16, 2026",
+          intro:
+            "This Privacy Policy explains how " +
+            COMPANY_NAME +
+            " processes data when you use " +
+            APP_NAME +
+            ".",
+          sections: [
+            {
+              h: "1) Data we process",
+              p: [
+                "Based on the current app implementation, we process these categories:",
+              ],
+              list: [
+                "In-app messages: questions typed by users in chat.",
+                "App activity: events such as screen views and feature usage.",
+                "Device and other identifiers: anonymous client identifier and push token.",
+                "Notification preferences and technical settings: app language, timezone, and notification preference.",
+                "Media permission is used only for saving generated story images to the device gallery. We do not upload your gallery photos to our servers through this flow.",
+              ],
+            },
+            {
+              h: "2) How we use data",
+              list: [
+                "To provide app features (daily ayah, reading, chat, favorites, story export).",
+                "To deliver push notifications.",
+                "To monitor quality, reliability, and performance.",
+              ],
+            },
+            {
+              h: "3) Data sharing",
+              p: [
+                "We may share relevant data with service providers acting on our behalf for app functionality.",
+              ],
+              list: [
+                "Backend hosting and infrastructure providers.",
+                "AI model providers used to generate answers.",
+                "Push notification provider (Firebase Cloud Messaging).",
+              ],
+            },
+            {
+              h: "4) In-app purchases",
+              p: [
+                "If in-app purchases are enabled in future versions, purchase flows are handled by the app store (Google Play / Apple). We do not receive full payment card numbers.",
+              ],
+              list: [
+                "We may process purchase status, product type, and transaction metadata required to unlock premium features.",
+              ],
+            },
+            {
+              h: "5) Retention",
+              p: [
+                "We retain data only as needed for functionality, analytics, legal obligations, and security. Retention periods may vary by data type.",
+              ],
+            },
+            {
+              h: "6) Your rights",
+              p: [
+                "You can request deletion or access requests by contacting us:",
+              ],
+              list: [
+                "Email: " + SUPPORT_EMAIL,
+                "Delete request form: " + DELETE_REQUEST_URL,
+              ],
+            },
+            {
+              h: "7) Security",
+              p: [
+                "We use technical and organizational measures to protect data. No method is 100 percent secure.",
+              ],
+            },
+            {
+              h: "8) Children",
+              p: [
+                "Our service is not directed to children under the age where parental consent is required by applicable law.",
+              ],
+            },
+            {
+              h: "9) Changes",
+              p: [
+                "We may update this policy. Material changes will be reflected by updating the date above.",
+              ],
+            },
+            {
+              h: "10) Contact",
+              list: [
+                "Company: " + COMPANY_NAME,
+                "Website: " + WEBSITE_URL,
+                "Email: " + SUPPORT_EMAIL,
+              ],
+            },
+          ],
+        },
+        tr: {
+          title: "Gizlilik Politikasi",
+          updated: "Son guncelleme: 16 Subat 2026",
+          intro:
+            "Bu Gizlilik Politikasi, " +
+            COMPANY_NAME +
+            " tarafindan " +
+            APP_NAME +
+            " kullanilirken verilerin nasil islendigini aciklar.",
+          sections: [
+            {
+              h: "1) Isledigimiz veriler",
+              p: [
+                "Uygulamanin mevcut surumunde su veri kategorileri islenir:",
+              ],
+              list: [
+                "Uygulama ici mesajlar: kullanicinin sohbete yazdigi sorular.",
+                "Uygulama etkinligi: ekran goruntuleme ve ozellik kullanim olaylari.",
+                "Cihaz ve diger kimlikler: anonim istemci kimligi ve bildirim tokeni.",
+                "Bildirim tercihleri ve teknik ayarlar: uygulama dili, saat dilimi, bildirim tercihi.",
+                "Medya izni sadece uretilen story gorselini cihazin galerisini kaydetmek icin kullanilir. Bu akis uzerinden galeri fotograflari sunucularimiza yuklenmez.",
+              ],
+            },
+            {
+              h: "2) Verileri hangi amaclarla kullaniyoruz",
+              list: [
+                "Uygulama ozelliklerini sunmak (gunluk ayet, okuma, sohbet, favoriler, story cikisi).",
+                "Push bildirimlerini iletmek.",
+                "Kalite, guvenilirlik ve performans takibi yapmak.",
+              ],
+            },
+            {
+              h: "3) Veri paylasimi",
+              p: [
+                "Uygulama islevi icin gerekli hallerde, adimiza hizmet veren saglayicilarla ilgili veriler paylasilabilir.",
+              ],
+              list: [
+                "Backend barindirma ve altyapi saglayicilari.",
+                "Yanit uretiminde kullanilan yapay zeka model saglayicilari.",
+                "Push bildirim saglayicisi (Firebase Cloud Messaging).",
+              ],
+            },
+            {
+              h: "4) Uygulama ici satin alma",
+              p: [
+                "Uygulama ici satin alma gelecekte aktif edilirse, odeme akislarini uygulama magazasi (Google Play / Apple) yonetir. Tam kart numarasi tarafimizca alinmaz.",
+              ],
+              list: [
+                "Premium ozellik acma icin satin alma durumu, urun tipi ve islem metaverileri islenebilir.",
+              ],
+            },
+            {
+              h: "5) Saklama suresi",
+              p: [
+                "Veriler, uygulama islevi, analiz, yasal yukumlulukler ve guvenlik gereksinimleri kadar saklanir. Veri turune gore sure degisebilir.",
+              ],
+            },
+            {
+              h: "6) Haklariniz",
+              p: ["Veri silme veya erisim talepleriniz icin bize ulasabilirsiniz:"],
+              list: [
+                "E-posta: " + SUPPORT_EMAIL,
+                "Silme talep formu: " + DELETE_REQUEST_URL,
+              ],
+            },
+            {
+              h: "7) Guvenlik",
+              p: [
+                "Verileri korumak icin teknik ve organizasyonel onlemler uygulariz. Hicbir yontem yuzde yuz guvenli degildir.",
+              ],
+            },
+            {
+              h: "8) Cocuklar",
+              p: [
+                "Hizmetimiz, uygulanabilir hukuka gore ebeveyn izni gereken yas altindaki cocuklari hedeflemez.",
+              ],
+            },
+            {
+              h: "9) Degisiklikler",
+              p: [
+                "Bu politikayi guncelleyebiliriz. Onemli degisikliklerde yukaridaki tarih guncellenir.",
+              ],
+            },
+            {
+              h: "10) Iletisim",
+              list: [
+                "Sirket: " + COMPANY_NAME,
+                "Web sitesi: " + WEBSITE_URL,
+                "E-posta: " + SUPPORT_EMAIL,
+              ],
+            },
+          ],
+        },
+      };
+
+      function selectedLang() {
+        const urlLang = new URLSearchParams(window.location.search).get("lang");
+        if (urlLang && locales[urlLang]) return urlLang;
+        const browserLang = (navigator.language || "en").toLowerCase();
+        if (browserLang.startsWith("tr")) return "tr";
+        return "en";
+      }
+
+      function render(lang) {
+        const t = locales[lang] || locales.en;
+        document.documentElement.lang = lang;
+        document.title = COMPANY_NAME + " | " + t.title;
+        document.getElementById("title").textContent = t.title;
+        document.getElementById("last-updated").textContent = t.updated;
+        document.getElementById("intro").textContent = t.intro;
+
+        const body = document.getElementById("content");
+        body.innerHTML = "";
+        for (const sec of t.sections) {
+          const h2 = document.createElement("h2");
+          h2.textContent = sec.h;
+          body.appendChild(h2);
+
+          if (Array.isArray(sec.p)) {
+            for (const txt of sec.p) {
+              const p = document.createElement("p");
+              p.textContent = txt;
+              body.appendChild(p);
+            }
+          }
+
+          if (Array.isArray(sec.list) && sec.list.length > 0) {
+            const ul = document.createElement("ul");
+            for (const item of sec.list) {
+              const li = document.createElement("li");
+              li.textContent = item;
+              ul.appendChild(li);
+            }
+            body.appendChild(ul);
+          }
+        }
+
+        document.getElementById("btn-en").classList.toggle("active", lang === "en");
+        document.getElementById("btn-tr").classList.toggle("active", lang === "tr");
+      }
+
+      function updateLang(lang) {
+        const params = new URLSearchParams(window.location.search);
+        params.set("lang", lang);
+        const next = window.location.pathname + "?" + params.toString();
+        history.replaceState({}, "", next);
+        render(lang);
+      }
+
+      document.getElementById("btn-en").addEventListener("click", () => updateLang("en"));
+      document.getElementById("btn-tr").addEventListener("click", () => updateLang("tr"));
+
+      render(selectedLang());
+    </script>
+  </body>
+</html>
