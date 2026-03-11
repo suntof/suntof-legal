@@ -4,412 +4,1285 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Ayah AI | Privacy Policy</title>
-    <style>
-      :root {
-        color-scheme: light;
-        --bg: #f7f8f9;
-        --panel: #ffffff;
-        --text: #1f2937;
-        --muted: #4b5563;
-        --line: #e5e7eb;
-        --brand: #0f766e;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        background: var(--bg);
-        color: var(--text);
-        font-family: "Segoe UI", Roboto, Arial, sans-serif;
-        line-height: 1.55;
-      }
-
-      .wrap {
-        max-width: 920px;
-        margin: 24px auto;
-        padding: 0 16px 32px;
-      }
-
-      .panel {
-        background: var(--panel);
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        padding: 22px;
-      }
-
-      .top {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        margin-bottom: 12px;
-      }
-
-      h1 {
-        margin: 0;
-        font-size: 30px;
-      }
-
-      h2 {
-        margin: 22px 0 8px;
-        font-size: 20px;
-      }
-
-      p {
-        margin: 8px 0;
-      }
-
-      ul {
-        margin: 8px 0;
-        padding-left: 22px;
-      }
-
-      li {
-        margin: 6px 0;
-      }
-
-      .muted {
-        color: var(--muted);
-      }
-
-      .lang-switch {
-        display: flex;
-        gap: 8px;
-      }
-
-      .lang-switch button {
-        border: 1px solid var(--line);
-        background: #f9fafb;
-        color: var(--text);
-        border-radius: 10px;
-        padding: 8px 12px;
-        cursor: pointer;
-        font-weight: 600;
-      }
-
-      .lang-switch button.active {
-        background: #e6fffb;
-        border-color: #99f6e4;
-        color: #0f766e;
-      }
-
-      a {
-        color: var(--brand);
-      }
-
-      code {
-        background: #f3f4f6;
-        border: 1px solid var(--line);
-        border-radius: 6px;
-        padding: 1px 6px;
-      }
-    </style>
+    <link rel="stylesheet" href="../legal-site/site.css" />
   </head>
   <body>
     <main class="wrap">
       <section class="panel">
         <header class="top">
-          <h1 id="title">Privacy Policy</h1>
-          <nav class="lang-switch" aria-label="Language switcher">
-            <button id="btn-en" type="button">English</button>
-            <button id="btn-tr" type="button">Turkce</button>
-          </nav>
+          <div>
+            <div class="eyebrow" id="eyebrow"></div>
+            <h1 id="title"></h1>
+            <p class="muted" id="updated"></p>
+          </div>
+          <nav class="lang-switch" id="lang-switch" aria-label="Language switcher"></nav>
         </header>
-
-        <p class="muted" id="last-updated"></p>
-        <p id="intro"></p>
-
-        <div id="content"></div>
+        <p class="lead" id="intro"></p>
+        <div class="summary" id="summary"></div>
+        <div class="section-list" id="content"></div>
+        <div class="footer-links" id="footer-links"></div>
       </section>
     </main>
 
+    <script src="../legal-site/site.js"></script>
     <script>
       const COMPANY_NAME = "Suntof Solutions";
       const APP_NAME = "Ayah AI";
       const SUPPORT_EMAIL = "ayah.ai.rahle@gmail.com";
-      const WEBSITE_URL = "https://suntof.github.io/suntof-legal/privacy-policy/";
-      const DELETE_REQUEST_URL =
-        "mailto:ayah.ai.rahle@gmail.com?subject=Data%20Deletion%20Request";
+      const TERMS_URL = "https://suntof.github.io/suntof-legal/terms-of-use/";
+      const SUPPORT_URL = "https://suntof.github.io/suntof-legal/support/index.html";
+      const DELETE_EMAIL =
+        "mailto:ayah.ai.rahle@gmail.com?subject=Ayah%20AI%20Data%20Request";
 
-      const locales = {
-        en: {
-          title: "Privacy Policy",
-          updated: "Last updated: March 6, 2026",
-          intro:
-            "This Privacy Policy explains how " +
-            COMPANY_NAME +
-            " processes data when you use " +
-            APP_NAME +
-            ".",
-          sections: [
-            {
-              h: "1) Data we process",
-              p: [
-                "Based on the current app implementation, we process these categories:",
-              ],
-              list: [
-                "In-app messages: questions typed by users in chat.",
-                "App activity: events such as screen views and feature usage.",
-                "Device and other identifiers: anonymous client identifier and push token.",
-                "Notification preferences and technical settings: app language, timezone, and notification preference.",
-                "Media permission is used only for saving generated story images to the device gallery. We do not upload your gallery photos to our servers through this flow.",
-              ],
-            },
-            {
-              h: "2) How we use data",
-              list: [
-                "To provide app features (daily ayah, reading, chat, favorites, story export).",
-                "To deliver push notifications.",
-                "To monitor quality, reliability, and performance.",
-              ],
-            },
-            {
-              h: "3) Data sharing",
-              p: [
-                "We may share relevant data with service providers acting on our behalf for app functionality.",
-              ],
-              list: [
-                "Backend hosting and infrastructure providers.",
-                "AI model providers used to generate answers.",
-                "Push notification provider (Firebase Cloud Messaging).",
-              ],
-            },
-            {
-              h: "4) Content sources and attribution",
-              p: [
-                "Reading, daily ayah, brief tafsir, and Listen content may be provided by third-party providers. Original rights remain with the respective copyright holders.",
-              ],
-              list: [
-                "Text source attribution is shown in Settings > Language.",
-                "Arabic brief tafsir is attributed in-app as QuranEnc.com - Arabic Mokhtasar.",
-                "Persistent offline cache is disabled for this Arabic brief tafsir source.",
-                "Attribution details are available in Settings > Audio Sources.",
-                "Commercial use or redistribution rights are not granted by this app unless explicitly stated by the rights holder.",
-              ],
-            },
-            {
-              h: "5) In-app purchases",
-              p: [
-                "If in-app purchases are enabled in future versions, purchase flows are handled by the app store (Google Play / Apple). We do not receive full payment card numbers.",
-              ],
-              list: [
-                "We may process purchase status, product type, and transaction metadata required to unlock premium features.",
-              ],
-            },
-            {
-              h: "6) Retention",
-              p: [
-                "We retain data only as needed for functionality, analytics, legal obligations, and security. Retention periods may vary by data type.",
-              ],
-            },
-            {
-              h: "7) Your rights",
-              p: [
-                "You can request deletion or access requests by contacting us:",
-              ],
-              list: [
-                "Email: " + SUPPORT_EMAIL,
-                "Delete request form: " + DELETE_REQUEST_URL,
-              ],
-            },
-            {
-              h: "8) Security",
-              p: [
-                "We use technical and organizational measures to protect data. No method is 100 percent secure.",
-              ],
-            },
-            {
-              h: "9) Children",
-              p: [
-                "Our service is not directed to children under the age where parental consent is required by applicable law.",
-              ],
-            },
-            {
-              h: "10) Changes",
-              p: [
-                "We may update this policy. Material changes will be reflected by updating the date above.",
-              ],
-            },
-            {
-              h: "11) Contact",
-              list: [
-                "Company: " + COMPANY_NAME,
-                "Website: " + WEBSITE_URL,
-                "Email: " + SUPPORT_EMAIL,
-              ],
-            },
-          ],
+      AyahLegal.init({
+        locales: {
+          tr: {
+            metaTitle: "Ayah AI | Gizlilik Politikası",
+            eyebrow: "Ayah AI • Gizlilik",
+            title: "Gizlilik Politikası",
+            updated: "Son güncelleme: 11 Mart 2026",
+            intro:
+              `${COMPANY_NAME}, ${APP_NAME} kullanılırken işlenen verileri, bu verilerin hangi amaçlarla kullanıldığını, kimlerle paylaşılabildiğini ve haklarınızı bu sayfada açıklar.`,
+            summaryCards: [
+              {
+                title: "Kapsam",
+                body: "Sohbet, ayet, okuma, dinle, story, bildirimler ve üyelik akışları.",
+              },
+              {
+                title: "Ana veri türleri",
+                body: "İstemci kimliği, kullanım olayları, satın alma durumu, soru içerikleri ve teknik ayarlar.",
+              },
+              {
+                title: "Haklar",
+                body: "Erişim, düzeltme, silme, itiraz ve geçerli olduğu ölçüde taşınabilirlik taleplerinizi destek kanalından iletebilirsiniz.",
+              },
+            ],
+            sections: [
+              {
+                h: "1) Veri sorumlusu ve kapsam",
+                p: [
+                  `${APP_NAME}, Kur'an içeriği, kısa açıklamalar, dinleme, story paylaşımı, bildirim ve yapay zekâ destekli soru-cevap yüzeyleri sunar.`,
+                  `${COMPANY_NAME}, bu uygulamadaki kişisel veri işleme faaliyetleri bakımından veri sorumlusu veya ilgili hizmet akışında veri işleyen taraf olarak hareket eder.`,
+                ],
+                notice:
+                  "Bu politika, uygulamanın mevcut mobil sürümündeki veri akışlarını açıklar. Mağaza platformlarının kendi ödeme ve hesap politikaları ayrıca uygulanır.",
+              },
+              {
+                h: "2) İşlediğimiz veri kategorileri",
+                list: [
+                  "Teknik kimlikler: anonim <strong>client ID</strong>, push token, uygulama sürümü, cihaz modeli, işletim sistemi ve temel hata/teşhis kayıtları.",
+                  "Kullanım verileri: ekran açılışları, özellik kullanımı, limit tüketimi, bildirim tercihleri, seçilen dil, yazı boyutu ve benzeri ayarlar.",
+                  "İçerik verileri: sohbet ekranına yazdığınız sorular, yapay zekâ yorumu istekleri ve bu taleplere ilişkin işlem günlükleri.",
+                  "Üyelik verileri: plan tipi, deneme durumu, satın alma ürünü, yenileme bilgisi, süre sonu ve satın alma doğrulaması için gerekli işlem metadatası.",
+                  "Yerel cihaz verileri: favoriler, okuma ilerlemesi, dinleme kaldığı yer, bazı geçici önbellekler ve galeriye kaydetmeyi seçtiğiniz story görselleri.",
+                ],
+              },
+              {
+                h: "3) Verileri hangi amaçlarla kullanıyoruz",
+                list: [
+                  "Günlük ayet, okuma, dinleme, story ve sohbet gibi uygulama özelliklerini sağlamak.",
+                  "Temel Plan ve premium plan sınırlarını, haklarını ve satın alma durumunu uygulamak.",
+                  "Onay verdiğinizde günlük bildirim ve işlem bildirimleri göndermek.",
+                  "Hata ayıklama, performans takibi, güvenlik incelemesi ve kötüye kullanım önleme çalışmaları yapmak.",
+                  "Destek taleplerini yanıtlamak ve hak taleplerini yerine getirmek.",
+                ],
+              },
+              {
+                h: "4) Dayanaklar ve paylaşım",
+                p: [
+                  "Geçerli olduğu ölçüde; sözleşmenin ifası, açık rıza, hukuki yükümlülükler ve meşru menfaat dayanaklarına başvurabiliriz.",
+                ],
+                list: [
+                  "Backend barındırma ve altyapı sağlayıcıları.",
+                  "Yapay zekâ yanıtı üretmek için kullanılan model/servis sağlayıcıları.",
+                  "Bildirim altyapısı sağlayıcıları, örneğin Firebase Cloud Messaging.",
+                  "Satın alma doğrulama ve geri yükleme için Google Play, Apple ve ilgili mağaza altyapıları.",
+                ],
+              },
+              {
+                h: "5) Üyelik, ödemeler ve planlar",
+                list: [
+                  "Uygulamada Temel Plan ile ücretli planlar birlikte bulunabilir. Ücretli planlar aylık, yıllık veya tek seferlik yaşam boyu erişim şeklinde sunulabilir.",
+                  "Abonelik ödemeleri ve yenileme süreçleri uygulama mağazası tarafından yönetilir. Tam kart numaranız bize ulaşmaz.",
+                  "Biz; ürün kimliği, plan durumu, satın alma zamanı, yenileme/bitiş bilgisi ve hak açma için gerekli doğrulama bilgisini işleriz.",
+                  "İptal, yenileme kapatma ve iade süreçleri mağaza kuralları ile yerel zorunlu tüketici haklarına tabidir.",
+                ],
+              },
+              {
+                h: "6) Saklama, güvenlik ve uluslararası aktarımlar",
+                list: [
+                  "Verileri, hizmeti sunmak, güvenliği sağlamak, yasal yükümlülükleri yerine getirmek ve uyuşmazlıkları çözmek için gerekli süre boyunca saklarız.",
+                  "Bazı veriler cihazınızda yerel olarak tutulur; uygulamayı silmeniz veya ilgili ayarları temizlemeniz halinde bu veriler cihazınızdan kalkabilir.",
+                  "Hizmet sağlayıcılarımız farklı ülkelerde bulunabilir. Uygun olduğu yerde sözleşmesel ve teknik korumalar kullanılır.",
+                  "Hiçbir sistem yüzde yüz güvenli değildir; buna rağmen erişim kontrolü, sınırlı log erişimi ve makul teknik tedbirler uygularız.",
+                ],
+              },
+              {
+                h: "7) Haklarınız ve tercih yönetimi",
+                list: [
+                  "Uygulama dili, bildirim tercihi ve bazı görünüm ayarları uygulama içinden değiştirilebilir.",
+                  "Erişim, düzeltme, silme, işleme itirazı ve geçerli olduğu ölçüde veri taşınabilirliği taleplerinizi e-posta ile iletebilirsiniz.",
+                  `Veri talebi gönderirken mümkünse client ID, cihaz bilgisi ve talep türünü paylaşın: <a href="${DELETE_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                  "Güvenlik nedeniyle, talebinizi yerine getirmeden önce ek doğrulama isteyebiliriz.",
+                ],
+              },
+              {
+                h: "8) Yapay zekâ, içerik kaynakları ve çocuklar",
+                list: [
+                  "Sohbet ve AI yorumu için gönderdiğiniz metinler, yanıt üretimi amacıyla backend ve model sağlayıcılarına iletilebilir.",
+                  "Yapay zekâ çıktıları hatalı, eksik veya bağlama uymayan olabilir; resmi fetva, hukuki görüş, tıbbi tavsiye veya acil yönlendirme yerine geçmez.",
+                  "Kur'an metni, meal, tefsir özeti ve ses içeriklerinin bir bölümü üçüncü taraf sağlayıcılardan gelir; asıl haklar ilgili hak sahiplerine aittir.",
+                  "Bu uygulama üçüncü taraf metin veya ses içerikleri için ticari yeniden kullanım ya da yeniden dağıtım izni vermez.",
+                  "Hizmetimiz, geçerli hukuka göre ebeveyn izni gerektiren yaşın altındaki çocukları hedeflemez.",
+                ],
+              },
+              {
+                h: "9) Değişiklikler ve iletişim",
+                p: [
+                  "Bu politikayı zaman zaman güncelleyebiliriz. Önemli değişikliklerde bu sayfadaki tarih yenilenir.",
+                  `Gizlilik veya veri hakları ile ilgili her talep için bizimle şu adresten iletişime geçebilirsiniz: <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                ],
+              },
+            ],
+            actions: [
+              { label: "Kullanıcı Sözleşmesi", href: `${TERMS_URL}?lang=tr`, primary: false },
+              { label: "Destek", href: `${SUPPORT_URL}?lang=tr`, primary: true },
+            ],
+          },
+          en: {
+            metaTitle: "Ayah AI | Privacy Policy",
+            eyebrow: "Ayah AI • Privacy",
+            title: "Privacy Policy",
+            updated: "Last updated: March 11, 2026",
+            intro:
+              `${COMPANY_NAME} explains here what data is processed when you use ${APP_NAME}, why it is processed, who may receive it, and which rights and choices you have.`,
+            summaryCards: [
+              {
+                title: "Scope",
+                body: "Chat, ayah, reading, listen, story, notifications, and membership flows.",
+              },
+              {
+                title: "Main data types",
+                body: "Client identifier, usage events, purchase status, submitted questions, and technical settings.",
+              },
+              {
+                title: "Your rights",
+                body: "You can request access, correction, deletion, objection, and portability where applicable through support.",
+              },
+            ],
+            sections: [
+              {
+                h: "1) Controller and scope",
+                p: [
+                  `${APP_NAME} offers Quran content, short explanations, listening, story export, notifications, and AI-assisted question and commentary surfaces.`,
+                  `${COMPANY_NAME} acts as controller, or where applicable processor, for the personal data flows described on this page.`,
+                ],
+                notice:
+                  "This policy describes the current mobile app flows. App store platforms may apply their own payment and account rules in parallel.",
+              },
+              {
+                h: "2) Data categories we process",
+                list: [
+                  "Technical identifiers: anonymous <strong>client ID</strong>, push token, app version, device model, operating system, and basic crash/diagnostic signals.",
+                  "Usage data: screen opens, feature usage, limit consumption, notification preferences, selected language, font size, and similar settings.",
+                  "Content data: questions typed in chat, AI commentary requests, and related processing logs.",
+                  "Membership data: plan type, trial state, purchased product, renewal status, expiry, and verification metadata needed to unlock access.",
+                  "Local device data: favorites, reading progress, listen resume, temporary caches, and story images that you choose to save to your gallery.",
+                ],
+              },
+              {
+                h: "3) Why we use data",
+                list: [
+                  "To provide daily ayah, reading, listen, story, and chat features.",
+                  "To enforce Basic Plan and premium limits, entitlements, and purchase status.",
+                  "To send notifications when you have allowed them.",
+                  "To debug issues, monitor performance, improve reliability, and prevent abuse.",
+                  "To answer support requests and fulfill privacy rights requests.",
+                ],
+              },
+              {
+                h: "4) Legal grounds and sharing",
+                p: [
+                  "Where applicable, we may rely on contract performance, consent, legal obligations, and legitimate interests.",
+                ],
+                list: [
+                  "Backend hosting and infrastructure providers.",
+                  "AI model and service providers used to generate answers or commentary.",
+                  "Notification providers such as Firebase Cloud Messaging.",
+                  "Google Play, Apple, and related store infrastructure for purchase verification and restore flows.",
+                ],
+              },
+              {
+                h: "5) Membership, payments, and plans",
+                list: [
+                  "The app may include a Basic Plan together with paid plans. Paid plans may be monthly, yearly, or lifetime one-time access when offered.",
+                  "Subscription billing and renewals are handled by the app store. We do not receive full payment card numbers.",
+                  "We process product ID, plan status, purchase time, renewal or expiry state, and verification data required to unlock features.",
+                  "Cancellation, renewal management, and refunds are subject to store rules and any mandatory consumer rights that apply where you live.",
+                ],
+              },
+              {
+                h: "6) Retention, security, and international transfers",
+                list: [
+                  "We keep data only for as long as needed to provide the service, maintain security, meet legal duties, and resolve disputes.",
+                  "Some information is stored locally on your device. Removing the app or clearing related settings may remove that local data from your device.",
+                  "Our service providers may process data in other countries. Contractual and technical safeguards are used where appropriate.",
+                  "No system is 100 percent secure, but we apply reasonable access control, limited log access, and technical safeguards.",
+                ],
+              },
+              {
+                h: "7) Your choices and rights",
+                list: [
+                  "You can change app language, notification preferences, and certain appearance settings inside the app.",
+                  "You can request access, correction, deletion, objection, and where applicable data portability by email.",
+                  `If possible, include your client ID, device details, and request type when contacting us: <a href="${DELETE_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                  "We may ask for additional verification before fulfilling a request for security reasons.",
+                ],
+              },
+              {
+                h: "8) AI, content sources, and children",
+                list: [
+                  "Text you submit for chat or AI commentary may be sent to our backend and model providers to generate a response.",
+                  "AI output can be inaccurate, incomplete, or unsuitable for your context. It is not an official ruling, legal advice, medical advice, or emergency guidance.",
+                  "Some Quran text, translation, tafsir summary, and audio content comes from third-party providers. Original rights remain with the respective rights holders.",
+                  "The app does not grant commercial reuse or redistribution rights for third-party text or audio unless a rights holder clearly allows that separately.",
+                  "The service is not directed to children below the age where parental consent is required by applicable law.",
+                ],
+              },
+              {
+                h: "9) Changes and contact",
+                p: [
+                  "We may update this policy from time to time. When changes are material, the date on this page will be updated.",
+                  `For privacy or data rights requests, contact us at <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                ],
+              },
+            ],
+            actions: [
+              { label: "Terms of Use", href: `${TERMS_URL}?lang=en`, primary: false },
+              { label: "Support", href: `${SUPPORT_URL}?lang=en`, primary: true },
+            ],
+          },
+          ar: {
+            metaTitle: "Ayah AI | سياسة الخصوصية",
+            eyebrow: "Ayah AI • الخصوصية",
+            title: "سياسة الخصوصية",
+            updated: "آخر تحديث: 11 مارس 2026",
+            intro:
+              `توضح هذه الصفحة كيف تعالج ${COMPANY_NAME} البيانات عند استخدام ${APP_NAME}، ولماذا تُعالج، ومع من قد تُشارك، وما هي حقوقك وخياراتك.`,
+            summaryCards: [
+              { title: "النطاق", body: "الدردشة والآية والقراءة والاستماع والقصص والإشعارات والعضوية." },
+              { title: "البيانات الأساسية", body: "معرف العميل، أحداث الاستخدام، حالة الشراء، الأسئلة المرسلة، والإعدادات التقنية." },
+              { title: "حقوقك", body: "يمكنك طلب الوصول أو التصحيح أو الحذف أو الاعتراض أو النقل عندما يجيز القانون ذلك." },
+            ],
+            sections: [
+              {
+                h: "1) الجهة المسؤولة والنطاق",
+                p: [
+                  `${APP_NAME} يوفر محتوى قرآنيًا وشرحًا مختصرًا والاستماع وتصدير القصص والإشعارات وخصائص أسئلة وأجوبة مدعومة بالذكاء الاصطناعي.`,
+                  `${COMPANY_NAME} تعمل كجهة متحكمة أو، عند الاقتضاء، كمعالج للبيانات بالنسبة للتدفقات الموضحة في هذه الصفحة.`,
+                ],
+                notice:
+                  "تصف هذه السياسة تدفقات التطبيق الحالية على الهاتف المحمول. قد تطبق متاجر التطبيقات قواعدها الخاصة على الدفع والحسابات.",
+              },
+              {
+                h: "2) فئات البيانات التي نعالجها",
+                list: [
+                  "المعرفات التقنية: <strong>معرف عميل</strong> مجهول، رمز الإشعارات، إصدار التطبيق، طراز الجهاز، نظام التشغيل، وإشارات التشخيص الأساسية.",
+                  "بيانات الاستخدام: فتح الشاشات، استخدام الخصائص، استهلاك الحدود، تفضيلات الإشعارات، اللغة المختارة، حجم الخط والإعدادات المشابهة.",
+                  "بيانات المحتوى: الأسئلة المكتوبة في الدردشة، طلبات التعليق بالذكاء الاصطناعي، وسجلات المعالجة المرتبطة بها.",
+                  "بيانات العضوية: نوع الخطة، حالة التجربة، المنتج المشترى، حالة التجديد، تاريخ الانتهاء، وبيانات التحقق اللازمة لفتح الخصائص.",
+                  "بيانات محلية على الجهاز: المفضلة، تقدم القراءة، موضع الاستماع، بعض الذاكرات المؤقتة، وصور القصص التي تختار حفظها في المعرض.",
+                ],
+              },
+              {
+                h: "3) لماذا نستخدم البيانات",
+                list: [
+                  "لتقديم خصائص الآية اليومية والقراءة والاستماع والقصص والدردشة.",
+                  "لتطبيق حدود الخطة الأساسية وامتيازات premium وحالة الشراء.",
+                  "لإرسال الإشعارات عندما تسمح بها.",
+                  "لتصحيح الأعطال، ومراقبة الأداء، وتحسين الاعتمادية، ومنع إساءة الاستخدام.",
+                  "للرد على طلبات الدعم وتنفيذ طلبات الخصوصية.",
+                ],
+              },
+              {
+                h: "4) الأسس النظامية والمشاركة",
+                p: ["عند الاقتضاء قد نعتمد على تنفيذ العقد، أو الموافقة، أو الالتزامات النظامية، أو المصالح المشروعة."],
+                list: [
+                  "مزودو الاستضافة والبنية التحتية.",
+                  "مزودو النماذج والخدمات المستخدمة لإنتاج الإجابات أو التعليقات.",
+                  "مزودو الإشعارات مثل Firebase Cloud Messaging.",
+                  "Google Play وApple والبنية ذات الصلة للتحقق من المشتريات واستعادتها.",
+                ],
+              },
+              {
+                h: "5) العضوية والمدفوعات والخطط",
+                list: [
+                  "قد يتضمن التطبيق خطة أساسية مع خطط مدفوعة. وقد تكون الخطط المدفوعة شهرية أو سنوية أو مدى الحياة عند توفرها.",
+                  "تتم إدارة فوترة الاشتراك والتجديد عبر متجر التطبيقات. نحن لا نستلم أرقام البطاقات الكاملة.",
+                  "نعالج معرف المنتج وحالة الخطة ووقت الشراء وحالة التجديد أو الانتهاء وبيانات التحقق اللازمة لفتح الخصائص.",
+                  "تخضع الإلغاءات وإدارة التجديد والاسترداد لقواعد المتجر وحقوق المستهلك الإلزامية السارية عليك.",
+                ],
+              },
+              {
+                h: "6) الاحتفاظ والأمان والنقل الدولي",
+                list: [
+                  "نحتفظ بالبيانات فقط بالقدر اللازم لتقديم الخدمة والحفاظ على الأمان والامتثال للواجبات القانونية وحل النزاعات.",
+                  "بعض المعلومات تُخزن محليًا على جهازك. حذف التطبيق أو مسح الإعدادات ذات الصلة قد يزيل هذه البيانات المحلية.",
+                  "قد يعالج مزودو الخدمة البيانات في دول أخرى. نستخدم ضمانات تعاقدية وتقنية عند الاقتضاء.",
+                  "لا يوجد نظام آمن بالكامل، لكننا نطبق ضوابط وصول معقولة ووسائل حماية تقنية.",
+                ],
+              },
+              {
+                h: "7) خياراتك وحقوقك",
+                list: [
+                  "يمكنك تغيير لغة التطبيق وتفضيلات الإشعارات وبعض إعدادات المظهر داخل التطبيق.",
+                  "يمكنك طلب الوصول أو التصحيح أو الحذف أو الاعتراض أو نقل البيانات حيثما ينطبق ذلك عبر البريد الإلكتروني.",
+                  `يرجى تضمين معرف العميل وتفاصيل الجهاز ونوع الطلب إن أمكن: <a href="${DELETE_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                  "قد نطلب تحققًا إضافيًا قبل تنفيذ الطلب لأسباب أمنية.",
+                ],
+              },
+              {
+                h: "8) الذكاء الاصطناعي ومصادر المحتوى والأطفال",
+                list: [
+                  "قد يُرسل النص الذي تكتبه للدردشة أو التعليق بالذكاء الاصطناعي إلى خوادمنا ومزودي النماذج لإنتاج الرد.",
+                  "قد تكون مخرجات الذكاء الاصطناعي غير دقيقة أو ناقصة أو غير مناسبة لسياقك. وهي ليست فتوى رسمية ولا استشارة قانونية أو طبية أو إرشادًا للطوارئ.",
+                  "بعض النصوص والترجمات والملخصات التفسيرية والمواد الصوتية تأتي من مزودين خارجيين، وتبقى الحقوق الأصلية لأصحابها.",
+                  "لا يمنح التطبيق حق إعادة الاستخدام التجاري أو إعادة التوزيع للنصوص أو الملفات الصوتية الخارجية ما لم يسمح صاحب الحق بذلك صراحة.",
+                  "الخدمة غير موجهة إلى الأطفال دون السن الذي يتطلب موافقة الوالدين بموجب القانون المعمول به.",
+                ],
+              },
+              {
+                h: "9) التغييرات والتواصل",
+                p: [
+                  "قد نقوم بتحديث هذه السياسة من وقت لآخر. عند وجود تغييرات جوهرية سيتم تحديث التاريخ في هذه الصفحة.",
+                  `لطلبات الخصوصية وحقوق البيانات، راسلنا على <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                ],
+              },
+            ],
+            actions: [
+              { label: "اتفاقية المستخدم", href: `${TERMS_URL}?lang=ar`, primary: false },
+              { label: "الدعم", href: `${SUPPORT_URL}?lang=ar`, primary: true },
+            ],
+          },
+          ur: {
+            metaTitle: "Ayah AI | رازداری کی پالیسی",
+            eyebrow: "Ayah AI • رازداری",
+            title: "رازداری کی پالیسی",
+            updated: "آخری تازہ کاری: 11 مارچ 2026",
+            intro:
+              `یہ صفحہ بتاتا ہے کہ ${COMPANY_NAME}، ${APP_NAME} استعمال کرتے وقت کون سا ڈیٹا پراسیس کرتی ہے، کیوں کرتی ہے، کن کے ساتھ شیئر کر سکتی ہے، اور آپ کے کیا حقوق اور اختیارات ہیں۔`,
+            summaryCards: [
+              { title: "دائرہ کار", body: "چیٹ، آیت، مطالعہ، سننا، اسٹوری، نوٹیفکیشن اور رکنیت۔" },
+              { title: "اہم ڈیٹا", body: "کلائنٹ آئی ڈی، استعمال کے ایونٹس، خریداری کی حالت، بھیجے گئے سوالات، اور تکنیکی سیٹنگز۔" },
+              { title: "حقوق", body: "قانون کے مطابق آپ رسائی، درستی، حذف، اعتراض اور پورٹیبلٹی کی درخواست کر سکتے ہیں۔" },
+            ],
+            sections: [
+              {
+                h: "1) دائرہ کار اور ذمہ دار فریق",
+                p: [
+                  `${APP_NAME} قرآنی مواد، مختصر وضاحت، سننے، اسٹوری ایکسپورٹ، نوٹیفکیشن، اور AI مدد یافتہ سوال جواب کی سہولت دیتا ہے۔`,
+                  `${COMPANY_NAME} اس صفحے میں بیان کردہ ذاتی ڈیٹا کے بہاؤ کے حوالے سے کنٹرولر یا حسب ضرورت پراسیسر کے طور پر کام کرتی ہے۔`,
+                ],
+                notice: "یہ پالیسی موجودہ موبائل ایپ کے بہاؤ کی وضاحت کرتی ہے۔ ایپ اسٹور اپنی ادائیگی اور اکاؤنٹ پالیسی الگ طور پر نافذ کر سکتے ہیں۔",
+              },
+              {
+                h: "2) ہم کون سا ڈیٹا پراسیس کرتے ہیں",
+                list: [
+                  "تکنیکی شناختی ڈیٹا: گمنام <strong>کلائنٹ آئی ڈی</strong>، پش ٹوکن، ایپ ورژن، ڈیوائس ماڈل، آپریٹنگ سسٹم اور بنیادی ڈائیگنوسٹک سگنلز۔",
+                  "استعمال کا ڈیٹا: کون سی اسکرین کھلی، کون سی فیچر استعمال ہوئی، حد کتنی خرچ ہوئی، نوٹیفکیشن ترجیحات، زبان، فونٹ سائز اور ملتی جلتی سیٹنگز۔",
+                  "مواد کا ڈیٹا: چیٹ میں لکھے گئے سوالات، AI تبصرہ کی درخواستیں، اور متعلقہ پروسیسنگ لاگز۔",
+                  "رکنیت کا ڈیٹا: پلان کی قسم، ٹرائل کی حالت، خریدا گیا پروڈکٹ، تجدید کی حالت، اختتامی وقت، اور فیچر کھولنے کے لیے ضروری ویریفکیشن میٹاڈیٹا۔",
+                  "لوکل ڈیوائس ڈیٹا: پسندیدہ آیات، مطالعہ کی پیش رفت، سننے کی جگہ، عارضی کیش اور وہ اسٹوری تصاویر جو آپ گیلری میں محفوظ کرتے ہیں۔",
+                ],
+              },
+              {
+                h: "3) ہم یہ ڈیٹا کیوں استعمال کرتے ہیں",
+                list: [
+                  "روزانہ آیت، مطالعہ، سننے، اسٹوری اور چیٹ جیسی سہولیات فراہم کرنے کے لیے۔",
+                  "بنیادی پلان اور پریمیم پلان کی حدود، حقوق اور خریداری کی حالت نافذ کرنے کے لیے۔",
+                  "آپ کی اجازت سے نوٹیفکیشن بھیجنے کے لیے۔",
+                  "خرابی تلاش کرنے، کارکردگی بہتر بنانے، قابل اعتماد بنانے اور غلط استعمال روکنے کے لیے۔",
+                  "سپورٹ اور پرائیویسی حقوق کی درخواستوں کا جواب دینے کے لیے۔",
+                ],
+              },
+              {
+                h: "4) قانونی بنیاد اور شیئرنگ",
+                p: ["جہاں لاگو ہو، ہم معاہدے کی تکمیل، رضامندی، قانونی ذمہ داری اور جائز مفاد پر انحصار کر سکتے ہیں۔"],
+                list: [
+                  "بیک اینڈ ہوسٹنگ اور انفراسٹرکچر فراہم کرنے والے۔",
+                  "جواب یا تبصرہ تیار کرنے والے AI ماڈل اور سروس فراہم کرنے والے۔",
+                  "نوٹیفکیشن فراہم کرنے والے جیسے Firebase Cloud Messaging۔",
+                  "خریداری کی تصدیق اور بحالی کے لیے Google Play، Apple اور متعلقہ اسٹور انفراسٹرکچر۔",
+                ],
+              },
+              {
+                h: "5) رکنیت، ادائیگی اور پلانز",
+                list: [
+                  "ایپ میں بنیادی پلان کے ساتھ ادائیگی والے پلان بھی ہو سکتے ہیں۔ یہ ماہانہ، سالانہ یا لائف ٹائم رسائی کی صورت میں پیش کیے جا سکتے ہیں۔",
+                  "سبسکرپشن کی بلنگ اور تجدید ایپ اسٹور سنبھالتا ہے۔ مکمل کارڈ نمبر ہمارے پاس نہیں آتا۔",
+                  "ہم پروڈکٹ آئی ڈی، پلان اسٹیٹس، خریداری کا وقت، تجدید یا اختتام کی حالت اور فیچر کھولنے کے لیے درکار تصدیقی ڈیٹا پراسیس کرتے ہیں۔",
+                  "کینسلیشن، تجدید بند کرنا اور ریفنڈ اسٹور کے قواعد اور لازمی صارف حقوق کے مطابق ہوں گے۔",
+                ],
+              },
+              {
+                h: "6) ذخیرہ، سیکیورٹی اور بین الاقوامی منتقلی",
+                list: [
+                  "ہم ڈیٹا صرف اتنی مدت تک رکھتے ہیں جتنی سروس، سیکیورٹی، قانونی ذمہ داری اور تنازعہ حل کے لیے ضروری ہو۔",
+                  "کچھ معلومات آپ کے ڈیوائس پر لوکل طور پر رہتی ہیں۔ ایپ ہٹانے یا متعلقہ سیٹنگ صاف کرنے سے یہ مقامی ڈیٹا ہٹ سکتا ہے۔",
+                  "ہمارے سروس فراہم کرنے والے دوسرے ممالک میں ڈیٹا پراسیس کر سکتے ہیں۔ مناسب معاہداتی اور تکنیکی حفاظتی اقدامات استعمال کیے جاتے ہیں۔",
+                  "کوئی بھی نظام 100 فیصد محفوظ نہیں، مگر ہم مناسب رسائی کنٹرول اور تکنیکی حفاظتی تدابیر اپناتے ہیں۔",
+                ],
+              },
+              {
+                h: "7) آپ کے اختیارات اور حقوق",
+                list: [
+                  "ایپ کی زبان، نوٹیفکیشن ترجیح اور کچھ ظاہری سیٹنگز آپ ایپ کے اندر بدل سکتے ہیں۔",
+                  "ای میل کے ذریعے رسائی، درستی، حذف، اعتراض اور جہاں لاگو ہو ڈیٹا پورٹیبلٹی کی درخواست دی جا سکتی ہے۔",
+                  `اگر ممکن ہو تو کلائنٹ آئی ڈی، ڈیوائس کی تفصیل اور درخواست کی نوعیت شامل کریں: <a href="${DELETE_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                  "سیکیورٹی کی خاطر درخواست پوری کرنے سے پہلے اضافی تصدیق مانگی جا سکتی ہے۔",
+                ],
+              },
+              {
+                h: "8) AI، مواد کے ذرائع اور بچے",
+                list: [
+                  "چیٹ یا AI تبصرہ کے لیے آپ کا متن جواب تیار کرنے کی خاطر ہمارے بیک اینڈ اور ماڈل فراہم کرنے والوں تک بھیجا جا سکتا ہے۔",
+                  "AI کا جواب غلط، نامکمل یا آپ کے حالات کے مطابق ناموزوں ہو سکتا ہے۔ یہ سرکاری فتویٰ، قانونی مشورہ، طبی مشورہ یا ہنگامی رہنمائی نہیں ہے۔",
+                  "قرآنی متن، ترجمہ، مختصر تفسیر اور آڈیو مواد کا کچھ حصہ تیسرے فریق کے فراہم کنندگان سے آتا ہے؛ اصل حقوق انہی کے پاس رہتے ہیں۔",
+                  "یہ ایپ تیسرے فریق کے متن یا آڈیو کے تجارتی استعمال یا دوبارہ تقسیم کا حق نہیں دیتی، جب تک متعلقہ حق دار الگ سے واضح اجازت نہ دے۔",
+                  "یہ سروس ایسے بچوں کے لیے نہیں ہے جن کے لیے مقامی قانون کے مطابق والدین کی رضامندی ضروری ہو۔",
+                ],
+              },
+              {
+                h: "9) تبدیلیاں اور رابطہ",
+                p: [
+                  "ہم اس پالیسی کو وقتاً فوقتاً اپ ڈیٹ کر سکتے ہیں۔ اہم تبدیلی ہونے پر اس صفحے کی تاریخ اپ ڈیٹ کی جائے گی۔",
+                  `رازداری یا ڈیٹا حقوق کے لیے ہم سے رابطہ کریں: <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                ],
+              },
+            ],
+            actions: [
+              { label: "صارف معاہدہ", href: `${TERMS_URL}?lang=ur`, primary: false },
+              { label: "معاونت", href: `${SUPPORT_URL}?lang=ur`, primary: true },
+            ],
+          },
+          id: {
+            metaTitle: "Ayah AI | Kebijakan Privasi",
+            eyebrow: "Ayah AI • Privasi",
+            title: "Kebijakan Privasi",
+            updated: "Terakhir diperbarui: 11 Maret 2026",
+            intro:
+              `Halaman ini menjelaskan bagaimana ${COMPANY_NAME} memproses data saat Anda menggunakan ${APP_NAME}, mengapa data digunakan, kepada siapa data dapat dibagikan, dan hak serta pilihan yang Anda miliki.`,
+            summaryCards: [
+              { title: "Cakupan", body: "Chat, ayat, membaca, mendengar, story, notifikasi, dan keanggotaan." },
+              { title: "Data utama", body: "Client ID, event penggunaan, status pembelian, pertanyaan yang dikirim, dan pengaturan teknis." },
+              { title: "Hak Anda", body: "Anda dapat meminta akses, koreksi, penghapusan, keberatan, dan portabilitas jika diatur hukum." },
+            ],
+            sections: [
+              {
+                h: "1) Pengendali dan cakupan",
+                p: [
+                  `${APP_NAME} menyediakan konten Al-Qur'an, penjelasan singkat, fitur dengar, ekspor story, notifikasi, dan tanya jawab berbantuan AI.`,
+                  `${COMPANY_NAME} bertindak sebagai pengendali data, atau bila relevan pemroses data, untuk alur yang dijelaskan di halaman ini.`,
+                ],
+                notice:
+                  "Kebijakan ini menjelaskan alur aplikasi seluler saat ini. Toko aplikasi dapat menerapkan aturan pembayaran dan akun mereka sendiri secara terpisah.",
+              },
+              {
+                h: "2) Kategori data yang kami proses",
+                list: [
+                  "Pengenal teknis: <strong>client ID</strong> anonim, token push, versi aplikasi, model perangkat, sistem operasi, dan sinyal crash/diagnostik dasar.",
+                  "Data penggunaan: layar yang dibuka, fitur yang dipakai, konsumsi limit, preferensi notifikasi, bahasa pilihan, ukuran font, dan pengaturan serupa.",
+                  "Data konten: pertanyaan yang Anda ketik di chat, permintaan komentar AI, dan log pemrosesan terkait.",
+                  "Data keanggotaan: jenis paket, status trial, produk yang dibeli, status perpanjangan, masa berakhir, dan metadata verifikasi untuk membuka akses.",
+                  "Data lokal di perangkat: favorit, progres baca, posisi dengar terakhir, cache sementara, dan gambar story yang Anda simpan ke galeri.",
+                ],
+              },
+              {
+                h: "3) Tujuan penggunaan data",
+                list: [
+                  "Menyediakan fitur ayat harian, membaca, mendengar, story, dan chat.",
+                  "Menerapkan limit Basic Plan dan premium, entitlement, serta status pembelian.",
+                  "Mengirim notifikasi jika Anda mengizinkannya.",
+                  "Menangani bug, memantau performa, meningkatkan keandalan, dan mencegah penyalahgunaan.",
+                  "Menjawab permintaan dukungan dan hak privasi.",
+                ],
+              },
+              {
+                h: "4) Dasar hukum dan pembagian data",
+                p: ["Jika berlaku, kami dapat mengandalkan pelaksanaan kontrak, persetujuan, kewajiban hukum, dan kepentingan yang sah."],
+                list: [
+                  "Penyedia hosting backend dan infrastruktur.",
+                  "Penyedia model dan layanan AI untuk menghasilkan jawaban atau komentar.",
+                  "Penyedia notifikasi seperti Firebase Cloud Messaging.",
+                  "Google Play, Apple, dan infrastruktur terkait untuk verifikasi serta pemulihan pembelian.",
+                ],
+              },
+              {
+                h: "5) Keanggotaan, pembayaran, dan paket",
+                list: [
+                  "Aplikasi dapat memiliki Basic Plan dan paket berbayar. Paket berbayar dapat berupa bulanan, tahunan, atau akses seumur hidup jika ditawarkan.",
+                  "Penagihan dan perpanjangan langganan dikelola oleh toko aplikasi. Kami tidak menerima nomor kartu penuh Anda.",
+                  "Kami memproses ID produk, status paket, waktu pembelian, status perpanjangan/berakhir, dan data verifikasi untuk membuka fitur.",
+                  "Pembatalan, pengelolaan perpanjangan, dan refund tunduk pada aturan toko serta hak konsumen wajib yang berlaku.",
+                ],
+              },
+              {
+                h: "6) Retensi, keamanan, dan transfer internasional",
+                list: [
+                  "Kami menyimpan data hanya selama diperlukan untuk menyediakan layanan, menjaga keamanan, memenuhi kewajiban hukum, dan menyelesaikan sengketa.",
+                  "Sebagian informasi disimpan lokal di perangkat Anda. Menghapus aplikasi atau menghapus pengaturan terkait dapat menghapus data lokal tersebut.",
+                  "Penyedia layanan kami dapat memproses data di negara lain. Perlindungan kontraktual dan teknis digunakan bila sesuai.",
+                  "Tidak ada sistem yang 100 persen aman, tetapi kami menerapkan kontrol akses dan perlindungan teknis yang wajar.",
+                ],
+              },
+              {
+                h: "7) Pilihan dan hak Anda",
+                list: [
+                  "Anda dapat mengubah bahasa aplikasi, preferensi notifikasi, dan sebagian pengaturan tampilan dari dalam aplikasi.",
+                  "Anda dapat meminta akses, koreksi, penghapusan, keberatan, dan portabilitas data jika berlaku melalui email.",
+                  `Sertakan client ID, detail perangkat, dan jenis permintaan bila memungkinkan: <a href="${DELETE_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                  "Kami dapat meminta verifikasi tambahan sebelum memenuhi permintaan demi alasan keamanan.",
+                ],
+              },
+              {
+                h: "8) AI, sumber konten, dan anak-anak",
+                list: [
+                  "Teks yang Anda kirim untuk chat atau komentar AI dapat diteruskan ke backend kami dan penyedia model untuk menghasilkan jawaban.",
+                  "Output AI dapat keliru, tidak lengkap, atau tidak sesuai konteks Anda. Ini bukan fatwa resmi, nasihat hukum, nasihat medis, atau panduan darurat.",
+                  "Sebagian teks Al-Qur'an, terjemahan, ringkasan tafsir, dan audio berasal dari penyedia pihak ketiga. Hak asli tetap pada pemiliknya masing-masing.",
+                  "Aplikasi ini tidak memberikan hak penggunaan komersial atau redistribusi untuk teks atau audio pihak ketiga kecuali pemegang hak menyatakannya secara terpisah.",
+                  "Layanan ini tidak ditujukan kepada anak di bawah usia yang memerlukan persetujuan orang tua menurut hukum yang berlaku.",
+                ],
+              },
+              {
+                h: "9) Perubahan dan kontak",
+                p: [
+                  "Kami dapat memperbarui kebijakan ini dari waktu ke waktu. Jika perubahan bersifat material, tanggal di halaman ini akan diperbarui.",
+                  `Untuk permintaan privasi atau hak data, hubungi kami di <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                ],
+              },
+            ],
+            actions: [
+              { label: "Perjanjian Pengguna", href: `${TERMS_URL}?lang=id`, primary: false },
+              { label: "Dukungan", href: `${SUPPORT_URL}?lang=id`, primary: true },
+            ],
+          },
+          fr: {
+            metaTitle: "Ayah AI | Politique de confidentialité",
+            eyebrow: "Ayah AI • Confidentialité",
+            title: "Politique de confidentialité",
+            updated: "Dernière mise à jour : 11 mars 2026",
+            intro:
+              `Cette page explique comment ${COMPANY_NAME} traite les données lorsque vous utilisez ${APP_NAME}, pourquoi elles sont traitées, avec qui elles peuvent être partagées et quels sont vos droits et vos choix.`,
+            summaryCards: [
+              { title: "Périmètre", body: "Chat, verset, lecture, écoute, story, notifications et abonnement." },
+              { title: "Données principales", body: "Identifiant client, événements d'usage, statut d'achat, questions envoyées et réglages techniques." },
+              { title: "Vos droits", body: "Vous pouvez demander l'accès, la rectification, l'effacement, l'opposition et la portabilité lorsque la loi le prévoit." },
+            ],
+            sections: [
+              {
+                h: "1) Responsable et périmètre",
+                p: [
+                  `${APP_NAME} propose du contenu coranique, de courtes explications, l'écoute, l'export story, des notifications et des surfaces de questions-réponses assistées par IA.`,
+                  `${COMPANY_NAME} agit en tant que responsable de traitement, ou le cas échéant sous-traitant, pour les flux de données décrits ici.`,
+                ],
+                notice:
+                  "Cette politique décrit les flux actuels de l'application mobile. Les boutiques d'applications peuvent appliquer en parallèle leurs propres règles relatives au paiement et au compte.",
+              },
+              {
+                h: "2) Catégories de données traitées",
+                list: [
+                  "Identifiants techniques : <strong>client ID</strong> anonyme, jeton push, version de l'application, modèle d'appareil, système d'exploitation et signaux de diagnostic de base.",
+                  "Données d'usage : écrans ouverts, fonctions utilisées, consommation des limites, préférences de notification, langue choisie, taille de police et réglages similaires.",
+                  "Données de contenu : questions saisies dans le chat, demandes de commentaire IA et journaux de traitement associés.",
+                  "Données d'abonnement : type de formule, état de l'essai, produit acheté, statut de renouvellement, date de fin et métadonnées de vérification nécessaires pour débloquer l'accès.",
+                  "Données locales sur l'appareil : favoris, progression de lecture, reprise d'écoute, caches temporaires et images story que vous choisissez d'enregistrer dans la galerie.",
+                ],
+              },
+              {
+                h: "3) Finalités",
+                list: [
+                  "Fournir les fonctions verset du jour, lecture, écoute, story et chat.",
+                  "Appliquer les limites du Basic Plan et les droits premium liés à l'achat.",
+                  "Envoyer des notifications lorsque vous les avez autorisées.",
+                  "Déboguer, surveiller les performances, améliorer la fiabilité et prévenir les abus.",
+                  "Répondre aux demandes d'assistance et aux demandes liées à la vie privée.",
+                ],
+              },
+              {
+                h: "4) Bases juridiques et partage",
+                p: ["Lorsque cela s'applique, nous pouvons nous appuyer sur l'exécution du contrat, le consentement, les obligations légales et les intérêts légitimes."],
+                list: [
+                  "Prestataires d'hébergement backend et d'infrastructure.",
+                  "Prestataires de modèles et services d'IA pour générer des réponses ou des commentaires.",
+                  "Prestataires de notifications tels que Firebase Cloud Messaging.",
+                  "Google Play, Apple et l'infrastructure associée pour la vérification et la restauration des achats.",
+                ],
+              },
+              {
+                h: "5) Abonnement, paiement et formules",
+                list: [
+                  "L'application peut proposer un Basic Plan et des formules payantes. Les formules payantes peuvent être mensuelles, annuelles ou à vie lorsqu'elles sont proposées.",
+                  "La facturation et le renouvellement des abonnements sont gérés par la boutique d'applications. Nous ne recevons pas votre numéro complet de carte.",
+                  "Nous traitons l'identifiant du produit, le statut de la formule, l'heure d'achat, l'état de renouvellement ou d'expiration et les données de vérification nécessaires pour débloquer les fonctions.",
+                  "L'annulation, la gestion du renouvellement et les remboursements dépendent des règles de la boutique et des droits impératifs des consommateurs applicables.",
+                ],
+              },
+              {
+                h: "6) Conservation, sécurité et transferts internationaux",
+                list: [
+                  "Nous conservons les données uniquement pendant la durée nécessaire pour fournir le service, assurer la sécurité, respecter nos obligations légales et résoudre les litiges.",
+                  "Certaines informations sont stockées localement sur votre appareil. Supprimer l'application ou réinitialiser les réglages concernés peut supprimer ces données locales.",
+                  "Nos prestataires peuvent traiter les données dans d'autres pays. Des garanties contractuelles et techniques appropriées sont utilisées lorsque nécessaire.",
+                  "Aucun système n'est totalement sécurisé, mais nous appliquons des contrôles d'accès raisonnables et des mesures techniques adaptées.",
+                ],
+              },
+              {
+                h: "7) Vos choix et vos droits",
+                list: [
+                  "Vous pouvez modifier dans l'application la langue, les préférences de notification et certains réglages d'apparence.",
+                  "Vous pouvez demander l'accès, la rectification, l'effacement, l'opposition et, le cas échéant, la portabilité des données par e-mail.",
+                  `Merci d'inclure si possible votre client ID, les détails de l'appareil et le type de demande : <a href="${DELETE_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                  "Nous pouvons demander une vérification supplémentaire avant de répondre à la demande pour des raisons de sécurité.",
+                ],
+              },
+              {
+                h: "8) IA, sources de contenu et enfants",
+                list: [
+                  "Le texte envoyé pour le chat ou le commentaire IA peut être transmis à notre backend et à nos fournisseurs de modèles afin de générer une réponse.",
+                  "Les sorties IA peuvent être inexactes, incomplètes ou inadaptées à votre situation. Elles ne constituent ni une fatwa officielle, ni un conseil juridique, médical ou d'urgence.",
+                  "Une partie du texte coranique, des traductions, des résumés de tafsir et des contenus audio provient de fournisseurs tiers. Les droits d'origine restent aux titulaires concernés.",
+                  "L'application n'accorde aucun droit de réutilisation commerciale ou de redistribution des textes ou audios tiers, sauf autorisation explicite du titulaire des droits.",
+                  "Le service n'est pas destiné aux enfants n'ayant pas l'âge requis pour consentir selon la loi applicable.",
+                ],
+              },
+              {
+                h: "9) Modifications et contact",
+                p: [
+                  "Nous pouvons mettre à jour cette politique de temps à autre. En cas de changement important, la date affichée sur cette page sera mise à jour.",
+                  `Pour toute demande relative à la vie privée ou aux droits sur les données, écrivez-nous à <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                ],
+              },
+            ],
+            actions: [
+              { label: "Contrat utilisateur", href: `${TERMS_URL}?lang=fr`, primary: false },
+              { label: "Support", href: `${SUPPORT_URL}?lang=fr`, primary: true },
+            ],
+          },
+          de: {
+            metaTitle: "Ayah AI | Datenschutzrichtlinie",
+            eyebrow: "Ayah AI • Datenschutz",
+            title: "Datenschutzrichtlinie",
+            updated: "Letzte Aktualisierung: 11. März 2026",
+            intro:
+              `Diese Seite erklärt, wie ${COMPANY_NAME} Daten verarbeitet, wenn Sie ${APP_NAME} nutzen, warum dies geschieht, an wen Daten weitergegeben werden können und welche Rechte und Wahlmöglichkeiten Sie haben.`,
+            summaryCards: [
+              { title: "Umfang", body: "Chat, Vers, Lesen, Hören, Story, Benachrichtigungen und Mitgliedschaft." },
+              { title: "Wichtige Daten", body: "Client-ID, Nutzungsereignisse, Kaufstatus, gesendete Fragen und technische Einstellungen." },
+              { title: "Ihre Rechte", body: "Sie können Zugang, Berichtigung, Löschung, Widerspruch und – soweit vorgesehen – Datenübertragbarkeit verlangen." },
+            ],
+            sections: [
+              {
+                h: "1) Verantwortlicher und Geltungsbereich",
+                p: [
+                  `${APP_NAME} bietet Koraninhalte, kurze Erklärungen, Hören, Story-Export, Benachrichtigungen und KI-gestützte Frage-und-Antwort-Funktionen.`,
+                  `${COMPANY_NAME} handelt für die hier beschriebenen Datenflüsse als Verantwortlicher oder, soweit einschlägig, als Auftragsverarbeiter.`,
+                ],
+                notice:
+                  "Diese Richtlinie beschreibt die aktuellen Abläufe der mobilen App. App-Stores können daneben eigene Regeln zu Zahlungen und Konten anwenden.",
+              },
+              {
+                h: "2) Welche Daten wir verarbeiten",
+                list: [
+                  "Technische Kennungen: anonyme <strong>Client-ID</strong>, Push-Token, App-Version, Gerätemodell, Betriebssystem und grundlegende Fehler-/Diagnosesignale.",
+                  "Nutzungsdaten: geöffnete Bildschirme, verwendete Funktionen, verbrauchte Limits, Benachrichtigungseinstellungen, ausgewählte Sprache, Schriftgröße und ähnliche Einstellungen.",
+                  "Inhaltsdaten: im Chat eingegebene Fragen, KI-Kommentar-Anfragen und zugehörige Verarbeitungsprotokolle.",
+                  "Mitgliedschaftsdaten: Plantyp, Teststatus, gekauftes Produkt, Verlängerungsstatus, Ablaufdatum und Freischaltungs-/Verifizierungsdaten.",
+                  "Lokale Gerätedaten: Favoriten, Lesefortschritt, Wiedergabefortsetzung, temporäre Caches und Story-Bilder, die Sie in Ihrer Galerie speichern.",
+                ],
+              },
+              {
+                h: "3) Zwecke der Verarbeitung",
+                list: [
+                  "Bereitstellung von täglichem Vers, Lesen, Hören, Story- und Chat-Funktionen.",
+                  "Durchsetzung von Basic-Plan- und Premium-Limits, Berechtigungen und Kaufstatus.",
+                  "Versand von Benachrichtigungen, wenn Sie diese erlaubt haben.",
+                  "Fehleranalyse, Leistungsüberwachung, Zuverlässigkeitsverbesserung und Missbrauchsverhinderung.",
+                  "Bearbeitung von Support- und Datenschutzanfragen.",
+                ],
+              },
+              {
+                h: "4) Rechtsgrundlagen und Weitergabe",
+                p: ["Soweit anwendbar, stützen wir die Verarbeitung auf Vertragserfüllung, Einwilligung, rechtliche Verpflichtungen und berechtigte Interessen."],
+                list: [
+                  "Backend-Hosting- und Infrastruktur-Anbieter.",
+                  "KI-Modell- und Service-Anbieter zur Generierung von Antworten oder Kommentaren.",
+                  "Benachrichtigungsanbieter wie Firebase Cloud Messaging.",
+                  "Google Play, Apple und zugehörige Store-Infrastruktur für Kaufprüfung und Wiederherstellung.",
+                ],
+              },
+              {
+                h: "5) Mitgliedschaft, Zahlungen und Pläne",
+                list: [
+                  "Die App kann einen Basic Plan und kostenpflichtige Pläne enthalten. Kostenpflichtige Pläne können monatlich, jährlich oder als Lifetime-Zugang angeboten werden.",
+                  "Abrechnungen und Verlängerungen von Abonnements werden vom App-Store verwaltet. Vollständige Kartennummern erhalten wir nicht.",
+                  "Wir verarbeiten Produkt-ID, Planstatus, Kaufzeitpunkt, Verlängerungs- oder Ablaufstatus und Verifizierungsdaten zur Freischaltung von Funktionen.",
+                  "Kündigung, Verlängerungsverwaltung und Erstattungen richten sich nach Store-Regeln und zwingenden Verbraucherrechten.",
+                ],
+              },
+              {
+                h: "6) Speicherung, Sicherheit und internationale Übermittlungen",
+                list: [
+                  "Wir speichern Daten nur so lange, wie es zur Bereitstellung des Dienstes, zur Sicherheit, zur Erfüllung rechtlicher Pflichten und zur Streitbeilegung nötig ist.",
+                  "Einige Informationen werden lokal auf Ihrem Gerät gespeichert. Das Löschen der App oder das Zurücksetzen bestimmter Einstellungen kann diese lokalen Daten entfernen.",
+                  "Unsere Dienstleister können Daten in anderen Ländern verarbeiten. Geeignete vertragliche und technische Schutzmaßnahmen werden eingesetzt.",
+                  "Kein System ist vollständig sicher, aber wir verwenden angemessene Zugriffskontrollen und technische Schutzmaßnahmen.",
+                ],
+              },
+              {
+                h: "7) Ihre Wahlmöglichkeiten und Rechte",
+                list: [
+                  "Sie können Sprache, Benachrichtigungseinstellungen und bestimmte Darstellungsoptionen in der App ändern.",
+                  "Sie können per E-Mail Auskunft, Berichtigung, Löschung, Widerspruch und gegebenenfalls Datenübertragbarkeit verlangen.",
+                  `Bitte geben Sie nach Möglichkeit Ihre Client-ID, Gerätedaten und die Art Ihres Anliegens an: <a href="${DELETE_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                  "Aus Sicherheitsgründen können wir vor der Bearbeitung eine zusätzliche Verifizierung verlangen.",
+                ],
+              },
+              {
+                h: "8) KI, Inhaltsquellen und Kinder",
+                list: [
+                  "Texte, die Sie für Chat oder KI-Kommentar eingeben, können an unser Backend und an Modellanbieter übermittelt werden, um eine Antwort zu erzeugen.",
+                  "KI-Ausgaben können ungenau, unvollständig oder für Ihren Kontext ungeeignet sein. Sie sind weder ein verbindliches religiöses Urteil noch Rechts-, Medizin- oder Notfallberatung.",
+                  "Ein Teil des Korantexts, der Übersetzungen, Tafsir-Zusammenfassungen und Audioinhalte stammt von Drittanbietern. Die ursprünglichen Rechte verbleiben bei den jeweiligen Rechteinhabern.",
+                  "Die App gewährt keine kommerziellen Wiederverwendungs- oder Weiterverbreitungsrechte für Texte oder Audios Dritter, sofern dies nicht ausdrücklich vom Rechteinhaber erlaubt wird.",
+                  "Der Dienst richtet sich nicht an Kinder unter dem Alter, in dem nach geltendem Recht die Zustimmung der Eltern erforderlich ist.",
+                ],
+              },
+              {
+                h: "9) Änderungen und Kontakt",
+                p: [
+                  "Wir können diese Richtlinie von Zeit zu Zeit aktualisieren. Bei wesentlichen Änderungen wird das Datum auf dieser Seite angepasst.",
+                  `Für Datenschutz- oder Betroffenenanfragen erreichen Sie uns unter <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                ],
+              },
+            ],
+            actions: [
+              { label: "Nutzungsvereinbarung", href: `${TERMS_URL}?lang=de`, primary: false },
+              { label: "Support", href: `${SUPPORT_URL}?lang=de`, primary: true },
+            ],
+          },
+          ru: {
+            metaTitle: "Ayah AI | Политика конфиденциальности",
+            eyebrow: "Ayah AI • Конфиденциальность",
+            title: "Политика конфиденциальности",
+            updated: "Последнее обновление: 11 марта 2026",
+            intro:
+              `На этой странице ${COMPANY_NAME} объясняет, какие данные обрабатываются при использовании ${APP_NAME}, зачем они нужны, кому могут передаваться и какие права и варианты выбора у вас есть.`,
+            summaryCards: [
+              { title: "Охват", body: "Чат, аят, чтение, прослушивание, story, уведомления и подписка." },
+              { title: "Основные данные", body: "Client ID, события использования, статус покупки, отправленные вопросы и технические настройки." },
+              { title: "Ваши права", body: "Вы можете запросить доступ, исправление, удаление, возражение и переносимость данных, если это предусмотрено законом." },
+            ],
+            sections: [
+              {
+                h: "1) Оператор и охват",
+                p: [
+                  `${APP_NAME} предоставляет коранический контент, краткие пояснения, прослушивание, экспорт story, уведомления и ИИ‑поддерживаемые функции вопросов и ответов.`,
+                  `${COMPANY_NAME} действует как оператор данных либо, где применимо, как обработчик данных для описанных здесь потоков.`,
+                ],
+                notice:
+                  "Эта политика описывает текущие потоки мобильного приложения. Магазины приложений могут параллельно применять собственные правила оплаты и аккаунтов.",
+              },
+              {
+                h: "2) Какие данные мы обрабатываем",
+                list: [
+                  "Технические идентификаторы: анонимный <strong>client ID</strong>, push‑токен, версия приложения, модель устройства, ОС и базовые сигналы ошибок/диагностики.",
+                  "Данные использования: какие экраны открывались, какие функции использовались, расход лимитов, настройки уведомлений, выбранный язык, размер шрифта и подобные параметры.",
+                  "Данные контента: вопросы, введенные в чат, запросы AI‑комментария и связанные журналы обработки.",
+                  "Данные подписки: тип плана, состояние пробного периода, купленный продукт, статус продления, срок окончания и метаданные проверки, необходимые для открытия доступа.",
+                  "Локальные данные устройства: избранное, прогресс чтения, место продолжения прослушивания, временный кэш и изображения story, которые вы сохраняете в галерею.",
+                ],
+              },
+              {
+                h: "3) Для чего мы используем данные",
+                list: [
+                  "Для предоставления функций ежедневного аята, чтения, прослушивания, story и чата.",
+                  "Для применения лимитов Basic Plan, премиум‑прав и статуса покупки.",
+                  "Для отправки уведомлений, если вы дали разрешение.",
+                  "Для отладки, мониторинга производительности, повышения надежности и предотвращения злоупотреблений.",
+                  "Для ответа на запросы поддержки и запросы о правах на данные.",
+                ],
+              },
+              {
+                h: "4) Правовые основания и передача",
+                p: ["Где это применимо, мы можем опираться на исполнение договора, согласие, юридические обязанности и законные интересы."],
+                list: [
+                  "Поставщики хостинга backend и инфраструктуры.",
+                  "Поставщики моделей и сервисов ИИ для генерации ответов и комментариев.",
+                  "Поставщики уведомлений, например Firebase Cloud Messaging.",
+                  "Google Play, Apple и связанная инфраструктура для проверки и восстановления покупок.",
+                ],
+              },
+              {
+                h: "5) Планы, платежи и подписка",
+                list: [
+                  "В приложении может быть Basic Plan и платные планы. Платные планы могут предлагаться как ежемесячные, ежегодные или пожизненный доступ при наличии.",
+                  "Выставление счетов и продление подписок управляются магазином приложений. Полные номера карт нам не передаются.",
+                  "Мы обрабатываем идентификатор продукта, статус плана, время покупки, состояние продления/окончания и данные проверки, необходимые для открытия функций.",
+                  "Отмена, управление продлением и возвраты регулируются правилами магазина и обязательными правами потребителей, которые на вас распространяются.",
+                ],
+              },
+              {
+                h: "6) Хранение, безопасность и международная передача",
+                list: [
+                  "Мы храним данные только столько, сколько необходимо для оказания услуги, обеспечения безопасности, выполнения юридических обязанностей и урегулирования споров.",
+                  "Часть информации хранится локально на вашем устройстве. Удаление приложения или сброс связанных настроек может удалить эти локальные данные.",
+                  "Наши поставщики услуг могут обрабатывать данные в других странах. При необходимости применяются договорные и технические меры защиты.",
+                  "Ни одна система не является полностью безопасной, но мы применяем разумный контроль доступа и технические меры защиты.",
+                ],
+              },
+              {
+                h: "7) Ваши права и настройки",
+                list: [
+                  "Вы можете менять язык приложения, настройки уведомлений и некоторые параметры отображения внутри приложения.",
+                  "По электронной почте можно запросить доступ, исправление, удаление, возражение и, где применимо, переносимость данных.",
+                  `По возможности укажите client ID, данные устройства и тип запроса: <a href="${DELETE_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                  "По соображениям безопасности перед выполнением запроса мы можем попросить дополнительную проверку.",
+                ],
+              },
+              {
+                h: "8) ИИ, источники контента и дети",
+                list: [
+                  "Текст, который вы отправляете для чата или AI‑комментария, может передаваться в наш backend и поставщикам моделей для генерации ответа.",
+                  "Результаты ИИ могут быть неточными, неполными или неподходящими для вашего контекста. Это не официальное религиозное постановление, не юридическая, не медицинская и не экстренная консультация.",
+                  "Часть текста Корана, переводов, кратких тафсиров и аудиоматериалов поступает от сторонних поставщиков. Исходные права остаются у соответствующих правообладателей.",
+                  "Приложение не предоставляет прав на коммерческое повторное использование или распространение сторонних текстов и аудио, если правообладатель явно не разрешил это отдельно.",
+                  "Сервис не предназначен для детей младше возраста, при котором по применимому праву требуется согласие родителей.",
+                ],
+              },
+              {
+                h: "9) Изменения и контакты",
+                p: [
+                  "Мы можем время от времени обновлять эту политику. Если изменения существенны, дата на этой странице будет обновлена.",
+                  `По вопросам конфиденциальности и прав на данные пишите нам: <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                ],
+              },
+            ],
+            actions: [
+              { label: "Пользовательское соглашение", href: `${TERMS_URL}?lang=ru`, primary: false },
+              { label: "Поддержка", href: `${SUPPORT_URL}?lang=ru`, primary: true },
+            ],
+          },
+          es: {
+            metaTitle: "Ayah AI | Política de privacidad",
+            eyebrow: "Ayah AI • Privacidad",
+            title: "Política de privacidad",
+            updated: "Última actualización: 11 de marzo de 2026",
+            intro:
+              `Esta página explica cómo ${COMPANY_NAME} procesa los datos cuando usa ${APP_NAME}, por qué los procesa, con quién puede compartirlos y qué derechos y opciones tiene usted.`,
+            summaryCards: [
+              { title: "Alcance", body: "Chat, aleya, lectura, escucha, story, notificaciones y membresía." },
+              { title: "Datos principales", body: "Client ID, eventos de uso, estado de compra, preguntas enviadas y ajustes técnicos." },
+              { title: "Sus derechos", body: "Puede solicitar acceso, rectificación, eliminación, oposición y portabilidad cuando la ley lo permita." },
+            ],
+            sections: [
+              {
+                h: "1) Responsable y alcance",
+                p: [
+                  `${APP_NAME} ofrece contenido coránico, explicaciones breves, escucha, exportación de story, notificaciones y funciones de preguntas y respuestas asistidas por IA.`,
+                  `${COMPANY_NAME} actúa como responsable del tratamiento o, cuando corresponda, como encargado para los flujos descritos en esta página.`,
+                ],
+                notice:
+                  "Esta política describe los flujos actuales de la aplicación móvil. Las tiendas de aplicaciones pueden aplicar por separado sus propias reglas sobre pagos y cuentas.",
+              },
+              {
+                h: "2) Categorías de datos que procesamos",
+                list: [
+                  "Identificadores técnicos: <strong>client ID</strong> anónimo, token push, versión de la aplicación, modelo del dispositivo, sistema operativo y señales básicas de fallos/diagnóstico.",
+                  "Datos de uso: pantallas abiertas, funciones utilizadas, consumo de límites, preferencias de notificación, idioma seleccionado, tamaño de fuente y ajustes similares.",
+                  "Datos de contenido: preguntas escritas en el chat, solicitudes de comentario con IA y registros de procesamiento relacionados.",
+                  "Datos de membresía: tipo de plan, estado de prueba, producto comprado, estado de renovación, vencimiento y metadatos de verificación necesarios para habilitar funciones.",
+                  "Datos locales del dispositivo: favoritos, progreso de lectura, reanudación de escucha, cachés temporales e imágenes story que usted decide guardar en la galería.",
+                ],
+              },
+              {
+                h: "3) Finalidades del uso",
+                list: [
+                  "Prestar las funciones de aleya diaria, lectura, escucha, story y chat.",
+                  "Aplicar los límites del Basic Plan, los privilegios premium y el estado de compra.",
+                  "Enviar notificaciones cuando usted las haya permitido.",
+                  "Depurar errores, supervisar el rendimiento, mejorar la fiabilidad y prevenir abusos.",
+                  "Responder solicitudes de soporte y derechos de privacidad.",
+                ],
+              },
+              {
+                h: "4) Base jurídica y compartición",
+                p: ["Cuando corresponda, podemos basarnos en la ejecución del contrato, el consentimiento, las obligaciones legales y los intereses legítimos."],
+                list: [
+                  "Proveedores de hosting backend e infraestructura.",
+                  "Proveedores de modelos y servicios de IA para generar respuestas o comentarios.",
+                  "Proveedores de notificaciones como Firebase Cloud Messaging.",
+                  "Google Play, Apple y la infraestructura relacionada para verificar y restaurar compras.",
+                ],
+              },
+              {
+                h: "5) Membresía, pagos y planes",
+                list: [
+                  "La app puede incluir un Basic Plan y planes de pago. Los planes de pago pueden ser mensuales, anuales o de acceso vitalicio si se ofrecen.",
+                  "La facturación y renovación de suscripciones es gestionada por la tienda de aplicaciones. No recibimos números completos de tarjeta.",
+                  "Procesamos ID del producto, estado del plan, momento de compra, estado de renovación o vencimiento y datos de verificación necesarios para desbloquear funciones.",
+                  "La cancelación, la gestión de renovación y los reembolsos están sujetos a las reglas de la tienda y a los derechos imperativos del consumidor aplicables.",
+                ],
+              },
+              {
+                h: "6) Conservación, seguridad y transferencias internacionales",
+                list: [
+                  "Conservamos los datos solo durante el tiempo necesario para prestar el servicio, mantener la seguridad, cumplir obligaciones legales y resolver disputas.",
+                  "Parte de la información se almacena localmente en su dispositivo. Eliminar la app o borrar ciertos ajustes puede eliminar esos datos locales.",
+                  "Nuestros proveedores pueden procesar datos en otros países. Utilizamos salvaguardas contractuales y técnicas cuando corresponde.",
+                  "Ningún sistema es 100 % seguro, pero aplicamos controles de acceso razonables y medidas técnicas de protección.",
+                ],
+              },
+              {
+                h: "7) Sus opciones y derechos",
+                list: [
+                  "Puede cambiar el idioma de la app, las preferencias de notificación y ciertos ajustes visuales dentro de la app.",
+                  "Puede solicitar acceso, rectificación, eliminación, oposición y, cuando corresponda, portabilidad por correo electrónico.",
+                  `Incluya, si es posible, su client ID, datos del dispositivo y tipo de solicitud: <a href="${DELETE_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                  "Podemos pedir verificación adicional antes de atender una solicitud por motivos de seguridad.",
+                ],
+              },
+              {
+                h: "8) IA, fuentes de contenido y menores",
+                list: [
+                  "El texto que envía para chat o comentario de IA puede enviarse a nuestro backend y a proveedores de modelos para generar una respuesta.",
+                  "La salida de IA puede ser inexacta, incompleta o no adecuada para su contexto. No constituye una fatwa oficial, asesoramiento legal, médico ni guía de emergencia.",
+                  "Parte del texto coránico, traducciones, resúmenes de tafsir y audios proviene de proveedores externos. Los derechos originales permanecen en sus respectivos titulares.",
+                  "La app no concede derechos de reutilización comercial o redistribución de textos o audios de terceros salvo autorización expresa del titular correspondiente.",
+                  "El servicio no está dirigido a menores por debajo de la edad en la que la ley aplicable exige consentimiento parental.",
+                ],
+              },
+              {
+                h: "9) Cambios y contacto",
+                p: [
+                  "Podemos actualizar esta política ocasionalmente. Si hay cambios materiales, se actualizará la fecha de esta página.",
+                  `Para solicitudes de privacidad o derechos sobre datos, escríbanos a <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                ],
+              },
+            ],
+            actions: [
+              { label: "Acuerdo de usuario", href: `${TERMS_URL}?lang=es`, primary: false },
+              { label: "Soporte", href: `${SUPPORT_URL}?lang=es`, primary: true },
+            ],
+          },
+          az: {
+            metaTitle: "Ayah AI | Məxfilik siyasəti",
+            eyebrow: "Ayah AI • Məxfilik",
+            title: "Məxfilik siyasəti",
+            updated: "Son yenilənmə: 11 mart 2026",
+            intro:
+              `Bu səhifə ${COMPANY_NAME} şirkətinin ${APP_NAME} istifadə edilərkən hansı məlumatları emal etdiyini, bunları niyə emal etdiyini, kimlərlə paylaşa biləcəyini və sizin hansı hüquq və seçimlərə malik olduğunuzu izah edir.`,
+            summaryCards: [
+              { title: "Əhatə dairəsi", body: "Söhbət, ayə, oxu, dinlə, story, bildirişlər və üzvlük axınları." },
+              { title: "Əsas məlumatlar", body: "Client ID, istifadə hadisələri, alış statusu, göndərilən suallar və texniki ayarlar." },
+              { title: "Hüquqlarınız", body: "Qanun imkan verdikdə giriş, düzəliş, silinmə, etiraz və daşınma tələbi göndərə bilərsiniz." },
+            ],
+            sections: [
+              {
+                h: "1) Məsul tərəf və əhatə dairəsi",
+                p: [
+                  `${APP_NAME} Quran məzmunu, qısa izahlar, dinləmə, story ixracı, bildirişlər və AI dəstəkli sual-cavab funksiyaları təqdim edir.`,
+                  `${COMPANY_NAME} bu səhifədə təsvir edilən məlumat axınları üzrə məlumat nəzarətçisi və ya uyğun hallarda emal edən tərəf kimi çıxış edir.`,
+                ],
+                notice:
+                  "Bu siyasət mobil tətbiqin hazırkı axınlarını izah edir. Tətbiq mağazaları ödəniş və hesablarla bağlı öz qaydalarını ayrıca tətbiq edə bilər.",
+              },
+              {
+                h: "2) Emal etdiyimiz məlumat kateqoriyaları",
+                list: [
+                  "Texniki identifikatorlar: anonim <strong>client ID</strong>, push token, tətbiq versiyası, cihaz modeli, əməliyyat sistemi və əsas diaqnostik siqnallar.",
+                  "İstifadə məlumatları: açılan ekranlar, istifadə edilən funksiyalar, limit istifadəsi, bildiriş seçimləri, seçilən dil, şrift ölçüsü və oxşar ayarlar.",
+                  "Məzmun məlumatları: söhbətdə yazdığınız suallar, AI şərh sorğuları və əlaqəli emal qeydləri.",
+                  "Üzvlük məlumatları: plan növü, sınaq statusu, alınmış məhsul, yenilənmə vəziyyəti, bitmə vaxtı və funksiya açmaq üçün lazım olan təsdiq məlumatları.",
+                  "Cihazda saxlanan məlumatlar: sevimlilər, oxu gedişi, dinləmənin davam nöqtəsi, müvəqqəti keş və qalereyaya saxladığınız story şəkilləri.",
+                ],
+              },
+              {
+                h: "3) Məlumatlardan istifadə məqsədləri",
+                list: [
+                  "Gündəlik ayə, oxu, dinlə, story və söhbət funksiyalarını təqdim etmək.",
+                  "Temel Plan və premium plan limitlərini, hüquqlarını və alış statusunu tətbiq etmək.",
+                  "İcazə verdiyiniz bildirişləri göndərmək.",
+                  "Xətaları araşdırmaq, performansı izləmək, etibarlılığı yaxşılaşdırmaq və sui-istifadənin qarşısını almaq.",
+                  "Dəstək və məxfilik hüquqları ilə bağlı müraciətlərə cavab vermək.",
+                ],
+              },
+              {
+                h: "4) Hüquqi əsas və paylaşım",
+                p: ["Uyğun hallarda müqavilənin icrası, razılıq, hüquqi öhdəliklər və qanuni maraqlara əsaslana bilərik."],
+                list: [
+                  "Backend hostinq və infrastruktur təminatçıları.",
+                  "Cavab və ya şərh yaratmaq üçün istifadə edilən AI model və xidmət təminatçıları.",
+                  "Firebase Cloud Messaging kimi bildiriş təminatçıları.",
+                  "Alışların təsdiqi və bərpası üçün Google Play, Apple və əlaqəli mağaza infrastrukturu.",
+                ],
+              },
+              {
+                h: "5) Üzvlük, ödəniş və planlar",
+                list: [
+                  "Tətbiqdə Temel Plan və ödənişli planlar ola bilər. Ödənişli planlar aylıq, illik və ya təklif edilərsə ömürlük giriş kimi təqdim oluna bilər.",
+                  "Abunə ödənişləri və yenilənmələr mağaza tərəfindən idarə olunur. Tam kart nömrələriniz bizə çatmır.",
+                  "Məhsul ID-si, plan statusu, alış vaxtı, yenilənmə və bitmə vəziyyəti, eləcə də funksiya açmaq üçün lazımi təsdiq məlumatlarını emal edirik.",
+                  "Ləğv, yenilənmənin idarəsi və geri ödəmələr mağaza qaydalarına və tətbiq olunan məcburi istehlakçı hüquqlarına tabedir.",
+                ],
+              },
+              {
+                h: "6) Saxlama, təhlükəsizlik və beynəlxalq ötürmələr",
+                list: [
+                  "Məlumatları yalnız xidməti göstərmək, təhlükəsizliyi qorumaq, hüquqi öhdəlikləri yerinə yetirmək və mübahisələri həll etmək üçün lazım olan müddətdə saxlayırıq.",
+                  "Bəzi məlumatlar cihazınızda lokal saxlanılır. Tətbiqi silmək və ya əlaqəli ayarları təmizləmək bu lokal məlumatları silə bilər.",
+                  "Xidmət təminatçılarımız məlumatları digər ölkələrdə emal edə bilər. Uyğun olduqda müqavilə və texniki qorunmalar tətbiq edilir.",
+                  "Heç bir sistem 100 faiz təhlükəsiz deyil, amma ağlabatan giriş nəzarəti və texniki tədbirlər tətbiq edirik.",
+                ],
+              },
+              {
+                h: "7) Seçimləriniz və hüquqlarınız",
+                list: [
+                  "Tətbiq dili, bildiriş seçimi və bəzi görünüş ayarları tətbiq daxilində dəyişdirilə bilər.",
+                  "E-poçt vasitəsilə giriş, düzəliş, silinmə, etiraz və uyğun olduqda daşınma tələbi göndərə bilərsiniz.",
+                  `Mümkünsə client ID, cihaz detalları və müraciətin növünü əlavə edin: <a href="${DELETE_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                  "Təhlükəsizlik səbəbilə tələbi yerinə yetirməzdən əvvəl əlavə doğrulama istəyə bilərik.",
+                ],
+              },
+              {
+                h: "8) AI, məzmun mənbələri və uşaqlar",
+                list: [
+                  "Söhbət və ya AI şərhi üçün göndərdiyiniz mətn cavab yaratmaq məqsədilə backend-ə və model təminatçılarına göndərilə bilər.",
+                  "AI cavabları səhv, natamam və ya sizin vəziyyətinizə uyğun olmaya bilər. Bu, rəsmi fətva, hüquqi məsləhət, tibbi məsləhət və ya təcili yönləndirmə deyil.",
+                  "Quran mətni, tərcümə, qısa təfsir və audio məzmunun bir hissəsi üçüncü tərəf təminatçılardan gəlir; ilkin hüquqlar aidiyyəti hüquq sahiblərində qalır.",
+                  "Bu tətbiq üçüncü tərəf mətnləri və audioları üçün ayrıca açıq icazə olmadıqca kommersiya istifadəsi və ya yenidən yayım hüququ vermir.",
+                  "Xidmət tətbiq olunan qanuna görə valideyn razılığı tələb olunan yaşdan aşağı uşaqlara yönəlməyib.",
+                ],
+              },
+              {
+                h: "9) Dəyişikliklər və əlaqə",
+                p: [
+                  "Bu siyasəti zaman-zaman yeniləyə bilərik. Əhəmiyyətli dəyişiklik olarsa, bu səhifədəki tarix yenilənəcək.",
+                  `Məxfilik və məlumat hüquqları ilə bağlı müraciətlər üçün bizimlə əlaqə saxlayın: <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                ],
+              },
+            ],
+            actions: [
+              { label: "İstifadəçi müqaviləsi", href: `${TERMS_URL}?lang=az`, primary: false },
+              { label: "Dəstək", href: `${SUPPORT_URL}?lang=az`, primary: true },
+            ],
+          },
+          bs: {
+            metaTitle: "Ayah AI | Politika privatnosti",
+            eyebrow: "Ayah AI • Privatnost",
+            title: "Politika privatnosti",
+            updated: "Posljednje ažuriranje: 11. mart 2026.",
+            intro:
+              `Ova stranica objašnjava kako ${COMPANY_NAME} obrađuje podatke kada koristite ${APP_NAME}, zašto se podaci obrađuju, s kim se mogu dijeliti i koja prava i izbore imate.`,
+            summaryCards: [
+              { title: "Obuhvat", body: "Chat, ajet, čitanje, slušanje, story, obavijesti i članstvo." },
+              { title: "Glavni podaci", body: "Client ID, događaji korištenja, status kupovine, poslata pitanja i tehnička podešavanja." },
+              { title: "Vaša prava", body: "Možete tražiti pristup, ispravku, brisanje, prigovor i prenosivost gdje je to zakonom predviđeno." },
+            ],
+            sections: [
+              {
+                h: "1) Voditelj obrade i obuhvat",
+                p: [
+                  `${APP_NAME} nudi kur'anski sadržaj, kratka objašnjenja, slušanje, izvoz story sadržaja, obavijesti i AI podržane funkcije pitanja i odgovora.`,
+                  `${COMPANY_NAME} djeluje kao voditelj obrade ili, gdje je primjenjivo, izvršilac obrade za tokove podataka opisane ovdje.`,
+                ],
+                notice:
+                  "Ova politika opisuje trenutne tokove mobilne aplikacije. Trgovine aplikacija mogu paralelno primjenjivati vlastita pravila za plaćanja i račune.",
+              },
+              {
+                h: "2) Koje podatke obrađujemo",
+                list: [
+                  "Tehnički identifikatori: anonimni <strong>client ID</strong>, push token, verzija aplikacije, model uređaja, operativni sistem i osnovni dijagnostički signali.",
+                  "Podaci o korištenju: otvoreni ekrani, korištene funkcije, potrošnja limita, postavke obavijesti, odabrani jezik, veličina fonta i slične postavke.",
+                  "Sadržajni podaci: pitanja napisana u chatu, AI zahtjevi za komentar i povezani zapisi obrade.",
+                  "Podaci o članstvu: tip plana, stanje probnog perioda, kupljeni proizvod, status obnove, datum isteka i verifikacijski podaci potrebni za otključavanje funkcija.",
+                  "Lokalni podaci na uređaju: favoriti, napredak čitanja, nastavak slušanja, privremeni cache i story slike koje sačuvate u galeriju.",
+                ],
+              },
+              {
+                h: "3) Zašto koristimo podatke",
+                list: [
+                  "Da omogućimo dnevni ajet, čitanje, slušanje, story i chat funkcije.",
+                  "Da provedemo limite Basic Plan-a, premium prava i status kupovine.",
+                  "Da šaljemo obavijesti kada ste ih dozvolili.",
+                  "Da rješavamo greške, pratimo performanse, poboljšamo pouzdanost i spriječimo zloupotrebu.",
+                  "Da odgovorimo na zahtjeve podrške i zahtjeve u vezi s privatnošću.",
+                ],
+              },
+              {
+                h: "4) Pravna osnova i dijeljenje",
+                p: ["Kada je primjenjivo, možemo se osloniti na izvršenje ugovora, saglasnost, zakonske obaveze i legitimne interese."],
+                list: [
+                  "Pružaoci backend hostinga i infrastrukture.",
+                  "Pružaoci AI modela i usluga za generisanje odgovora ili komentara.",
+                  "Pružaoci obavijesti poput Firebase Cloud Messaging.",
+                  "Google Play, Apple i povezana infrastruktura za verifikaciju i vraćanje kupovina.",
+                ],
+              },
+              {
+                h: "5) Članstvo, plaćanje i planovi",
+                list: [
+                  "Aplikacija može imati Basic Plan i plaćene planove. Plaćeni planovi mogu biti mjesečni, godišnji ili doživotni pristup ako se nude.",
+                  "Naplatu i obnovu pretplate vodi trgovina aplikacija. Mi ne primamo pune brojeve kartica.",
+                  "Obrađujemo ID proizvoda, status plana, vrijeme kupovine, status obnove ili isteka i podatke za verifikaciju potrebne za otključavanje funkcija.",
+                  "Otkazivanje, upravljanje obnovom i povrati podliježu pravilima trgovine i obaveznim pravima potrošača koja se primjenjuju na vas.",
+                ],
+              },
+              {
+                h: "6) Čuvanje, sigurnost i međunarodni prijenos",
+                list: [
+                  "Podatke čuvamo samo onoliko koliko je potrebno za pružanje usluge, sigurnost, ispunjavanje zakonskih obaveza i rješavanje sporova.",
+                  "Neke informacije se čuvaju lokalno na vašem uređaju. Brisanje aplikacije ili povezanih postavki može ukloniti te lokalne podatke.",
+                  "Naši pružaoci usluga mogu obrađivati podatke u drugim državama. Koristimo odgovarajuće ugovorne i tehničke zaštite.",
+                  "Nijedan sistem nije 100 posto siguran, ali primjenjujemo razumnu kontrolu pristupa i tehničke mjere zaštite.",
+                ],
+              },
+              {
+                h: "7) Vaši izbori i prava",
+                list: [
+                  "Unutar aplikacije možete mijenjati jezik, postavke obavijesti i određene postavke izgleda.",
+                  "Možete e-poštom zatražiti pristup, ispravku, brisanje, prigovor i, gdje je primjenjivo, prenosivost podataka.",
+                  `Ako je moguće, navedite client ID, podatke o uređaju i vrstu zahtjeva: <a href="${DELETE_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                  "Iz sigurnosnih razloga možemo zatražiti dodatnu provjeru prije ispunjavanja zahtjeva.",
+                ],
+              },
+              {
+                h: "8) AI, izvori sadržaja i djeca",
+                list: [
+                  "Tekst koji pošaljete za chat ili AI komentar može biti poslan našem backendu i pružaocima modela radi generisanja odgovora.",
+                  "AI izlaz može biti netačan, nepotpun ili neprikladan za vaš kontekst. To nije službena fetva, pravni savjet, medicinski savjet niti hitna uputa.",
+                  "Dio kur'anskog teksta, prijevoda, sažetaka tefsira i audio sadržaja dolazi od trećih strana; izvorna prava ostaju kod njihovih nosilaca.",
+                  "Aplikacija ne daje pravo na komercijalnu ponovnu upotrebu ili redistribuciju tekstova ili audija trećih strana osim ako nosilac prava to izričito ne odobri.",
+                  "Usluga nije namijenjena djeci ispod dobi za koju je prema važećem zakonu potrebna roditeljska saglasnost.",
+                ],
+              },
+              {
+                h: "9) Promjene i kontakt",
+                p: [
+                  "Ovu politiku možemo povremeno ažurirati. Ako promjene budu značajne, datum na ovoj stranici će biti ažuriran.",
+                  `Za zahtjeve vezane za privatnost i prava na podatke kontaktirajte nas na <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                ],
+              },
+            ],
+            actions: [
+              { label: "Korisnički ugovor", href: `${TERMS_URL}?lang=bs`, primary: false },
+              { label: "Podrška", href: `${SUPPORT_URL}?lang=bs`, primary: true },
+            ],
+          },
+          fa: {
+            metaTitle: "Ayah AI | سیاست حریم خصوصی",
+            eyebrow: "Ayah AI • حریم خصوصی",
+            title: "سیاست حریم خصوصی",
+            updated: "آخرین به‌روزرسانی: 11 مارس 2026",
+            intro:
+              `این صفحه توضیح می‌دهد که ${COMPANY_NAME} هنگام استفاده شما از ${APP_NAME} چه داده‌هایی را پردازش می‌کند، چرا آن‌ها را پردازش می‌کند، ممکن است با چه اشخاصی به اشتراک بگذارد و شما چه حقوق و انتخاب‌هایی دارید.`,
+            summaryCards: [
+              { title: "دامنه", body: "گفتگو، آیه، مطالعه، شنیدن، استوری، اعلان‌ها و عضویت." },
+              { title: "داده‌های اصلی", body: "شناسه مشتری، رویدادهای استفاده، وضعیت خرید، پرسش‌های ارسالی و تنظیمات فنی." },
+              { title: "حقوق شما", body: "در صورت پیش‌بینی قانون می‌توانید درخواست دسترسی، اصلاح، حذف، اعتراض و قابلیت انتقال داده بدهید." },
+            ],
+            sections: [
+              {
+                h: "1) مسئول پردازش و دامنه",
+                p: [
+                  `${APP_NAME} محتوای قرآنی، توضیح کوتاه، شنیدن، خروجی استوری، اعلان‌ها و قابلیت پرسش و پاسخ مبتنی بر هوش مصنوعی را ارائه می‌کند.`,
+                  `${COMPANY_NAME} برای جریان‌های داده توضیح‌داده‌شده در این صفحه به عنوان کنترل‌کننده داده یا در موارد لازم به عنوان پردازشگر عمل می‌کند.`,
+                ],
+                notice:
+                  "این سیاست جریان‌های فعلی برنامه موبایل را توضیح می‌دهد. فروشگاه‌های برنامه ممکن است قوانین جداگانه خود را درباره پرداخت و حساب اعمال کنند.",
+              },
+              {
+                h: "2) دسته‌های داده‌ای که پردازش می‌کنیم",
+                list: [
+                  "شناسه‌های فنی: <strong>client ID</strong> ناشناس، توکن اعلان، نسخه برنامه، مدل دستگاه، سیستم‌عامل و سیگنال‌های پایه خطا و عیب‌یابی.",
+                  "داده‌های استفاده: صفحه‌های بازشده، قابلیت‌های استفاده‌شده، مصرف سهمیه، ترجیحات اعلان، زبان انتخابی، اندازه فونت و تنظیمات مشابه.",
+                  "داده‌های محتوا: پرسش‌هایی که در گفتگو می‌نویسید، درخواست‌های توضیح AI و لاگ‌های مرتبط با پردازش.",
+                  "داده‌های عضویت: نوع طرح، وضعیت دوره آزمایشی، محصول خریداری‌شده، وضعیت تمدید، زمان پایان و داده‌های تأیید لازم برای بازکردن قابلیت‌ها.",
+                  "داده‌های محلی دستگاه: موارد دلخواه، پیشرفت مطالعه، ادامه پخش، کش موقت و تصویرهای استوری که خودتان در گالری ذخیره می‌کنید.",
+                ],
+              },
+              {
+                h: "3) چرا از داده‌ها استفاده می‌کنیم",
+                list: [
+                  "برای ارائه آیه روزانه، مطالعه، شنیدن، استوری و قابلیت گفتگو.",
+                  "برای اعمال محدودیت‌های طرح پایه و مزایای پریمیوم و وضعیت خرید.",
+                  "برای ارسال اعلان در صورتی که آن را مجاز کرده باشید.",
+                  "برای رفع اشکال، پایش عملکرد، بهبود پایداری و جلوگیری از سوءاستفاده.",
+                  "برای پاسخ به درخواست‌های پشتیبانی و حقوق حریم خصوصی.",
+                ],
+              },
+              {
+                h: "4) مبنای قانونی و اشتراک‌گذاری",
+                p: ["در صورت اقتضا ممکن است بر اجرای قرارداد، رضایت، تعهدات قانونی و منافع مشروع تکیه کنیم."],
+                list: [
+                  "ارائه‌دهندگان میزبانی backend و زیرساخت.",
+                  "ارائه‌دهندگان مدل‌ها و خدمات هوش مصنوعی برای تولید پاسخ یا توضیح.",
+                  "ارائه‌دهندگان اعلان مانند Firebase Cloud Messaging.",
+                  "Google Play، Apple و زیرساخت‌های مرتبط برای تأیید و بازیابی خریدها.",
+                ],
+              },
+              {
+                h: "5) عضویت، پرداخت و طرح‌ها",
+                list: [
+                  "برنامه ممکن است طرح پایه و طرح‌های پولی داشته باشد. طرح‌های پولی ممکن است ماهانه، سالانه یا در صورت ارائه دسترسی مادام‌العمر باشند.",
+                  "صورتحساب و تمدید اشتراک توسط فروشگاه برنامه مدیریت می‌شود. شماره کامل کارت شما به ما نمی‌رسد.",
+                  "ما شناسه محصول، وضعیت طرح، زمان خرید، وضعیت تمدید یا پایان و داده‌های تأیید لازم برای فعال‌سازی قابلیت‌ها را پردازش می‌کنیم.",
+                  "لغو، مدیریت تمدید و بازپرداخت تابع قوانین فروشگاه و حقوق اجباری مصرف‌کننده در محل شماست.",
+                ],
+              },
+              {
+                h: "6) نگهداری، امنیت و انتقال بین‌المللی",
+                list: [
+                  "داده‌ها را فقط تا زمانی نگه می‌داریم که برای ارائه خدمت، حفظ امنیت، اجرای تعهدات قانونی و حل اختلاف لازم باشد.",
+                  "بخشی از اطلاعات به صورت محلی روی دستگاه شما ذخیره می‌شود. حذف برنامه یا پاک کردن تنظیمات مرتبط می‌تواند این داده‌های محلی را حذف کند.",
+                  "ارائه‌دهندگان خدمات ما ممکن است داده‌ها را در کشورهای دیگر پردازش کنند. در صورت لزوم از تدابیر قراردادی و فنی مناسب استفاده می‌کنیم.",
+                  "هیچ سیستمی صد درصد امن نیست، اما کنترل دسترسی معقول و تدابیر فنی حفاظتی را اعمال می‌کنیم.",
+                ],
+              },
+              {
+                h: "7) انتخاب‌ها و حقوق شما",
+                list: [
+                  "می‌توانید زبان برنامه، ترجیحات اعلان و برخی تنظیمات ظاهری را در خود برنامه تغییر دهید.",
+                  "می‌توانید از طریق ایمیل درخواست دسترسی، اصلاح، حذف، اعتراض و در صورت امکان قابلیت انتقال داده بدهید.",
+                  `در صورت امکان شناسه مشتری، اطلاعات دستگاه و نوع درخواست را ارسال کنید: <a href="${DELETE_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                  "به دلایل امنیتی ممکن است پیش از اجرای درخواست، احراز هویت بیشتری بخواهیم.",
+                ],
+              },
+              {
+                h: "8) هوش مصنوعی، منابع محتوا و کودکان",
+                list: [
+                  "متنی که برای گفتگو یا توضیح AI ارسال می‌کنید ممکن است برای تولید پاسخ به backend و ارائه‌دهندگان مدل فرستاده شود.",
+                  "خروجی AI ممکن است نادقیق، ناقص یا نامناسب برای وضعیت شما باشد. این خروجی فتوا، مشاوره حقوقی، پزشکی یا راهنمای اضطراری نیست.",
+                  "بخشی از متن قرآن، ترجمه‌ها، خلاصه‌های تفسیر و محتوای صوتی از ارائه‌دهندگان ثالث می‌آید و حقوق اصلی آن‌ها نزد صاحبان مربوطه باقی می‌ماند.",
+                  "این برنامه برای متن یا صوت شخص ثالث حق استفاده تجاری یا بازنشر ایجاد نمی‌کند مگر اینکه صاحب حق جداگانه اجازه صریح داده باشد.",
+                  "این خدمت برای کودکانی که طبق قانون قابل اجرا نیازمند رضایت والدین هستند طراحی نشده است.",
+                ],
+              },
+              {
+                h: "9) تغییرات و تماس",
+                p: [
+                  "ممکن است هر از گاهی این سیاست را به‌روزرسانی کنیم. در صورت تغییر مهم، تاریخ این صفحه به‌روزرسانی خواهد شد.",
+                  `برای درخواست‌های مربوط به حریم خصوصی و حقوق داده با ما تماس بگیرید: <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+                ],
+              },
+            ],
+            actions: [
+              { label: "توافق کاربر", href: `${TERMS_URL}?lang=fa`, primary: false },
+              { label: "پشتیبانی", href: `${SUPPORT_URL}?lang=fa`, primary: true },
+            ],
+          },
         },
-        tr: {
-          title: "Gizlilik Politikasi",
-          updated: "Son guncelleme: 6 Mart 2026",
-          intro:
-            "Bu Gizlilik Politikasi, " +
-            COMPANY_NAME +
-            " tarafindan " +
-            APP_NAME +
-            " kullanilirken verilerin nasil islendigini aciklar.",
-          sections: [
-            {
-              h: "1) Isledigimiz veriler",
-              p: [
-                "Uygulamanin mevcut surumunde su veri kategorileri islenir:",
-              ],
-              list: [
-                "Uygulama ici mesajlar: kullanicinin sohbete yazdigi sorular.",
-                "Uygulama etkinligi: ekran goruntuleme ve ozellik kullanim olaylari.",
-                "Cihaz ve diger kimlikler: anonim istemci kimligi ve bildirim tokeni.",
-                "Bildirim tercihleri ve teknik ayarlar: uygulama dili, saat dilimi, bildirim tercihi.",
-                "Medya izni sadece uretilen story gorselini cihazin galerisini kaydetmek icin kullanilir. Bu akis uzerinden galeri fotograflari sunucularimiza yuklenmez.",
-              ],
-            },
-            {
-              h: "2) Verileri hangi amaclarla kullaniyoruz",
-              list: [
-                "Uygulama ozelliklerini sunmak (gunluk ayet, okuma, sohbet, favoriler, story cikisi).",
-                "Push bildirimlerini iletmek.",
-                "Kalite, guvenilirlik ve performans takibi yapmak.",
-              ],
-            },
-            {
-              h: "3) Veri paylasimi",
-              p: [
-                "Uygulama islevi icin gerekli hallerde, adimiza hizmet veren saglayicilarla ilgili veriler paylasilabilir.",
-              ],
-              list: [
-                "Backend barindirma ve altyapi saglayicilari.",
-                "Yanit uretiminde kullanilan yapay zeka model saglayicilari.",
-                "Push bildirim saglayicisi (Firebase Cloud Messaging).",
-              ],
-            },
-            {
-              h: "4) Icerik kaynaklari ve attribution",
-              p: [
-                "Okuma, gunluk ayet, kisa tefsir ve Dinle yuzeylerindeki icerikler ucuncu taraf saglayicilardan gelebilir. Orijinal haklar ilgili hak sahiplerinde kalir.",
-              ],
-              list: [
-                "Metin kaynagi attribution bilgisi Ayarlar > Dil ekraninda gosterilir.",
-                "Arapca kisa tefsir uygulama icinde QuranEnc.com - Arabic Mokhtasar olarak gosterilir.",
-                "Bu Arapca kisa tefsir kaynagi icin kalici offline cache kapali tutulur.",
-                "Attribution detaylari Ayarlar > Ses Kaynaklari ekraninda gosterilir.",
-                "Hak sahibi tarafindan acikca belirtilmedikce bu uygulama ticari kullanim veya yeniden dagitim hakki vermez.",
-              ],
-            },
-            {
-              h: "5) Uygulama ici satin alma",
-              p: [
-                "Uygulama ici satin alma gelecekte aktif edilirse, odeme akislarini uygulama magazasi (Google Play / Apple) yonetir. Tam kart numarasi tarafimizca alinmaz.",
-              ],
-              list: [
-                "Premium ozellik acma icin satin alma durumu, urun tipi ve islem metaverileri islenebilir.",
-              ],
-            },
-            {
-              h: "6) Saklama suresi",
-              p: [
-                "Veriler, uygulama islevi, analiz, yasal yukumlulukler ve guvenlik gereksinimleri kadar saklanir. Veri turune gore sure degisebilir.",
-              ],
-            },
-            {
-              h: "7) Haklariniz",
-              p: ["Veri silme veya erisim talepleriniz icin bize ulasabilirsiniz:"],
-              list: [
-                "E-posta: " + SUPPORT_EMAIL,
-                "Silme talep formu: " + DELETE_REQUEST_URL,
-              ],
-            },
-            {
-              h: "8) Guvenlik",
-              p: [
-                "Verileri korumak icin teknik ve organizasyonel onlemler uygulariz. Hicbir yontem yuzde yuz guvenli degildir.",
-              ],
-            },
-            {
-              h: "9) Cocuklar",
-              p: [
-                "Hizmetimiz, uygulanabilir hukuka gore ebeveyn izni gereken yas altindaki cocuklari hedeflemez.",
-              ],
-            },
-            {
-              h: "10) Degisiklikler",
-              p: [
-                "Bu politikayi guncelleyebiliriz. Onemli degisikliklerde yukaridaki tarih guncellenir.",
-              ],
-            },
-            {
-              h: "11) Iletisim",
-              list: [
-                "Sirket: " + COMPANY_NAME,
-                "Web sitesi: " + WEBSITE_URL,
-                "E-posta: " + SUPPORT_EMAIL,
-              ],
-            },
-          ],
-        },
-      };
-
-      function selectedLang() {
-        const urlLang = new URLSearchParams(window.location.search).get("lang");
-        if (urlLang && locales[urlLang]) return urlLang;
-        const browserLang = (navigator.language || "en").toLowerCase();
-        if (browserLang.startsWith("tr")) return "tr";
-        return "en";
-      }
-
-      function render(lang) {
-        const t = locales[lang] || locales.en;
-        document.documentElement.lang = lang;
-        document.title = COMPANY_NAME + " | " + t.title;
-        document.getElementById("title").textContent = t.title;
-        document.getElementById("last-updated").textContent = t.updated;
-        document.getElementById("intro").textContent = t.intro;
-
-        const body = document.getElementById("content");
-        body.innerHTML = "";
-        for (const sec of t.sections) {
-          const h2 = document.createElement("h2");
-          h2.textContent = sec.h;
-          body.appendChild(h2);
-
-          if (Array.isArray(sec.p)) {
-            for (const txt of sec.p) {
-              const p = document.createElement("p");
-              p.textContent = txt;
-              body.appendChild(p);
-            }
-          }
-
-          if (Array.isArray(sec.list) && sec.list.length > 0) {
-            const ul = document.createElement("ul");
-            for (const item of sec.list) {
-              const li = document.createElement("li");
-              li.textContent = item;
-              ul.appendChild(li);
-            }
-            body.appendChild(ul);
-          }
-        }
-
-        document.getElementById("btn-en").classList.toggle("active", lang === "en");
-        document.getElementById("btn-tr").classList.toggle("active", lang === "tr");
-      }
-
-      function updateLang(lang) {
-        const params = new URLSearchParams(window.location.search);
-        params.set("lang", lang);
-        const next = window.location.pathname + "?" + params.toString();
-        history.replaceState({}, "", next);
-        render(lang);
-      }
-
-      document.getElementById("btn-en").addEventListener("click", () => updateLang("en"));
-      document.getElementById("btn-tr").addEventListener("click", () => updateLang("tr"));
-
-      render(selectedLang());
+      });
     </script>
   </body>
 </html>

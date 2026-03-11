@@ -2,12 +2,102 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="refresh" content="0; url=/suntof-legal/privacy-policy/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Redirecting...</title>
+    <title>Ayah AI Legal</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f4f4ef;
+        --card: #fffcf7;
+        --text: #162321;
+        --muted: #5a6864;
+        --line: #d5ded9;
+        --brand: #0f766e;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #f7f8f2 0%, var(--bg) 100%);
+        color: var(--text);
+        font-family: "Segoe UI", Arial, sans-serif;
+      }
+
+      main {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 28px 16px 40px;
+      }
+
+      .panel {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 24px;
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        font-size: 34px;
+      }
+
+      p {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .grid {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        margin-top: 20px;
+      }
+
+      a.card {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 18px;
+      }
+
+      a.card strong {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--brand);
+        font-size: 18px;
+      }
+    </style>
   </head>
   <body>
-    <p>Redirecting to privacy policy...</p>
-    <p><a href="/suntof-legal/privacy-policy/">Click here if not redirected.</a></p>
+    <main>
+      <section class="panel">
+        <h1>Ayah AI Legal Pages</h1>
+        <p>
+          This site hosts the public legal and support pages used by Ayah AI.
+          Each page supports multiple in-app languages through the <code>?lang=</code>
+          query parameter.
+        </p>
+        <div class="grid">
+          <a class="card" href="/suntof-legal/privacy-policy/">
+            <strong>Privacy Policy</strong>
+            Data categories, processing purposes, service providers, rights, and AI disclosures.
+          </a>
+          <a class="card" href="/suntof-legal/terms-of-use/">
+            <strong>Terms of Use</strong>
+            Membership rules, payment terms, AI limitations, and content-use boundaries.
+          </a>
+          <a class="card" href="/suntof-legal/support/index.html">
+            <strong>Support</strong>
+            Billing help, privacy requests, AI reporting, and technical contact details.
+          </a>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

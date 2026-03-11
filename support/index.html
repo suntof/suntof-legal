@@ -4,143 +4,972 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Ayah AI | Support</title>
-    <style>
-      :root {
-        color-scheme: light;
-        --bg: #f5f7fb;
-        --card: #ffffff;
-        --text: #17212f;
-        --muted: #516176;
-        --line: #d9e1ec;
-        --brand: #0f766e;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        font-family: "Segoe UI", Roboto, Arial, sans-serif;
-        background: radial-gradient(circle at top right, #ecfdf5 0%, var(--bg) 48%);
-        color: var(--text);
-      }
-
-      .wrap {
-        max-width: 860px;
-        margin: 24px auto;
-        padding: 0 16px 32px;
-      }
-
-      .card {
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        padding: 22px;
-      }
-
-      h1 {
-        margin: 0;
-        font-size: 30px;
-      }
-
-      h2 {
-        margin: 20px 0 8px;
-        font-size: 20px;
-      }
-
-      p {
-        margin: 8px 0;
-      }
-
-      ul {
-        margin: 8px 0;
-        padding-left: 20px;
-      }
-
-      li {
-        margin: 6px 0;
-      }
-
-      a {
-        color: var(--brand);
-      }
-
-      .muted {
-        color: var(--muted);
-      }
-    </style>
+    <link rel="stylesheet" href="../legal-site/site.css" />
   </head>
   <body>
     <main class="wrap">
-      <section class="card">
-        <h1>Ayah AI Support</h1>
-        <p class="muted">Last updated: March 6, 2026</p>
-        <p>
-          For account, billing, subscription, and technical support, contact:
-          <a href="mailto:ayah.ai.rahle@gmail.com">ayah.ai.rahle@gmail.com</a>.
-        </p>
-
-        <h2>Response Time</h2>
-        <ul>
-          <li>Initial response target: within 48 hours on business days.</li>
-          <li>Critical billing or purchase issues are prioritized.</li>
-        </ul>
-
-        <h2>Before Contacting</h2>
-        <ul>
-          <li>App version and device model (for example: iPhone 17 Pro Max).</li>
-          <li>OS version (for example: iOS 26.3).</li>
-          <li>A short description and screenshot of the issue.</li>
-          <li>
-            If the issue is subscription related, include product ID and purchase
-            time.
-          </li>
-        </ul>
-
-        <h2>Policies</h2>
-        <ul>
-          <li>
-            Privacy Policy:
-            <a href="https://suntof.github.io/suntof-legal/privacy-policy/">
-              https://suntof.github.io/suntof-legal/privacy-policy/
-            </a>
-          </li>
-          <li>
-            Terms of Use (Apple Standard EULA):
-            <a
-              href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
-            >
-              https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
-            </a>
-          </li>
-        </ul>
-
-        <h2>Content Sources</h2>
-        <p>
-          Quran text, translation, and brief tafsir content shown in the app may
-          come from third-party content providers. Source details are shown in
-          the app under Settings &gt; Language.
-        </p>
-        <ul>
-          <li>
-            Arabic brief tafsir is attributed in-app as
-            <strong>QuranEnc.com - Arabic Mokhtasar</strong>.
-          </li>
-          <li>
-            Persistent offline cache is disabled for this Arabic brief tafsir
-            source.
-          </li>
-          <li>
-            Other translation sources may use provider-specific caching rules
-            and attribution requirements.
-          </li>
-          <li>
-            This app does not grant commercial reuse or redistribution rights
-            for third-party text or audio content.
-          </li>
-        </ul>
+      <section class="panel">
+        <header class="top">
+          <div>
+            <div class="eyebrow" id="eyebrow"></div>
+            <h1 id="title"></h1>
+            <p class="muted" id="updated"></p>
+          </div>
+          <nav class="lang-switch" id="lang-switch" aria-label="Language switcher"></nav>
+        </header>
+        <p class="lead" id="intro"></p>
+        <div class="summary" id="summary"></div>
+        <div class="section-list" id="content"></div>
+        <div class="footer-links" id="footer-links"></div>
       </section>
     </main>
+
+    <script src="../legal-site/site.js"></script>
+    <script>
+      const SUPPORT_EMAIL = "ayah.ai.rahle@gmail.com";
+      const PRIVACY_URL = "https://suntof.github.io/suntof-legal/privacy-policy/";
+      const TERMS_URL = "https://suntof.github.io/suntof-legal/terms-of-use/";
+
+      AyahLegal.init({
+        locales: {
+          tr: {
+            metaTitle: "Ayah AI | Destek",
+            eyebrow: "Ayah AI • Destek",
+            title: "Destek",
+            updated: "Son güncelleme: 11 Mart 2026",
+            intro:
+              `Hesap, üyelik, teknik hata, veri talebi, içerik bildirimi ve yapay zekâ çıktılarıyla ilgili destek için bize <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a> üzerinden ulaşabilirsiniz.`,
+            summaryCards: [
+              { title: "İlk yanıt hedefi", body: "İş günlerinde 48 saat içinde." },
+              { title: "Öncelikli konular", body: "Satın alma, yanlış ücretlendirme, veri hakları ve erişim sorunları." },
+              { title: "Gerekli bilgiler", body: "Client ID, cihaz modeli, uygulama sürümü, ekran görüntüsü ve kısa sorun özeti." },
+            ],
+            sections: [
+              {
+                h: "1) Nasıl destek talebi göndermelisiniz",
+                list: [
+                  `Ana destek adresi: <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>`,
+                  "Mümkünse client ID, cihaz modeli, işletim sistemi sürümü ve uygulama sürümünü ekleyin.",
+                  "Hatanın ne zaman oluştuğunu ve tekrar üretme adımlarını kısa şekilde yazın.",
+                  "Varsa ekran görüntüsü veya kısa ekran kaydı ekleyin.",
+                ],
+              },
+              {
+                h: "2) Üyelik, iptal, yenileme ve iade",
+                list: [
+                  "Aylık ve yıllık aboneliklerin yenileme kapatma işlemi App Store veya Google Play hesap ayarlarından yapılır.",
+                  "Tek seferlik ömürlük plan sunuluyorsa, bu plan otomatik yenilenmez.",
+                  "Satın alım geri yükleme işlemini uygulama içindeki üyelik/paywall yüzeylerinden deneyebilirsiniz.",
+                  "İade ve ücret itirazları, mağaza kuralları ve zorunlu tüketici hakları kapsamında değerlendirilir; destek talebinizde ürün kimliğini ve işlem zamanını paylaşın.",
+                ],
+              },
+              {
+                h: "3) Gizlilik ve veri hakları talepleri",
+                list: [
+                  "Erişim, düzeltme, silme, itiraz ve benzeri veri taleplerini aynı destek e-postasından iletebilirsiniz.",
+                  "Talebinizde mümkünse client ID ve hangi veriye dair işlem istediğinizi belirtin.",
+                  "Güvenlik amacıyla ek doğrulama talep edebiliriz.",
+                ],
+              },
+              {
+                h: "4) Yapay zekâ ve içerik bildirimleri",
+                list: [
+                  "Yanlış, uygunsuz veya riskli AI yanıtlarını destek üzerinden raporlayabilirsiniz.",
+                  "Metin, meal, tefsir özeti veya ses attribution sorunlarını bize bildirebilirsiniz.",
+                  "Telif, lisans veya kaldırma taleplerinde ilgili içerik bağlantısını ve açıklamayı ekleyin.",
+                ],
+              },
+              {
+                h: "5) Teknik sorunlarda önce bunları deneyin",
+                list: [
+                  "Uygulamayı kapatıp yeniden açın.",
+                  "İnternet bağlantınızı ve tarih/saat ayarlarınızı kontrol edin.",
+                  "Uygulamanın güncel sürümünü kullandığınızdan emin olun.",
+                  "Satın alma sorunu varsa mağaza hesabınızın doğru hesap olduğunu doğrulayın.",
+                ],
+              },
+              {
+                h: "6) Destek dili ve kapsamı",
+                list: [
+                  "Destek taleplerini uygulamada desteklenen tüm dillerden biriyle gönderebilirsiniz.",
+                  "Gerektiğinde yanıtı Türkçe veya İngilizce verebiliriz; özellikle teknik log ve mağaza konularında bu tercih edilebilir.",
+                  "Uygulama içindeki AI cevapları destek talebinin yerine geçmez.",
+                ],
+              },
+              {
+                h: "7) Önemli not",
+                notice:
+                  "Ayah AI içeriği ve yapay zekâ çıktıları dini ve eğitsel destek amaçlıdır. Resmi fetva, hukuki görüş, tıbbi tavsiye veya acil yardım yerine kullanılmamalıdır.",
+                p: [
+                  "Acil bir güvenlik, sağlık veya hukuki durum yaşıyorsanız, bulunduğunuz yerdeki yetkili kuruma veya nitelikli uzmana başvurun.",
+                ],
+              },
+            ],
+            actions: [
+              { label: "Gizlilik Politikası", href: `${PRIVACY_URL}?lang=tr`, primary: false },
+              { label: "Kullanıcı Sözleşmesi", href: `${TERMS_URL}?lang=tr`, primary: true },
+            ],
+          },
+          en: {
+            metaTitle: "Ayah AI | Support",
+            eyebrow: "Ayah AI • Support",
+            title: "Support",
+            updated: "Last updated: March 11, 2026",
+            intro:
+              `For billing, technical issues, privacy requests, content reports, and AI output concerns, contact us at <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+            summaryCards: [
+              { title: "Initial response target", body: "Within 48 business hours." },
+              { title: "Priority topics", body: "Purchases, billing errors, data-rights requests, and access failures." },
+              { title: "Helpful details", body: "Client ID, device model, app version, screenshot, and a short issue summary." },
+            ],
+            sections: [
+              {
+                h: "1) How to contact support",
+                list: [
+                  `Primary support address: <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>`,
+                  "If possible, include your client ID, device model, operating-system version, and app version.",
+                  "Briefly explain when the issue happened and how to reproduce it.",
+                  "Attach a screenshot or short screen recording when available.",
+                ],
+              },
+              {
+                h: "2) Membership, cancellation, renewals, and refunds",
+                list: [
+                  "Monthly and yearly subscription renewal settings are managed from App Store or Google Play account settings.",
+                  "If a one-time lifetime plan is offered, that plan does not auto-renew.",
+                  "You can try purchase restore from the in-app membership or paywall surfaces.",
+                  "Refund and charge disputes are handled under store rules and mandatory consumer laws. Please include product ID and purchase time in your message.",
+                ],
+              },
+              {
+                h: "3) Privacy and data-rights requests",
+                list: [
+                  "You can send access, correction, deletion, objection, and similar privacy requests through the same support email.",
+                  "Please include your client ID and describe what action you want us to take.",
+                  "We may request extra verification for security reasons.",
+                ],
+              },
+              {
+                h: "4) AI and content reports",
+                list: [
+                  "You can report inaccurate, unsafe, or unsuitable AI responses through support.",
+                  "You can also report attribution issues related to text, translation, tafsir summary, or recitation audio.",
+                  "For copyright, licensing, or takedown requests, include the relevant content reference and your explanation.",
+                ],
+              },
+              {
+                h: "5) Basic troubleshooting before you write",
+                list: [
+                  "Close and reopen the app.",
+                  "Check internet connectivity and device date/time settings.",
+                  "Make sure you are on the latest app version.",
+                  "If the issue is purchase related, verify that the correct store account is active on your device.",
+                ],
+              },
+              {
+                h: "6) Support language and scope",
+                list: [
+                  "You may write to us in any language currently supported by the app.",
+                  "Where needed, we may reply in Turkish or English, especially for technical logs and store-related issues.",
+                  "In-app AI output is not the same as a support response and should not be treated as a support ticket outcome.",
+                ],
+              },
+              {
+                h: "7) Important notice",
+                notice:
+                  "Ayah AI content and AI output are intended for religious and educational support. They should not be used as an official ruling, legal advice, medical advice, or emergency guidance.",
+                p: [
+                  "If you are facing an urgent safety, health, or legal issue, contact a qualified professional or competent local authority.",
+                ],
+              },
+            ],
+            actions: [
+              { label: "Privacy Policy", href: `${PRIVACY_URL}?lang=en`, primary: false },
+              { label: "Terms of Use", href: `${TERMS_URL}?lang=en`, primary: true },
+            ],
+          },
+          ar: {
+            metaTitle: "Ayah AI | الدعم",
+            eyebrow: "Ayah AI • الدعم",
+            title: "الدعم",
+            updated: "آخر تحديث: 11 مارس 2026",
+            intro:
+              `للدعم المتعلق بالفوترة أو المشاكل التقنية أو طلبات الخصوصية أو بلاغات المحتوى أو مخرجات الذكاء الاصطناعي، تواصل معنا عبر <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+            summaryCards: [
+              { title: "هدف الرد الأول", body: "خلال 48 ساعة عمل." },
+              { title: "الموضوعات ذات الأولوية", body: "المشتريات، أخطاء الفوترة، طلبات الحقوق، ومشكلات الوصول." },
+              { title: "معلومات مفيدة", body: "معرف العميل، طراز الجهاز، إصدار التطبيق، لقطة شاشة وملخص قصير للمشكلة." },
+            ],
+            sections: [
+              {
+                h: "1) كيف تتواصل مع الدعم",
+                list: [
+                  `عنوان الدعم الرئيسي: <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>`,
+                  "يرجى تضمين معرف العميل وطراز الجهاز وإصدار النظام وإصدار التطبيق إن أمكن.",
+                  "اشرح بإيجاز متى ظهرت المشكلة وكيف يمكن تكرارها.",
+                  "أرفق لقطة شاشة أو تسجيلًا قصيرًا للشاشة إذا توفر.",
+                ],
+              },
+              {
+                h: "2) العضوية والإلغاء والتجديد والاسترداد",
+                list: [
+                  "تتم إدارة إعدادات إيقاف التجديد للاشتراكات الشهرية والسنوية من إعدادات حساب App Store أو Google Play.",
+                  "إذا كان هناك عرض لخطة مدى الحياة لمرة واحدة، فهي لا تتجدد تلقائيًا.",
+                  "يمكنك تجربة استعادة المشتريات من شاشات العضوية أو paywall داخل التطبيق.",
+                  "طلبات الاسترداد أو الاعتراض على الرسوم تخضع لقواعد المتجر والحقوق الإلزامية للمستهلك. يرجى تضمين معرف المنتج ووقت الشراء.",
+                ],
+              },
+              {
+                h: "3) الخصوصية وطلبات الحقوق",
+                list: [
+                  "يمكنك إرسال طلبات الوصول أو التصحيح أو الحذف أو الاعتراض عبر نفس بريد الدعم.",
+                  "يرجى توضيح معرف العميل ونوع الإجراء الذي تطلبه.",
+                  "قد نطلب تحققًا إضافيًا لأسباب أمنية.",
+                ],
+              },
+              {
+                h: "4) بلاغات الذكاء الاصطناعي والمحتوى",
+                list: [
+                  "يمكنك الإبلاغ عن الردود غير الدقيقة أو غير الآمنة أو غير المناسبة الصادرة عن الذكاء الاصطناعي.",
+                  "يمكنك كذلك الإبلاغ عن مشكلات نسب المصدر المتعلقة بالنص أو الترجمة أو التفسير المختصر أو الصوت.",
+                  "لطلبات حقوق النشر أو الترخيص أو الإزالة، أرسل مرجع المحتوى مع التوضيح.",
+                ],
+              },
+              {
+                h: "5) خطوات أساسية قبل المراسلة",
+                list: [
+                  "أغلق التطبيق وأعد فتحه.",
+                  "تحقق من اتصال الإنترنت ومن إعدادات التاريخ والوقت.",
+                  "تأكد من استخدام أحدث إصدار من التطبيق.",
+                  "إذا كانت المشكلة مرتبطة بالشراء، فتحقق من أن حساب المتجر الصحيح مفعّل على جهازك.",
+                ],
+              },
+              {
+                h: "6) لغة الدعم ونطاقه",
+                list: [
+                  "يمكنك الكتابة إلينا بأي لغة يدعمها التطبيق حاليًا.",
+                  "عند الحاجة قد نرد بالتركية أو الإنجليزية، خاصة في المسائل الفنية أو المرتبطة بالمتجر.",
+                  "مخرجات الذكاء الاصطناعي داخل التطبيق ليست بديلاً عن رد الدعم الرسمي.",
+                ],
+              },
+              {
+                h: "7) ملاحظة مهمة",
+                notice:
+                  "محتوى Ayah AI ومخرجات الذكاء الاصطناعي مخصصة للدعم الديني والتعليمي فقط، ولا ينبغي استخدامها كفتوى رسمية أو استشارة قانونية أو طبية أو توجيه للطوارئ.",
+                p: [
+                  "إذا كانت لديك حالة عاجلة تتعلق بالسلامة أو الصحة أو القانون، فتواصل مع جهة مختصة أو متخصص مؤهل.",
+                ],
+              },
+            ],
+            actions: [
+              { label: "سياسة الخصوصية", href: `${PRIVACY_URL}?lang=ar`, primary: false },
+              { label: "اتفاقية المستخدم", href: `${TERMS_URL}?lang=ar`, primary: true },
+            ],
+          },
+          ur: {
+            metaTitle: "Ayah AI | معاونت",
+            eyebrow: "Ayah AI • معاونت",
+            title: "معاونت",
+            updated: "آخری تازہ کاری: 11 مارچ 2026",
+            intro:
+              `بلنگ، تکنیکی خرابی، پرائیویسی درخواست، مواد کی رپورٹ یا AI جواب کے مسئلے کے لیے ہم سے <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a> پر رابطہ کریں۔`,
+            summaryCards: [
+              { title: "پہلا جواب", body: "کاروباری دنوں میں 48 گھنٹوں کے اندر۔" },
+              { title: "ترجیحی موضوعات", body: "خریداری، غلط بلنگ، ڈیٹا حقوق اور رسائی کے مسائل۔" },
+              { title: "مفید معلومات", body: "کلائنٹ آئی ڈی، ڈیوائس ماڈل، ایپ ورژن، اسکرین شاٹ اور مختصر مسئلہ۔" },
+            ],
+            sections: [
+              {
+                h: "1) سپورٹ سے کیسے رابطہ کریں",
+                list: [
+                  `مرکزی سپورٹ ای میل: <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>`,
+                  "اگر ممکن ہو تو کلائنٹ آئی ڈی، ڈیوائس ماڈل، آپریٹنگ سسٹم ورژن اور ایپ ورژن شامل کریں۔",
+                  "مختصر طور پر بتائیں مسئلہ کب پیش آیا اور اسے دوبارہ کیسے پیدا کیا جا سکتا ہے۔",
+                  "ممکن ہو تو اسکرین شاٹ یا مختصر اسکرین ریکارڈنگ شامل کریں۔",
+                ],
+              },
+              {
+                h: "2) رکنیت، منسوخی، تجدید اور ریفنڈ",
+                list: [
+                  "ماہانہ اور سالانہ سبسکرپشن کی تجدید بند کرنے کی سیٹنگ App Store یا Google Play اکاؤنٹ سیٹنگز سے کی جاتی ہے۔",
+                  "اگر لائف ٹائم ون ٹائم پلان پیش کیا جائے تو وہ خودکار تجدید نہیں رکھتا۔",
+                  "آپ ایپ کے اندر ممبرشپ یا paywall اسکرین سے خریداری بحال کرنے کی کوشش کر سکتے ہیں۔",
+                  "ریفنڈ اور چارج تنازعات اسٹور کے قواعد اور لازمی صارف حقوق کے مطابق ہوتے ہیں؛ براہ کرم پروڈکٹ آئی ڈی اور خریداری کا وقت شامل کریں۔",
+                ],
+              },
+              {
+                h: "3) پرائیویسی اور ڈیٹا حقوق کی درخواستیں",
+                list: [
+                  "رسائی، درستی، حذف، اعتراض اور اسی طرح کی درخواستیں اسی ای میل پر بھیجی جا سکتی ہیں۔",
+                  "براہ کرم کلائنٹ آئی ڈی اور مطلوبہ کارروائی واضح کریں۔",
+                  "سیکیورٹی کے لیے ہم اضافی تصدیق مانگ سکتے ہیں۔",
+                ],
+              },
+              {
+                h: "4) AI اور مواد کی رپورٹنگ",
+                list: [
+                  "غلط، غیر محفوظ یا غیر موزوں AI جواب سپورٹ کے ذریعے رپورٹ کیے جا سکتے ہیں۔",
+                  "آپ متن، ترجمہ، مختصر تفسیر یا آڈیو attribution کے مسائل بھی رپورٹ کر سکتے ہیں۔",
+                  "کاپی رائٹ، لائسنس یا takedown درخواست کے لیے متعلقہ مواد کا حوالہ اور وضاحت شامل کریں۔",
+                ],
+              },
+              {
+                h: "5) رابطہ کرنے سے پہلے بنیادی جانچ",
+                list: [
+                  "ایپ بند کر کے دوبارہ کھولیں۔",
+                  "انٹرنیٹ کنکشن اور تاریخ/وقت کی سیٹنگز چیک کریں۔",
+                  "یقینی بنائیں کہ آپ ایپ کا تازہ ترین ورژن استعمال کر رہے ہیں۔",
+                  "اگر مسئلہ خریداری سے متعلق ہے تو درست اسٹور اکاؤنٹ کی تصدیق کریں۔",
+                ],
+              },
+              {
+                h: "6) سپورٹ کی زبان اور دائرہ",
+                list: [
+                  "آپ ہم سے ایپ میں دستیاب کسی بھی زبان میں رابطہ کر سکتے ہیں۔",
+                  "ضرورت پڑنے پر ہم ترکی یا انگریزی میں جواب دے سکتے ہیں، خاص طور پر تکنیکی لاگز اور اسٹور معاملات میں۔",
+                  "ایپ کے اندر AI جواب سپورٹ جواب کے برابر نہیں ہوتا۔",
+                ],
+              },
+              {
+                h: "7) اہم نوٹ",
+                notice:
+                  "Ayah AI کا مواد اور AI آؤٹ پٹ دینی اور تعلیمی مدد کے لیے ہے۔ اسے سرکاری فتویٰ، قانونی مشورہ، طبی مشورہ یا ہنگامی رہنمائی کے طور پر استعمال نہ کریں۔",
+                p: [
+                  "اگر معاملہ فوری حفاظت، صحت یا قانون سے متعلق ہو تو مقامی مستند ادارے یا مستند ماہر سے رابطہ کریں۔",
+                ],
+              },
+            ],
+            actions: [
+              { label: "رازداری کی پالیسی", href: `${PRIVACY_URL}?lang=ur`, primary: false },
+              { label: "صارف معاہدہ", href: `${TERMS_URL}?lang=ur`, primary: true },
+            ],
+          },
+          id: {
+            metaTitle: "Ayah AI | Dukungan",
+            eyebrow: "Ayah AI • Dukungan",
+            title: "Dukungan",
+            updated: "Terakhir diperbarui: 11 Maret 2026",
+            intro:
+              `Untuk masalah billing, error teknis, permintaan privasi, laporan konten, atau masalah output AI, hubungi kami di <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+            summaryCards: [
+              { title: "Target respons awal", body: "Dalam 48 jam kerja." },
+              { title: "Prioritas", body: "Pembelian, kesalahan tagihan, hak data, dan masalah akses." },
+              { title: "Informasi penting", body: "Client ID, model perangkat, versi aplikasi, screenshot, dan ringkasan singkat." },
+            ],
+            sections: [
+              {
+                h: "1) Cara menghubungi dukungan",
+                list: [
+                  `Alamat dukungan utama: <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>`,
+                  "Jika memungkinkan, sertakan client ID, model perangkat, versi sistem operasi, dan versi aplikasi.",
+                  "Jelaskan secara singkat kapan masalah terjadi dan bagaimana cara mengulanginya.",
+                  "Lampirkan screenshot atau rekaman layar singkat bila tersedia.",
+                ],
+              },
+              {
+                h: "2) Keanggotaan, pembatalan, perpanjangan, dan refund",
+                list: [
+                  "Pengaturan penghentian perpanjangan paket bulanan dan tahunan dikelola dari App Store atau Google Play.",
+                  "Jika tersedia paket lifetime sekali bayar, paket itu tidak diperpanjang otomatis.",
+                  "Anda dapat mencoba restore purchase dari layar membership atau paywall di aplikasi.",
+                  "Refund dan sengketa biaya tunduk pada aturan store dan hak konsumen yang wajib berlaku. Sertakan product ID dan waktu pembelian.",
+                ],
+              },
+              {
+                h: "3) Privasi dan permintaan hak data",
+                list: [
+                  "Permintaan akses, koreksi, penghapusan, keberatan, dan permintaan serupa dapat dikirim ke email yang sama.",
+                  "Tolong sertakan client ID dan jelaskan tindakan yang Anda minta.",
+                  "Kami dapat meminta verifikasi tambahan demi keamanan.",
+                ],
+              },
+              {
+                h: "4) Laporan AI dan konten",
+                list: [
+                  "Respons AI yang salah, tidak aman, atau tidak sesuai dapat Anda laporkan melalui dukungan.",
+                  "Anda juga dapat melaporkan masalah atribusi terkait teks, terjemahan, ringkasan tafsir, atau audio.",
+                  "Untuk permintaan hak cipta, lisensi, atau takedown, sertakan referensi konten dan penjelasan Anda.",
+                ],
+              },
+              {
+                h: "5) Pemeriksaan dasar sebelum menghubungi",
+                list: [
+                  "Tutup lalu buka kembali aplikasi.",
+                  "Periksa koneksi internet serta pengaturan tanggal/waktu perangkat.",
+                  "Pastikan Anda memakai versi aplikasi terbaru.",
+                  "Jika masalah terkait pembelian, pastikan akun store yang benar sedang aktif.",
+                ],
+              },
+              {
+                h: "6) Bahasa dukungan dan cakupan",
+                list: [
+                  "Anda dapat menulis kepada kami dalam bahasa apa pun yang saat ini didukung aplikasi.",
+                  "Bila diperlukan, kami dapat membalas dalam bahasa Turki atau Inggris, terutama untuk log teknis dan masalah store.",
+                  "Output AI di dalam aplikasi bukan pengganti jawaban dukungan resmi.",
+                ],
+              },
+              {
+                h: "7) Catatan penting",
+                notice:
+                  "Konten Ayah AI dan output AI ditujukan untuk dukungan keagamaan dan edukasi. Jangan gunakan sebagai fatwa resmi, nasihat hukum, nasihat medis, atau panduan darurat.",
+                p: [
+                  "Jika Anda menghadapi situasi keselamatan, kesehatan, atau hukum yang mendesak, hubungi pihak berwenang atau profesional yang kompeten.",
+                ],
+              },
+            ],
+            actions: [
+              { label: "Kebijakan Privasi", href: `${PRIVACY_URL}?lang=id`, primary: false },
+              { label: "Perjanjian Pengguna", href: `${TERMS_URL}?lang=id`, primary: true },
+            ],
+          },
+          fr: {
+            metaTitle: "Ayah AI | Support",
+            eyebrow: "Ayah AI • Support",
+            title: "Support",
+            updated: "Dernière mise à jour : 11 mars 2026",
+            intro:
+              `Pour toute question de facturation, erreur technique, demande liée à la vie privée, signalement de contenu ou problème avec une réponse IA, écrivez-nous à <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+            summaryCards: [
+              { title: "Objectif de première réponse", body: "Sous 48 heures ouvrées." },
+              { title: "Sujets prioritaires", body: "Achats, erreurs de facturation, droits sur les données et problèmes d'accès." },
+              { title: "Informations utiles", body: "Client ID, modèle d'appareil, version de l'app, capture d'écran et bref résumé." },
+            ],
+            sections: [
+              {
+                h: "1) Comment contacter le support",
+                list: [
+                  `Adresse principale : <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>`,
+                  "Si possible, indiquez votre client ID, le modèle de l'appareil, la version du système et la version de l'application.",
+                  "Expliquez brièvement quand le problème est survenu et comment le reproduire.",
+                  "Ajoutez une capture d'écran ou un court enregistrement d'écran si possible.",
+                ],
+              },
+              {
+                h: "2) Abonnement, annulation, renouvellement et remboursement",
+                list: [
+                  "La désactivation du renouvellement des abonnements mensuels et annuels se gère dans les réglages App Store ou Google Play.",
+                  "Si une formule à vie en achat unique est proposée, elle ne se renouvelle pas automatiquement.",
+                  "Vous pouvez essayer de restaurer vos achats depuis les écrans d'abonnement ou le paywall dans l'application.",
+                  "Les remboursements et litiges de facturation dépendent des règles de la boutique et des droits impératifs des consommateurs. Merci d'indiquer l'ID produit et l'heure d'achat.",
+                ],
+              },
+              {
+                h: "3) Vie privée et demandes liées aux droits",
+                list: [
+                  "Les demandes d'accès, de rectification, de suppression, d'opposition et demandes similaires peuvent être envoyées à la même adresse.",
+                  "Merci de préciser votre client ID et l'action demandée.",
+                  "Nous pouvons demander une vérification supplémentaire pour des raisons de sécurité.",
+                ],
+              },
+              {
+                h: "4) Signalements IA et contenu",
+                list: [
+                  "Vous pouvez signaler des réponses IA inexactes, dangereuses ou inadaptées via le support.",
+                  "Vous pouvez également signaler des problèmes d'attribution concernant le texte, la traduction, le résumé de tafsir ou l'audio.",
+                  "Pour toute demande de retrait, de licence ou de droit d'auteur, ajoutez la référence du contenu et votre explication.",
+                ],
+              },
+              {
+                h: "5) Vérifications de base avant d'écrire",
+                list: [
+                  "Fermez puis relancez l'application.",
+                  "Vérifiez la connexion internet ainsi que la date et l'heure de l'appareil.",
+                  "Assurez-vous d'utiliser la dernière version de l'application.",
+                  "Si le problème concerne un achat, vérifiez que le bon compte magasin est actif sur l'appareil.",
+                ],
+              },
+              {
+                h: "6) Langue du support et périmètre",
+                list: [
+                  "Vous pouvez nous écrire dans n'importe quelle langue actuellement prise en charge par l'application.",
+                  "Si nécessaire, nous pouvons répondre en turc ou en anglais, en particulier pour les journaux techniques et les sujets liés au store.",
+                  "La réponse d'IA dans l'application ne remplace pas une réponse officielle du support.",
+                ],
+              },
+              {
+                h: "7) Note importante",
+                notice:
+                  "Le contenu Ayah AI et les sorties IA sont destinés à un accompagnement religieux et éducatif. Ils ne doivent pas être utilisés comme fatwa officielle, conseil juridique, conseil médical ou instruction d'urgence.",
+                p: [
+                  "En cas d'urgence liée à la sécurité, à la santé ou au droit, contactez une autorité compétente ou un professionnel qualifié.",
+                ],
+              },
+            ],
+            actions: [
+              { label: "Politique de confidentialité", href: `${PRIVACY_URL}?lang=fr`, primary: false },
+              { label: "Contrat utilisateur", href: `${TERMS_URL}?lang=fr`, primary: true },
+            ],
+          },
+          de: {
+            metaTitle: "Ayah AI | Support",
+            eyebrow: "Ayah AI • Support",
+            title: "Support",
+            updated: "Letzte Aktualisierung: 11. März 2026",
+            intro:
+              `Für Abrechnung, technische Fehler, Datenschutzanfragen, Inhaltsmeldungen oder Probleme mit KI-Ausgaben erreichen Sie uns unter <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+            summaryCards: [
+              { title: "Ziel für erste Antwort", body: "Innerhalb von 48 Geschäfts­stunden." },
+              { title: "Priorität", body: "Käufe, Abrechnungsfehler, Datenschutzrechte und Zugriffsprobleme." },
+              { title: "Hilfreiche Angaben", body: "Client-ID, Gerätemodell, App-Version, Screenshot und kurze Fehlerbeschreibung." },
+            ],
+            sections: [
+              {
+                h: "1) So kontaktieren Sie den Support",
+                list: [
+                  `Primäre Support-Adresse: <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>`,
+                  "Bitte geben Sie nach Möglichkeit Client-ID, Gerätemodell, Betriebssystemversion und App-Version an.",
+                  "Beschreiben Sie kurz, wann das Problem auftrat und wie es reproduziert werden kann.",
+                  "Fügen Sie, wenn möglich, einen Screenshot oder eine kurze Bildschirmaufnahme hinzu.",
+                ],
+              },
+              {
+                h: "2) Mitgliedschaft, Kündigung, Verlängerung und Erstattung",
+                list: [
+                  "Die Deaktivierung der Verlängerung monatlicher und jährlicher Abonnements erfolgt in den App-Store- oder Google-Play-Kontoeinstellungen.",
+                  "Wenn ein einmaliger Lifetime-Plan angeboten wird, verlängert sich dieser nicht automatisch.",
+                  "Sie können die Wiederherstellung von Käufen über die Mitgliedschafts- oder Paywall-Oberflächen in der App versuchen.",
+                  "Erstattungen und Belastungsstreitigkeiten richten sich nach Store-Regeln und zwingenden Verbraucherrechten. Bitte nennen Sie Produkt-ID und Kaufzeitpunkt.",
+                ],
+              },
+              {
+                h: "3) Datenschutz- und Betroffenenanfragen",
+                list: [
+                  "Anfragen zu Auskunft, Berichtigung, Löschung, Widerspruch und Ähnlichem können an dieselbe Adresse gesendet werden.",
+                  "Bitte geben Sie Ihre Client-ID und die gewünschte Maßnahme an.",
+                  "Aus Sicherheitsgründen können wir zusätzliche Verifizierung verlangen.",
+                ],
+              },
+              {
+                h: "4) Meldungen zu KI und Inhalten",
+                list: [
+                  "Sie können ungenaue, unsichere oder ungeeignete KI-Antworten über den Support melden.",
+                  "Ebenso können Sie Attributionsprobleme bei Text, Übersetzung, Tafsir-Zusammenfassung oder Audio melden.",
+                  "Für Urheberrechts-, Lizenz- oder Takedown-Anfragen senden Sie bitte den betreffenden Inhaltsverweis und Ihre Erläuterung mit.",
+                ],
+              },
+              {
+                h: "5) Grundlegende Prüfungen vor Ihrer Nachricht",
+                list: [
+                  "Schließen und öffnen Sie die App erneut.",
+                  "Prüfen Sie Internetverbindung sowie Datum/Uhrzeit des Geräts.",
+                  "Stellen Sie sicher, dass Sie die aktuelle App-Version nutzen.",
+                  "Bei Kaufproblemen prüfen Sie bitte, ob das richtige Store-Konto auf dem Gerät aktiv ist.",
+                ],
+              },
+              {
+                h: "6) Supportsprache und Umfang",
+                list: [
+                  "Sie können uns in jeder Sprache schreiben, die derzeit von der App unterstützt wird.",
+                  "Falls nötig antworten wir auf Türkisch oder Englisch, besonders bei technischen Logs oder Store-Themen.",
+                  "Die KI-Ausgabe in der App ersetzt keine offizielle Supportantwort.",
+                ],
+              },
+              {
+                h: "7) Wichtiger Hinweis",
+                notice:
+                  "Ayah-AI-Inhalte und KI-Ausgaben dienen religiöser und edukativer Unterstützung. Sie dürfen nicht als offizielles religiöses Urteil, Rechtsberatung, medizinischer Rat oder Notfallanweisung verwendet werden.",
+                p: [
+                  "Bei dringenden Sicherheits-, Gesundheits- oder Rechtsfragen wenden Sie sich an eine zuständige Stelle oder eine qualifizierte Fachperson.",
+                ],
+              },
+            ],
+            actions: [
+              { label: "Datenschutzrichtlinie", href: `${PRIVACY_URL}?lang=de`, primary: false },
+              { label: "Nutzungsvereinbarung", href: `${TERMS_URL}?lang=de`, primary: true },
+            ],
+          },
+          ru: {
+            metaTitle: "Ayah AI | Поддержка",
+            eyebrow: "Ayah AI • Поддержка",
+            title: "Поддержка",
+            updated: "Последнее обновление: 11 марта 2026",
+            intro:
+              `По вопросам биллинга, технических ошибок, запросов о конфиденциальности, жалоб на контент или проблем с ответами ИИ свяжитесь с нами по адресу <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+            summaryCards: [
+              { title: "Первая реакция", body: "В течение 48 рабочих часов." },
+              { title: "Приоритет", body: "Покупки, ошибки списания, запросы прав на данные и проблемы доступа." },
+              { title: "Полезные данные", body: "Client ID, модель устройства, версия приложения, скриншот и краткое описание." },
+            ],
+            sections: [
+              {
+                h: "1) Как связаться с поддержкой",
+                list: [
+                  `Основной адрес поддержки: <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>`,
+                  "По возможности укажите client ID, модель устройства, версию ОС и версию приложения.",
+                  "Кратко опишите, когда возникла проблема и как ее можно повторить.",
+                  "Приложите скриншот или короткую запись экрана, если они есть.",
+                ],
+              },
+              {
+                h: "2) Подписка, отмена, продление и возвраты",
+                list: [
+                  "Отключение продления ежемесячных и годовых подписок выполняется в настройках учетной записи App Store или Google Play.",
+                  "Если предлагается разовый пожизненный план, он не продлевается автоматически.",
+                  "Вы можете попробовать восстановить покупку через экран членства или paywall внутри приложения.",
+                  "Возвраты и споры по списаниям рассматриваются по правилам магазина и обязательным правам потребителей. Укажите ID продукта и время покупки.",
+                ],
+              },
+              {
+                h: "3) Конфиденциальность и запросы прав",
+                list: [
+                  "Запросы на доступ, исправление, удаление, возражение и аналогичные запросы можно отправлять на тот же адрес.",
+                  "Пожалуйста, укажите client ID и желаемое действие.",
+                  "По соображениям безопасности мы можем запросить дополнительную проверку.",
+                ],
+              },
+              {
+                h: "4) Жалобы на ИИ и контент",
+                list: [
+                  "Вы можете сообщить о неточных, небезопасных или неподходящих ответах ИИ через поддержку.",
+                  "Также можно сообщать о проблемах с атрибуцией текста, перевода, краткого тафсира или аудио.",
+                  "Для запросов по авторским правам, лицензии или удалению добавьте ссылку на контент и пояснение.",
+                ],
+              },
+              {
+                h: "5) Базовые проверки перед обращением",
+                list: [
+                  "Закройте и снова откройте приложение.",
+                  "Проверьте интернет-соединение и настройки даты/времени на устройстве.",
+                  "Убедитесь, что у вас установлена последняя версия приложения.",
+                  "Если проблема связана с покупкой, проверьте, что на устройстве активен нужный аккаунт магазина.",
+                ],
+              },
+              {
+                h: "6) Язык поддержки и пределы",
+                list: [
+                  "Вы можете писать нам на любом языке, который поддерживает приложение.",
+                  "При необходимости мы можем ответить на турецком или английском, особенно по техническим логам и вопросам магазина.",
+                  "Ответ ИИ внутри приложения не заменяет официальный ответ поддержки.",
+                ],
+              },
+              {
+                h: "7) Важное примечание",
+                notice:
+                  "Контент Ayah AI и ответы ИИ предназначены для религиозной и образовательной поддержки. Их нельзя использовать как официальное религиозное заключение, юридическую консультацию, медицинский совет или экстренное руководство.",
+                p: [
+                  "Если у вас срочная проблема, связанная с безопасностью, здоровьем или правом, обратитесь к компетентному специалисту или уполномоченному местному органу.",
+                ],
+              },
+            ],
+            actions: [
+              { label: "Политика конфиденциальности", href: `${PRIVACY_URL}?lang=ru`, primary: false },
+              { label: "Пользовательское соглашение", href: `${TERMS_URL}?lang=ru`, primary: true },
+            ],
+          },
+          es: {
+            metaTitle: "Ayah AI | Soporte",
+            eyebrow: "Ayah AI • Soporte",
+            title: "Soporte",
+            updated: "Última actualización: 11 de marzo de 2026",
+            intro:
+              `Para facturación, errores técnicos, solicitudes de privacidad, reportes de contenido o problemas con respuestas de IA, escríbanos a <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+            summaryCards: [
+              { title: "Objetivo de primera respuesta", body: "Dentro de 48 horas hábiles." },
+              { title: "Temas prioritarios", body: "Compras, errores de cobro, derechos sobre datos y problemas de acceso." },
+              { title: "Datos útiles", body: "Client ID, modelo del dispositivo, versión de la app, captura y breve resumen." },
+            ],
+            sections: [
+              {
+                h: "1) Cómo contactar con soporte",
+                list: [
+                  `Dirección principal: <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>`,
+                  "Si es posible, incluya client ID, modelo del dispositivo, versión del sistema operativo y versión de la app.",
+                  "Explique brevemente cuándo ocurrió el problema y cómo puede reproducirse.",
+                  "Adjunte captura de pantalla o grabación breve si la tiene.",
+                ],
+              },
+              {
+                h: "2) Membresía, cancelación, renovación y reembolsos",
+                list: [
+                  "La desactivación de la renovación de planes mensuales y anuales se gestiona desde App Store o Google Play.",
+                  "Si se ofrece un plan vitalicio de pago único, ese plan no se renueva automáticamente.",
+                  "Puede intentar restaurar compras desde las pantallas de membresía o paywall dentro de la app.",
+                  "Los reembolsos y disputas de cargos se rigen por las reglas de la tienda y los derechos imperativos del consumidor. Incluya ID de producto y hora de compra.",
+                ],
+              },
+              {
+                h: "3) Privacidad y solicitudes de derechos",
+                list: [
+                  "Las solicitudes de acceso, rectificación, eliminación, oposición y similares pueden enviarse al mismo correo.",
+                  "Indique su client ID y la acción solicitada.",
+                  "Podemos pedir verificación adicional por motivos de seguridad.",
+                ],
+              },
+              {
+                h: "4) Reportes de IA y contenido",
+                list: [
+                  "Puede reportar respuestas de IA inexactas, inseguras o no adecuadas a través del soporte.",
+                  "También puede reportar problemas de atribución relacionados con texto, traducción, resumen de tafsir o audio.",
+                  "Para solicitudes de copyright, licencia o retirada, incluya la referencia del contenido y su explicación.",
+                ],
+              },
+              {
+                h: "5) Comprobaciones básicas antes de escribir",
+                list: [
+                  "Cierre y vuelva a abrir la aplicación.",
+                  "Revise la conexión a internet y la configuración de fecha/hora del dispositivo.",
+                  "Confirme que usa la última versión de la app.",
+                  "Si el problema es de compra, verifique que la cuenta correcta de la tienda esté activa.",
+                ],
+              },
+              {
+                h: "6) Idioma y alcance del soporte",
+                list: [
+                  "Puede escribirnos en cualquiera de los idiomas compatibles con la app.",
+                  "Si hace falta, podemos responder en turco o inglés, especialmente para registros técnicos y temas de tienda.",
+                  "La salida de IA dentro de la app no sustituye una respuesta oficial de soporte.",
+                ],
+              },
+              {
+                h: "7) Aviso importante",
+                notice:
+                  "El contenido de Ayah AI y las respuestas de IA están pensados para apoyo religioso y educativo. No deben utilizarse como fatwa oficial, asesoramiento legal, médico ni guía de emergencia.",
+                p: [
+                  "Si enfrenta una situación urgente de seguridad, salud o ámbito legal, contacte con una autoridad competente o un profesional cualificado.",
+                ],
+              },
+            ],
+            actions: [
+              { label: "Política de privacidad", href: `${PRIVACY_URL}?lang=es`, primary: false },
+              { label: "Acuerdo de usuario", href: `${TERMS_URL}?lang=es`, primary: true },
+            ],
+          },
+          az: {
+            metaTitle: "Ayah AI | Dəstək",
+            eyebrow: "Ayah AI • Dəstək",
+            title: "Dəstək",
+            updated: "Son yenilənmə: 11 mart 2026",
+            intro:
+              `Ödəniş, texniki xəta, məxfilik müraciəti, məzmun bildirişi və ya AI cavab problemi üçün bizimlə <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a> ünvanında əlaqə saxlayın.`,
+            summaryCards: [
+              { title: "İlk cavab hədəfi", body: "İş günlərində 48 saat ərzində." },
+              { title: "Prioritet mövzular", body: "Alışlar, səhv ödəniş, məlumat hüquqları və giriş problemləri." },
+              { title: "Faydalı məlumatlar", body: "Client ID, cihaz modeli, tətbiq versiyası, ekran görüntüsü və qısa izah." },
+            ],
+            sections: [
+              {
+                h: "1) Dəstəyə necə yazmaq olar",
+                list: [
+                  `Əsas dəstək ünvanı: <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>`,
+                  "Mümkünsə client ID, cihaz modeli, əməliyyat sistemi versiyası və tətbiq versiyasını əlavə edin.",
+                  "Problemin nə vaxt baş verdiyini və necə təkrarlandığını qısa yazın.",
+                  "Varsa ekran görüntüsü və ya qısa ekran videosu əlavə edin.",
+                ],
+              },
+              {
+                h: "2) Üzvlük, ləğv, yenilənmə və geri ödəniş",
+                list: [
+                  "Aylıq və illik abunələrin yenilənməsini dayandırmaq App Store və ya Google Play hesab ayarlarından idarə olunur.",
+                  "Təklif edilən birdəfəlik ömürlük plan avtomatik yenilənmir.",
+                  "Alışların bərpasını tətbiqdaxili üzvlük və ya paywall ekranından sınaya bilərsiniz.",
+                  "Geri ödəniş və ödəniş etirazları mağaza qaydaları və məcburi istehlakçı hüquqları əsasında həll olunur. Məhsul ID-si və alış vaxtını göndərin.",
+                ],
+              },
+              {
+                h: "3) Məxfilik və məlumat hüquqları",
+                list: [
+                  "Giriş, düzəliş, silinmə, etiraz və oxşar müraciətləri eyni e-poçta göndərə bilərsiniz.",
+                  "Client ID və istədiyiniz əməliyyatı qeyd edin.",
+                  "Təhlükəsizlik məqsədilə əlavə doğrulama istəyə bilərik.",
+                ],
+              },
+              {
+                h: "4) AI və məzmun bildirişləri",
+                list: [
+                  "Səhv, təhlükəli və ya uyğun olmayan AI cavablarını dəstək vasitəsilə bildirə bilərsiniz.",
+                  "Mətn, tərcümə, qısa təfsir və ya audio attribution problemlərini də göndərə bilərsiniz.",
+                  "Telif, lisenziya və ya silinmə tələbi üçün məzmun istinadını və açıqlamanızı əlavə edin.",
+                ],
+              },
+              {
+                h: "5) Yazmazdan əvvəl əsas yoxlamalar",
+                list: [
+                  "Tətbiqi bağlayıb yenidən açın.",
+                  "İnternet bağlantısını və cihazın tarix/saat ayarlarını yoxlayın.",
+                  "Tətbiqin ən son versiyasını istifadə etdiyinizə əmin olun.",
+                  "Problem alışladırsa, düzgün mağaza hesabının aktiv olduğunu təsdiqləyin.",
+                ],
+              },
+              {
+                h: "6) Dəstək dili və əhatə dairəsi",
+                list: [
+                  "Bizə tətbiqin dəstəklədiyi istənilən dildə yaza bilərsiniz.",
+                  "Zərurət olduqda, xüsusən texniki log və mağaza mövzularında cavabı türk və ya ingilis dilində verə bilərik.",
+                  "Tətbiq daxilindəki AI cavabı rəsmi dəstək cavabını əvəz etmir.",
+                ],
+              },
+              {
+                h: "7) Vacib qeyd",
+                notice:
+                  "Ayah AI məzmunu və AI cavabları dini və tədris dəstəyi üçündür. Bunlar rəsmi fətva, hüquqi məsləhət, tibbi məsləhət və ya təcili yönləndirmə kimi istifadə edilməməlidir.",
+                p: [
+                  "Təhlükəsizlik, sağlamlıq və ya hüquqla bağlı təcili hal varsa, səlahiyyətli quruma və ya ixtisaslı mütəxəssisə müraciət edin.",
+                ],
+              },
+            ],
+            actions: [
+              { label: "Məxfilik Siyasəti", href: `${PRIVACY_URL}?lang=az`, primary: false },
+              { label: "İstifadəçi müqaviləsi", href: `${TERMS_URL}?lang=az`, primary: true },
+            ],
+          },
+          bs: {
+            metaTitle: "Ayah AI | Podrška",
+            eyebrow: "Ayah AI • Podrška",
+            title: "Podrška",
+            updated: "Posljednje ažuriranje: 11. mart 2026.",
+            intro:
+              `Za naplatu, tehničke greške, zahtjeve za privatnost, prijave sadržaja ili probleme s AI odgovorima kontaktirajte nas na <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>.`,
+            summaryCards: [
+              { title: "Prvi odgovor", body: "U roku od 48 radnih sati." },
+              { title: "Prioritetne teme", body: "Kupovine, pogrešna naplata, prava na podatke i problemi pristupa." },
+              { title: "Korisni podaci", body: "Client ID, model uređaja, verzija aplikacije, screenshot i kratak opis problema." },
+            ],
+            sections: [
+              {
+                h: "1) Kako kontaktirati podršku",
+                list: [
+                  `Glavna adresa podrške: <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>`,
+                  "Ako je moguće, navedite client ID, model uređaja, verziju sistema i verziju aplikacije.",
+                  "Ukratko objasnite kada se problem pojavio i kako ga ponovo izazvati.",
+                  "Dodajte screenshot ili kratki snimak ekrana ako ga imate.",
+                ],
+              },
+              {
+                h: "2) Članstvo, otkazivanje, obnova i povrat",
+                list: [
+                  "Isključivanje obnove mjesečnih i godišnjih pretplata radi se u postavkama App Store ili Google Play naloga.",
+                  "Ako se nudi jednokratni doživotni plan, on se ne obnavlja automatski.",
+                  "Obnovu kupovine možete pokušati iz ekrana članstva ili paywall ekrana u aplikaciji.",
+                  "Povrat i sporovi naplate zavise od pravila trgovine i obaveznih prava potrošača. Navedite ID proizvoda i vrijeme kupovine.",
+                ],
+              },
+              {
+                h: "3) Privatnost i zahtjevi za prava",
+                list: [
+                  "Zahtjevi za pristup, ispravku, brisanje, prigovor i slično mogu se poslati na istu adresu.",
+                  "Molimo navedite client ID i željenu radnju.",
+                  "Zbog sigurnosti možemo tražiti dodatnu provjeru.",
+                ],
+              },
+              {
+                h: "4) AI i prijave sadržaja",
+                list: [
+                  "Netačne, nesigurne ili neprikladne AI odgovore možete prijaviti putem podrške.",
+                  "Možete prijaviti i attribution probleme povezane s tekstom, prijevodom, sažetkom tefsira ili audiom.",
+                  "Za zahtjeve zbog autorskih prava, licence ili uklanjanja pošaljite referencu sadržaja i objašnjenje.",
+                ],
+              },
+              {
+                h: "5) Osnovne provjere prije javljanja",
+                list: [
+                  "Zatvorite pa ponovo otvorite aplikaciju.",
+                  "Provjerite internet konekciju i datum/vrijeme na uređaju.",
+                  "Uvjerite se da koristite najnoviju verziju aplikacije.",
+                  "Ako je problem vezan za kupovinu, provjerite da je aktivan tačan store nalog.",
+                ],
+              },
+              {
+                h: "6) Jezik podrške i obuhvat",
+                list: [
+                  "Možete nam pisati na bilo kojem jeziku koji aplikacija podržava.",
+                  "Po potrebi možemo odgovoriti na turskom ili engleskom, posebno za tehničke logove i store teme.",
+                  "AI odgovor unutar aplikacije ne zamjenjuje službeni odgovor podrške.",
+                ],
+              },
+              {
+                h: "7) Važna napomena",
+                notice:
+                  "Ayah AI sadržaj i AI izlaz služe za vjersku i edukativnu podršku. Ne smiju se koristiti kao službena fetva, pravni savjet, medicinski savjet ili hitna uputa.",
+                p: [
+                  "Ako se radi o hitnom sigurnosnom, zdravstvenom ili pravnom pitanju, obratite se nadležnoj instituciji ili kvalifikovanom stručnjaku.",
+                ],
+              },
+            ],
+            actions: [
+              { label: "Politika privatnosti", href: `${PRIVACY_URL}?lang=bs`, primary: false },
+              { label: "Korisnički ugovor", href: `${TERMS_URL}?lang=bs`, primary: true },
+            ],
+          },
+          fa: {
+            metaTitle: "Ayah AI | پشتیبانی",
+            eyebrow: "Ayah AI • پشتیبانی",
+            title: "پشتیبانی",
+            updated: "آخرین به‌روزرسانی: 11 مارس 2026",
+            intro:
+              `برای امور پرداخت، خطای فنی، درخواست حریم خصوصی، گزارش محتوا یا مشکل در پاسخ AI با ما از طریق <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a> تماس بگیرید.`,
+            summaryCards: [
+              { title: "هدف پاسخ اولیه", body: "در 48 ساعت کاری." },
+              { title: "موضوعات اولویت‌دار", body: "خریدها، خطای صورتحساب، حقوق داده و مشکلات دسترسی." },
+              { title: "اطلاعات مفید", body: "شناسه مشتری، مدل دستگاه، نسخه برنامه، تصویر صفحه و توضیح کوتاه." },
+            ],
+            sections: [
+              {
+                h: "1) چگونه با پشتیبانی تماس بگیرید",
+                list: [
+                  `نشانی اصلی پشتیبانی: <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>`,
+                  "در صورت امکان شناسه مشتری، مدل دستگاه، نسخه سیستم‌عامل و نسخه برنامه را درج کنید.",
+                  "به‌اختصار توضیح دهید مشکل چه زمانی رخ داده و چگونه تکرار می‌شود.",
+                  "در صورت وجود، تصویر صفحه یا ویدئوی کوتاه ارسال کنید.",
+                ],
+              },
+              {
+                h: "2) عضویت، لغو، تمدید و بازپرداخت",
+                list: [
+                  "غیرفعال کردن تمدید اشتراک‌های ماهانه و سالانه از تنظیمات حساب App Store یا Google Play انجام می‌شود.",
+                  "اگر طرح مادام‌العمر یک‌باره ارائه شود، به‌صورت خودکار تمدید نمی‌شود.",
+                  "می‌توانید بازیابی خرید را از صفحه عضویت یا paywall داخل برنامه امتحان کنید.",
+                  "بازپرداخت و اختلاف‌های مربوط به پرداخت تابع قوانین فروشگاه و حقوق الزامی مصرف‌کننده است. لطفاً شناسه محصول و زمان خرید را ارسال کنید.",
+                ],
+              },
+              {
+                h: "3) حریم خصوصی و درخواست‌های حقوق داده",
+                list: [
+                  "درخواست‌های دسترسی، اصلاح، حذف، اعتراض و موارد مشابه را می‌توان به همین ایمیل فرستاد.",
+                  "لطفاً شناسه مشتری و اقدام درخواستی خود را ذکر کنید.",
+                  "ممکن است به دلایل امنیتی احراز هویت بیشتری درخواست کنیم.",
+                ],
+              },
+              {
+                h: "4) گزارش‌های AI و محتوا",
+                list: [
+                  "می‌توانید پاسخ‌های نادقیق، ناایمن یا نامناسب AI را از طریق پشتیبانی گزارش کنید.",
+                  "همچنین می‌توانید مشکلات attribution مربوط به متن، ترجمه، خلاصه تفسیر یا صوت را گزارش دهید.",
+                  "برای درخواست‌های حق نشر، مجوز یا حذف، مرجع محتوا و توضیح خود را اضافه کنید.",
+                ],
+              },
+              {
+                h: "5) پیش از ارسال پیام این موارد را بررسی کنید",
+                list: [
+                  "برنامه را ببندید و دوباره باز کنید.",
+                  "اتصال اینترنت و تنظیمات تاریخ/ساعت دستگاه را بررسی کنید.",
+                  "مطمئن شوید از آخرین نسخه برنامه استفاده می‌کنید.",
+                  "اگر مشکل مربوط به خرید است، مطمئن شوید حساب درست فروشگاه روی دستگاه فعال است.",
+                ],
+              },
+              {
+                h: "6) زبان پشتیبانی و دامنه",
+                list: [
+                  "می‌توانید در هر زبانی که برنامه پشتیبانی می‌کند برای ما بنویسید.",
+                  "در صورت نیاز، به‌ویژه برای لاگ‌های فنی و مسائل فروشگاه، ممکن است به ترکی یا انگلیسی پاسخ دهیم.",
+                  "پاسخ AI داخل برنامه جایگزین پاسخ رسمی پشتیبانی نیست.",
+                ],
+              },
+              {
+                h: "7) یادداشت مهم",
+                notice:
+                  "محتوای Ayah AI و خروجی AI برای پشتیبانی دینی و آموزشی است. نباید به عنوان فتوا، مشاوره حقوقی، مشاوره پزشکی یا راهنمای اضطراری استفاده شود.",
+                p: [
+                  "اگر با وضعیت فوری امنیتی، سلامتی یا حقوقی روبه‌رو هستید، با مرجع صالح یا متخصص واجد صلاحیت تماس بگیرید.",
+                ],
+              },
+            ],
+            actions: [
+              { label: "سیاست حریم خصوصی", href: `${PRIVACY_URL}?lang=fa`, primary: false },
+              { label: "توافق کاربر", href: `${TERMS_URL}?lang=fa`, primary: true },
+            ],
+          },
+        },
+      });
+    </script>
   </body>
 </html>
