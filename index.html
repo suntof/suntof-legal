@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ayah AI Legal</title>
+    <title>Suntof Legal Pages</title>
     <style>
       :root {
         color-scheme: light;
@@ -13,6 +13,7 @@
         --muted: #5a6864;
         --line: #d5ded9;
         --brand: #0f766e;
+        --brand-blue: #1752a7;
       }
 
       * {
@@ -72,31 +73,66 @@
         color: var(--brand);
         font-size: 18px;
       }
+
+      .product {
+        margin-top: 24px;
+      }
+
+      .product h2 {
+        margin: 0;
+        font-size: 22px;
+      }
+
+      .product p {
+        margin-top: 6px;
+      }
+
+      .gate strong {
+        color: var(--brand-blue);
+      }
     </style>
   </head>
   <body>
     <main>
       <section class="panel">
-        <h1>Ayah AI Legal Pages</h1>
+        <h1>Suntof Legal Pages</h1>
         <p>
-          This site hosts the public legal and support pages used by Ayah AI.
-          Each page supports multiple in-app languages through the <code>?lang=</code>
-          query parameter.
+          This site hosts public legal and support pages for Suntof apps.
         </p>
-        <div class="grid">
-          <a class="card" href="/suntof-legal/privacy-policy/">
-            <strong>Privacy Policy</strong>
-            Data categories, processing purposes, service providers, rights, and AI disclosures.
-          </a>
-          <a class="card" href="/suntof-legal/terms-of-use/">
-            <strong>Terms of Use</strong>
-            Membership rules, payment terms, AI limitations, and content-use boundaries.
-          </a>
-          <a class="card" href="/suntof-legal/support/index.html">
-            <strong>Support</strong>
-            Billing help, privacy requests, AI reporting, and technical contact details.
-          </a>
-        </div>
+
+        <section class="product">
+          <h2>Ayah AI</h2>
+          <p>Public legal and support pages for Ayah AI.</p>
+          <div class="grid">
+            <a class="card" href="/suntof-legal/privacy-policy/">
+              <strong>Privacy Policy</strong>
+              Data categories, processing purposes, service providers, rights, and AI disclosures.
+            </a>
+            <a class="card" href="/suntof-legal/terms-of-use/">
+              <strong>Terms of Use</strong>
+              Membership rules, payment terms, AI limitations, and content-use boundaries.
+            </a>
+            <a class="card" href="/suntof-legal/support/index.html">
+              <strong>Support</strong>
+              Billing help, privacy requests, AI reporting, and technical contact details.
+            </a>
+          </div>
+        </section>
+
+        <section class="product">
+          <h2>Gate Jam: Baggage Sort</h2>
+          <p>Public privacy and support pages for the Gate Jam Android internal/closed-test build.</p>
+          <div class="grid">
+            <a class="card gate" href="/suntof-legal/gate-jam-baggage-sort/privacy-policy/">
+              <strong>Privacy Policy</strong>
+              Current no-network build, local progress, and optional playtest report export.
+            </a>
+            <a class="card gate" href="/suntof-legal/gate-jam-baggage-sort/support/">
+              <strong>Support</strong>
+              Contact, privacy requests, closed-test feedback, and report deletion requests.
+            </a>
+          </div>
+        </section>
       </section>
     </main>
   </body>
