@@ -25,7 +25,7 @@
         <div class="summary">
           <div class="summary-card">
             <strong>Local-first gameplay</strong>
-            <span>Progress, settings, coins, boosters, gallery unlocks, and event claims are stored on your device.</span>
+            <span>Progress, settings, coins, boosters, gallery unlocks, and event claims stay on your device. Android backup and device transfer are disabled.</span>
           </div>
           <div class="summary-card">
             <strong>No account required</strong>
@@ -70,6 +70,10 @@
                 event-log preference.
               </li>
               <li>
+                <strong>Android backup:</strong> cloud backup and device-to-device
+                transfer are disabled for local game data in the Android release.
+              </li>
+              <li>
                 <strong>Local diagnostics:</strong> limited gameplay diagnostics
                 used by test builds remain on the device unless you explicitly
                 send an exported report to support.
@@ -94,11 +98,12 @@
               choices and Google's policies.
             </p>
             <ul>
-              <li>No account registration or login in the current prototype.</li>
+              <li>No account registration or login in the current release.</li>
               <li>Rewarded ads are optional and are requested only after the player chooses an ad-labelled reward.</li>
-              <li>No in-app purchase products are active in the current prototype.</li>
+              <li>No in-app purchase products are active in the current release.</li>
               <li>No first-party remote gameplay analytics or cloud save is active.</li>
               <li>No precise location, contacts, camera, microphone, or files access is required for core gameplay.</li>
+              <li>The Android release denies cleartext HTTP traffic.</li>
             </ul>
           </article>
 
@@ -133,7 +138,7 @@
           <article class="section">
             <h2>7) Retention and deletion</h2>
             <ul>
-              <li>Local game data remains on your device until you reset progress, clear browser/app data, or uninstall the app.</li>
+              <li>Local game data remains on your device until you reset progress, clear browser/app data, or uninstall the app. Android backup and device-to-device transfer are disabled.</li>
               <li>The optional local QA event log can be disabled or cleared from Settings.</li>
               <li>If you send information to us by email, you can request deletion by contacting <a href="mailto:suntof.apps@gmail.com">suntof.apps@gmail.com</a>.</li>
             </ul>
