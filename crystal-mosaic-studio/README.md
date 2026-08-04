@@ -1,6 +1,6 @@
-# Crystal Mosaic Studio Legal Pages
+# Prism Mosaic Legal Pages
 
-Public legal pages for Crystal Mosaic Studio.
+Public legal pages for Prism Mosaic: Gem Sorting.
 
 - Privacy Policy: https://suntof.github.io/suntof-legal/crystal-mosaic-studio/privacy-policy/
 - Support: https://suntof.github.io/suntof-legal/crystal-mosaic-studio/support/
