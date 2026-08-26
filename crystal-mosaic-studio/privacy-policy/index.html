@@ -13,13 +13,13 @@
           <div>
             <div class="eyebrow">Prism Mosaic - Privacy</div>
             <h1>Privacy Policy</h1>
-            <p class="muted">Last updated: August 4, 2026</p>
+            <p class="muted">Last updated: August 26, 2026</p>
           </div>
         </header>
 
         <p class="lead">
           This Privacy Policy explains how Suntof Solutions handles information
-          for Prism Mosaic: Gem Sorting on Android and the web.
+          for Prism Mosaic: Gem Sorting on iOS, Android, and the web.
         </p>
 
         <div class="summary">
@@ -29,11 +29,11 @@
           </div>
           <div class="summary-card">
             <strong>No account required</strong>
-            <span>The game does not require registration, login, contacts, location, camera, or microphone access.</span>
+            <span>The game does not require registration, login, contacts, precise location permission, camera, or microphone access.</span>
           </div>
           <div class="summary-card">
-            <strong>Optional rewarded ads</strong>
-            <span>When ads are enabled, Google Mobile Ads and Google's consent platform process ad-related device and interaction data.</span>
+            <strong>Ads and privacy choices</strong>
+            <span>Mobile releases may show banner, interstitial, and player-initiated rewarded ads. Consent and tracking choices are requested where required.</span>
           </div>
         </div>
 
@@ -50,7 +50,7 @@
           <article class="section">
             <h2>2) Scope of this policy</h2>
             <p>
-              This policy covers the Android and web builds of Prism Mosaic. The
+              This policy covers the iOS, Android, and web builds of Prism Mosaic. The
               exact SDK and ad configuration can vary by release; material changes
               to collection or sharing will be reflected here before distribution.
             </p>
@@ -79,6 +79,12 @@
                 send an exported report to support.
               </li>
               <li>
+                <strong>Advertising and SDK data:</strong> in mobile releases,
+                Google Mobile Ads may collect an IP-derived approximate location,
+                device identifiers, product and ad interactions, advertising data,
+                crash data, performance data, and other diagnostic data.
+              </li>
+              <li>
                 <strong>Support communications:</strong> if you email us, we
                 receive the email address and information you include in your
                 message.
@@ -89,22 +95,38 @@
           <article class="section">
             <h2>4) SDK and network status</h2>
             <p>
-              The Android app uses Capacitor and may provide optional rewarded ads
-              through Google Mobile Ads. Before an ad request, Google's User
-              Messaging Platform checks whether consent or a privacy-options entry
-              point is required. Google may process device identifiers, IP address,
-              approximate location derived from IP, diagnostics, and ad interactions
-              to deliver, secure, limit, and measure ads according to the user's
-              choices and Google's policies.
+              The iOS and Android apps use Capacitor and may show banner and
+              interstitial ads, plus rewarded ads that the player chooses to start,
+              through Google Mobile Ads. Before ad requests, Google's User Messaging
+              Platform checks whether consent or a privacy-options entry point is
+              required. On iOS, App Tracking Transparency permission is requested
+              before data that requires tracking permission is accessed. Google may
+              process device identifiers, IP address, approximate location derived
+              from IP, product and ad interactions, advertising data, crash data,
+              performance data, and other diagnostics to deliver, secure, limit,
+              personalize, and measure ads according to the user's choices and
+              Google's policies.
             </p>
             <ul>
               <li>No account registration or login in the current release.</li>
+              <li>Banner and interstitial ads may appear during normal mobile gameplay at configured placements.</li>
               <li>Rewarded ads are optional and are requested only after the player chooses an ad-labelled reward.</li>
               <li>No in-app purchase products are active in the current release.</li>
               <li>No first-party remote gameplay analytics or cloud save is active.</li>
-              <li>No precise location, contacts, camera, microphone, or files access is required for core gameplay.</li>
+              <li>No precise location permission, contacts, camera, microphone, or files access is required for core gameplay.</li>
               <li>The Android release denies cleartext HTTP traffic.</li>
             </ul>
+            <p>
+              Where the user's consent, device settings, and applicable law allow,
+              Google may link device identifiers, approximate location, interactions,
+              advertising data, performance data, and other diagnostics to a device
+              and use them for cross-app or cross-site advertising measurement or
+              personalization. If tracking permission or consent is denied, the app
+              does not override that choice; ads may still be delivered using limited,
+              contextual, or non-personalized data as permitted by Google and law.
+              Crash data may also be processed without being linked to the user's
+              identity for diagnostics and app functionality.
+            </p>
           </article>
 
           <article class="section">
@@ -113,6 +135,7 @@
               <li>To run the game, save progress, and remember settings on your device.</li>
               <li>To let you export/import local save data.</li>
               <li>To support local QA and debugging when the optional event log is enabled.</li>
+              <li>To deliver, secure, limit, personalize, and measure advertising according to your consent and device choices.</li>
               <li>To respond to support, privacy, and deletion requests.</li>
             </ul>
           </article>
@@ -126,10 +149,13 @@
               privacy policy.
             </p>
             <p>
-              When ads are enabled, Google acts as an independent service provider
-              for ad delivery and consent. Review
+              When ads are enabled, Google and its advertising partners process data
+              for ad delivery, consent, measurement, fraud prevention, and related
+              purposes. Review
               <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>
               and use the in-app Ad privacy choices control when it is available.
+              On iOS, you can also change tracking permission in the device's Privacy
+              &amp; Security settings.
               This policy page is hosted on GitHub Pages. GitHub may process basic
               technical web logs when this page is visited.
             </p>
@@ -138,7 +164,7 @@
           <article class="section">
             <h2>7) Retention and deletion</h2>
             <ul>
-              <li>Local game data remains on your device until you reset progress, clear browser/app data, or uninstall the app. Android backup and device-to-device transfer are disabled.</li>
+              <li>Local game data remains on your device until you reset progress, clear browser/app data, or uninstall the app. Android backup and device-to-device transfer are disabled for the Android release.</li>
               <li>The optional local QA event log can be disabled or cleared from Settings.</li>
               <li>If you send information to us by email, you can request deletion by contacting <a href="mailto:suntof.apps@gmail.com">suntof.apps@gmail.com</a>.</li>
             </ul>
