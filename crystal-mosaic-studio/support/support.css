@@ -1,0 +1,27 @@
+* { box-sizing: border-box; }
+:root { color: #243230; background: #fff; font: 16px/1.65 system-ui, sans-serif; letter-spacing: 0; }
+body { margin: 0; }
+a { color: #086654; text-underline-offset: 4px; overflow-wrap: anywhere; }
+a:focus-visible, summary:focus-visible { outline: 3px solid #196eac; outline-offset: 4px; }
+.site-head, main, footer { width: min(100% - 40px, 900px); margin-inline: auto; }
+.site-head { padding-block: 24px; border-bottom: 1px solid #dce5e3; }
+.brand { display: inline-flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 750; text-decoration: none; color: #243230; }
+.brand img { border-radius: 8px; width: 48px; height: 48px; }
+nav { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-top: 20px; }
+nav a { display: inline-flex; align-items: center; min-height: 44px; }
+nav a[aria-current] { font-weight: 750; text-decoration-thickness: 3px; }
+h1, h2, p { margin: 0; }
+h1 { font-size: 36px; line-height: 1.2; }
+h2 { font-size: 22px; line-height: 1.35; }
+.intro { padding-block: 32px 24px; }
+.intro p { margin-top: 12px; color: #53635f; }
+.contact { border-left: 3px solid #198470; padding: 8px 0 8px 20px; margin-bottom: 32px; }
+.email { display: inline-block; margin-block: 8px; font-size: 19px; font-weight: 650; }
+.contact p { max-width: 72ch; }
+.questions h2 { margin-bottom: 12px; }
+details { border-top: 1px solid #dce5e3; padding-block: 4px; }
+details:last-child { border-bottom: 1px solid #dce5e3; }
+summary { cursor: pointer; padding: 16px 4px; font-weight: 650; overflow-wrap: anywhere; }
+details p { padding: 0 4px 20px; max-width: 76ch; }
+footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding-block: 32px; color: #53635f; font-size: 14px; }
+@media (max-width: 480px) { .site-head, main, footer { width: calc(100% - 32px); } h1 { font-size: 30px; } .contact { padding-left: 14px; } }
