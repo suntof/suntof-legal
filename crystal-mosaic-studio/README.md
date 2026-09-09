@@ -4,6 +4,7 @@ Public legal pages for Prism Mosaic: Gem Sorting.
 
 - Privacy Policy: https://suntof.github.io/suntof-legal/crystal-mosaic-studio/privacy-policy/
 - Support: https://suntof.github.io/suntof-legal/crystal-mosaic-studio/support/
+- Data deletion: https://suntof.github.io/suntof-legal/crystal-mosaic-studio/data-deletion/
 
 Support email:
 
