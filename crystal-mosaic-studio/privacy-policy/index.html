@@ -13,7 +13,7 @@
           <div>
             <div class="eyebrow">Prism Mosaic - Privacy</div>
             <h1>Privacy Policy</h1>
-            <p class="muted">Last updated: September 9, 2026</p>
+            <p class="muted">Last updated: September 10, 2026</p>
           </div>
         </header>
 
@@ -28,8 +28,8 @@
             <span>Progress, settings, coins, boosters, gallery unlocks, and event claims stay on your device. Android backup and device transfer are disabled.</span>
           </div>
           <div class="summary-card">
-            <strong>No account required</strong>
-            <span>The game does not require registration, login, contacts, precise location permission, camera, or microphone access.</span>
+            <strong>Optional rankings</strong>
+            <span>No login is required for gameplay. If you choose to join online rankings, the app creates an anonymous ranking account and public game profile.</span>
           </div>
           <div class="summary-card">
             <strong>Ads and privacy choices</strong>
@@ -78,6 +78,18 @@
                 share diagnostic information with support.
               </li>
               <li>
+                <strong>Optional ranking account and profile:</strong> after you
+                accept the ranking terms, we process a private authentication
+                identifier, random player code, player-chosen display
+                name, avatar, optional country selected by you, ranking scores,
+                completed-level results, season results, and related timestamps.
+              </li>
+              <li>
+                <strong>Ranking safety choices:</strong> if you use player safety
+                controls, we process hidden-player choices, report reasons, and
+                any optional details you submit with a report.
+              </li>
+              <li>
                 <strong>Advertising and SDK data:</strong> in mobile releases,
                 Google Mobile Ads may collect an IP-derived approximate location,
                 device identifiers, product and ad interactions, advertising data,
@@ -92,7 +104,7 @@
           </article>
 
           <article class="section">
-            <h2>4) SDK and network status</h2>
+            <h2>4) SDKs and network services</h2>
             <p>
               The iOS and Android apps use Capacitor and may show banner and
               interstitial ads, plus rewarded ads that the player chooses to start,
@@ -107,11 +119,13 @@
               Google's policies.
             </p>
             <ul>
-              <li>No account registration or login in the current release.</li>
+              <li>No login is required for core gameplay; online ranking participation is optional.</li>
+              <li>Firebase Authentication, App Check, and Firestore support ranking identity, abuse protection, and remote ranking storage.</li>
+              <li>Cloudflare routes and protects ranking-service traffic and may process IP addresses and request-security information under its policies.</li>
               <li>Banner and interstitial ads may appear during normal mobile gameplay at configured placements.</li>
               <li>Rewarded ads are optional and are requested only after the player chooses an ad-labelled reward.</li>
               <li>No in-app purchase products are active in the current release.</li>
-              <li>No first-party remote gameplay analytics or cloud save is active.</li>
+              <li>No first-party remote gameplay analytics or cloud save is active. Only ranking-related results are sent after a player joins rankings.</li>
               <li>No precise location permission, contacts, camera, microphone, or files access is required for core gameplay.</li>
               <li>The Android release denies cleartext HTTP traffic.</li>
             </ul>
@@ -132,6 +146,8 @@
             <h2>5) How information is used</h2>
             <ul>
               <li>To run the game, save progress, and remember settings on your device.</li>
+              <li>To create and manage an optional ranking profile, calculate world and country rankings, and operate recurring league seasons.</li>
+              <li>To validate submitted results, prevent manipulation, investigate reports, hide reported players, and keep the ranking service secure.</li>
               <li>To support local QA and debugging in test builds.</li>
               <li>To deliver, secure, limit, personalize, and measure advertising according to your consent and device choices.</li>
               <li>To respond to support, privacy, and deletion requests.</li>
@@ -141,10 +157,13 @@
           <article class="section">
             <h2>6) Sharing and third parties</h2>
             <p>
-              The game does not send gameplay progress to our servers.
-              If you choose to share screenshots or diagnostic information with
-              support, the communication service you use may process that
-              information under its own terms and privacy policy.
+              Local game saves are not uploaded as cloud saves. If you join
+              rankings, ranking profile and result data is sent to our ranking
+              service and stored using Google Firebase. Ranking requests are
+              routed through Cloudflare. These providers process information
+              according to their own terms and privacy policies. If you choose
+              to share screenshots or diagnostic information with support, the
+              communication service you use may also process that information.
             </p>
             <p>
               When ads are enabled, Google and its advertising partners process data
@@ -164,6 +183,9 @@
             <ul>
               <li>Local game data remains on your device until you clear browser/app data or uninstall the app. Android backup and device-to-device transfer are disabled for the Android release.</li>
               <li>Clearing local data can permanently remove your progress; we do not keep a server copy of your game save.</li>
+              <li>Ranking data remains until you delete the ranking account or it is removed under our safety, legal, or operational retention rules.</li>
+              <li>You can permanently delete your ranking profile, scores, submissions, league entries, hidden-player choices, and associated reports from the in-app ranking account screen. This does not delete the separate local game save.</li>
+              <li>You can export a copy of your ranking data from the same in-app account screen.</li>
               <li>If you send information to us by email, follow the steps on our <a href="../data-deletion/">Data Deletion page</a> to request deletion.</li>
             </ul>
           </article>
@@ -181,10 +203,11 @@
           <article class="section">
             <h2>9) Security</h2>
             <p>
-              We use reasonable safeguards for information received through
-              support emails. No method of storage or transmission is perfectly
-              secure, so please avoid sending sensitive personal information in
-              support messages or attachments.
+              Ranking traffic is encrypted in transit, access is authenticated,
+              and submitted results are checked on the server. We also use
+              reasonable safeguards for support emails. No method of storage or
+              transmission is perfectly secure, so please avoid sending sensitive
+              personal information in support messages or attachments.
             </p>
           </article>
 
@@ -193,7 +216,7 @@
             <p>
               We may update this policy when the game changes. Significant
               data-flow changes, such as purchases, remote analytics, crash
-              reporting, accounts, or cloud features, will be reflected in this
+              reporting, additional account options, or cloud features, will be reflected in this
               policy and the applicable store disclosures.
             </p>
           </article>
