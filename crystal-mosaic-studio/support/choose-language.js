@@ -1,6 +1,6 @@
 (function () {
   "use strict";
-  const supported = ["en", "tr", "es", "de", "fr", "pt-BR"];
+  const supported = ["en", "tr", "es", "de", "fr", "pt-BR", "it", "ar", "ja", "ko", "id"];
   const match = value => {
     const primary = String(value || "").toLowerCase().replace(/_/g, "-").split("-")[0];
     return primary === "pt" ? "pt-BR" : supported.includes(primary) ? primary : null;
