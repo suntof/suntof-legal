@@ -13,19 +13,36 @@
           <div>
             <div class="eyebrow">Prism Mosaic - Data deletion</div>
             <h1>Data deletion requests</h1>
-            <p class="muted">Last updated: September 10, 2026</p>
+            <p class="muted">Last updated: September 27, 2026</p>
           </div>
         </header>
 
         <p class="lead">
           Prism Mosaic: Gem Sorting is operated by Suntof Solutions. Core
           gameplay does not require an account. Players who voluntarily join
-          online rankings receive an anonymous ranking account. This page
-          explains the in-app deletion option, local-data deletion, and how to
-          request deletion from Suntof Solutions.
+          online rankings receive an anonymous ranking account. Players may
+          separately link a recovery email and opt in to private cloud backup.
+          This page explains the in-app deletion options, local-data deletion,
+          and how to request deletion from Suntof Solutions after uninstalling.
         </p>
 
         <div class="section-list">
+          <article class="section">
+            <h2>Delete a cloud backup or recovery account in the app</h2>
+            <p>These controls apply to releases with Cloud Backup in Settings. If your version does not offer them, you can still use the external request below without reinstalling or upgrading.</p>
+            <ol>
+              <li>Open Prism Mosaic and select <strong>Settings</strong>, then <strong>Cloud Backup</strong>.</li>
+              <li>To delete only the private cloud save, select <strong>Delete cloud backup</strong>. Progress on this device remains, and another backup will not start without your choice.</li>
+              <li>To delete the entire recovery account, enter the linked email address and password, then select <strong>Delete recovery account</strong> and confirm. This removes the Firebase authentication identity, private backup, and associated ranking data while leaving local progress on the device.</li>
+            </ol>
+            <p>
+              Public ranking data disappears promptly; some associated records may
+              finish deleting through a bounded background process. A minimal
+              non-gameplay revision marker may remain to prevent a delayed old
+              upload from recreating a deleted backup.
+            </p>
+          </article>
+
           <article class="section">
             <h2>Delete a ranking account in the app</h2>
             <ol>
@@ -34,11 +51,13 @@
               <li>Select <strong>Delete ranking account</strong>, enter the exact Player ID shown by the app, and confirm permanent deletion.</li>
             </ol>
             <p>
-              This removes the anonymous ranking identity and its ranking profile,
-              scores, result submissions, league entries, hidden-player choices,
-              and associated reports. The app then creates no new ranking account
-              unless you choose to join again. This action does not delete the
-              separate game progress stored locally on the device.
+              This removes the ranking profile, scores, result submissions,
+              league entries, hidden-player choices, and associated reports.
+              For an anonymous account it also removes the authentication identity.
+              If you linked a recovery email, that identity and its private backup
+              remain until you choose full recovery-account deletion. The app then
+              creates no new ranking profile unless you join again. Local progress
+              on the device is not deleted.
             </p>
           </article>
 
@@ -51,13 +70,17 @@
                 with the subject <strong>Prism Mosaic - Data Deletion Request</strong>.
               </li>
               <li>
-                If possible, write from the same email address used for earlier
-                support messages so we can locate the relevant records.
+                If possible, write from your linked recovery email address or
+                the address used for earlier support messages so we can locate
+                the relevant records. We may ask you to verify control of it.
               </li>
               <li>
                 State that you want your Prism Mosaic support messages, contact
-                details, attachments, and/or ranking account deleted. For a
-                ranking request, include the public Player ID shown in the app.
+                details, attachments, ranking account, cloud backup, and/or
+                recovery account deleted. For a
+                ranking request, include your public Player ID if you know it.
+                You do not need to reinstall the app to submit a request. A public
+                Player ID helps locate a record but is not proof of account ownership.
                 Do not send passwords, payment details, advertising identifiers,
                 or other sensitive information.
               </li>
@@ -65,6 +88,8 @@
             <p>
               We will review the request and delete eligible information under
               our control within 30 days after we can reasonably identify it.
+              We will notify you when it is completed and explain any information
+              retained and the reason for retaining it.
             </p>
           </article>
 
@@ -77,18 +102,34 @@
                 attachments are deleted after a verified request.
               </li>
               <li>
-                <strong>Ranking account data:</strong> the private authentication
-                identity, public Player ID, player-chosen display name,
+                <strong>Ranking account data:</strong> the public Player ID,
+                player-chosen display name,
                 avatar, optional country, ranking scores, submitted results,
                 league entries, hidden-player choices, and associated reports are
                 deleted through the in-app control or after a verified request.
+                An anonymous authentication identity is removed with the ranking
+                account; a linked recovery identity requires full-account deletion.
               </li>
               <li>
                 <strong>Local game data:</strong> progress, settings, coins,
-                boosters, gallery unlocks, and event state remain only on the
+                boosters, gallery unlocks, and event state remain on the
                 device. Clear the app's storage or uninstall the app to delete
-                them. Suntof Solutions cannot delete or recover this local data
-                remotely because it has no server copy.
+                the local copy. If you opted in to cloud backup, delete that
+                separate private copy in the app or request its deletion here.
+              </li>
+              <li>
+                <strong>Deleted-backup protection:</strong> a technical record
+                keyed by the private user ID retains only the revision number,
+                deletion time, and, for full-account deletion, an account-deleted
+                flag. It contains no gameplay payload, email address, or password.
+                It remains identifier-linked rather than anonymous.
+                It prevents delayed requests from recreating deleted data and is
+                not used for advertising. After full-account deletion it becomes
+                eligible for automatic cleanup after 30 days. Periodic cleanup
+                confirms the authentication account no longer exists; temporary
+                failures are retried. A backup-only marker remains while the
+                recovery account is active, until a new backup replaces it or the
+                recovery account is deleted.
               </li>
               <li>
                 <strong>Limited retention:</strong> information may be retained

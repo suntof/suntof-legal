@@ -13,7 +13,7 @@
           <div>
             <div class="eyebrow">Prism Mosaic - Privacy</div>
             <h1>Privacy Policy</h1>
-            <p class="muted">Last updated: September 10, 2026</p>
+            <p class="muted">Last updated: September 27, 2026</p>
           </div>
         </header>
 
@@ -25,11 +25,11 @@
         <div class="summary">
           <div class="summary-card">
             <strong>Local-first gameplay</strong>
-            <span>Progress, settings, coins, boosters, gallery unlocks, and event claims stay on your device. Android backup and device transfer are disabled.</span>
+            <span>Progress stays on your device unless you verify a recovery email and explicitly start an optional private cloud backup. Android system backup and device transfer remain disabled.</span>
           </div>
           <div class="summary-card">
             <strong>Optional rankings</strong>
-            <span>No login is required for gameplay. If you choose to join online rankings, the app creates an anonymous ranking account and public game profile.</span>
+            <span>No login is required for gameplay. If you choose to join online rankings, the app starts with an anonymous ranking identity and public game profile; you may later link a recovery email.</span>
           </div>
           <div class="summary-card">
             <strong>Ads and privacy choices</strong>
@@ -53,6 +53,9 @@
               This policy covers the iOS, Android, and web builds of Prism Mosaic. The
               exact SDK and ad configuration can vary by release; material changes
               to collection or sharing will be reflected here before distribution.
+              Recovery accounts and private cloud backup are available only in
+              releases that display Cloud Backup in Settings. Older releases
+              without this control do not upload private game backups.
             </p>
           </article>
 
@@ -70,7 +73,19 @@
               </li>
               <li>
                 <strong>Android backup:</strong> cloud backup and device-to-device
-                transfer are disabled for local game data in the Android release.
+                transfer through Android's system backup are disabled for local game data.
+                The optional in-game backup described below is separate.
+              </li>
+              <li>
+                <strong>Optional recovery account and private game backup:</strong>
+                if you choose to link an email and password to your game identity,
+                Firebase Authentication processes your email address, private user
+                ID, and authentication/security data. You must verify the email and
+                explicitly start the first backup. The private backup contains
+                completed campaign progress, earned stars and records, coins,
+                tools, daily progress, and studio state. It excludes the unfinished
+                puzzle board, local QA events, and advertising identifiers. The
+                password is not stored in the game save or shown in rankings.
               </li>
               <li>
                 <strong>Local diagnostics:</strong> limited gameplay diagnostics
@@ -120,12 +135,12 @@
             </p>
             <ul>
               <li>No login is required for core gameplay; online ranking participation is optional.</li>
-              <li>Firebase Authentication, App Check, and Firestore support ranking identity, abuse protection, and remote ranking storage.</li>
-              <li>Cloudflare routes and protects ranking-service traffic and may process IP addresses and request-security information under its policies.</li>
+              <li>Firebase Authentication, App Check, and Firestore support account identity, abuse protection, remote rankings, and optional private game backups.</li>
+              <li>Cloudflare routes and protects ranking and private-backup service traffic and may process IP addresses and request-security information under its policies.</li>
               <li>Banner and interstitial ads may appear during normal mobile gameplay at configured placements.</li>
               <li>Rewarded ads are optional and are requested only after the player chooses an ad-labelled reward.</li>
               <li>No in-app purchase products are active in the current release.</li>
-              <li>No first-party remote gameplay analytics or cloud save is active. Only ranking-related results are sent after a player joins rankings.</li>
+              <li>No first-party remote gameplay analytics is active. Private game progress is uploaded only after you verify a recovery email and opt in to cloud backup; ranking results are separate.</li>
               <li>No precise location permission, contacts, camera, microphone, or files access is required for core gameplay.</li>
               <li>The Android release denies cleartext HTTP traffic.</li>
             </ul>
@@ -146,6 +161,7 @@
             <h2>5) How information is used</h2>
             <ul>
               <li>To run the game, save progress, and remember settings on your device.</li>
+              <li>When you opt in, to authenticate your recovery account, store a private backup after eligible level completions, and restore it on another device only after your choice.</li>
               <li>To create and manage an optional ranking profile, calculate world and country rankings, and operate recurring league seasons.</li>
               <li>To validate submitted results, prevent manipulation, investigate reports, hide reported players, and keep the ranking service secure.</li>
               <li>To support local QA and debugging in test builds.</li>
@@ -157,13 +173,21 @@
           <article class="section">
             <h2>6) Sharing and third parties</h2>
             <p>
-              Local game saves are not uploaded as cloud saves. If you join
-              rankings, ranking profile and result data is sent to our ranking
-              service and stored using Google Firebase. Ranking requests are
-              routed through Cloudflare. These providers process information
+              A local game save is not uploaded unless you opt in to private
+              cloud backup. If you do, the selected progress snapshot is sent
+              through our protected gateway and stored using Google Firebase,
+              linked to your private user ID. Joining rankings separately sends
+              ranking profile and result data to the ranking service. Requests
+              are routed through Cloudflare. These providers process information
               according to their own terms and privacy policies. If you choose
               to share screenshots or diagnostic information with support, the
               communication service you use may also process that information.
+            </p>
+            <p>
+              When you choose to join rankings, your player code, display name,
+              avatar, chosen country, and ranking results can be visible to other
+              players. Your recovery email and private backup are not displayed
+              there or provided by the game to advertising services.
             </p>
             <p>
               When ads are enabled, Google and its advertising partners process data
@@ -182,9 +206,12 @@
             <h2>7) Retention and deletion</h2>
             <ul>
               <li>Local game data remains on your device until you clear browser/app data or uninstall the app. Android backup and device-to-device transfer are disabled for the Android release.</li>
-              <li>Clearing local data can permanently remove your progress; we do not keep a server copy of your game save.</li>
+              <li>Clearing local data can permanently remove progress unless an optional private cloud backup was completed and is still available. Cloud backup is not continuous or guaranteed real-time sync.</li>
+              <li>In Settings you can delete only the cloud backup. This removes its gameplay payload, leaves local progress, and retains a minimal revision marker so an older delayed upload cannot recreate the backup. Starting another backup requires a new choice.</li>
+              <li>Settings also offers full recovery-account deletion after password confirmation. This removes the recovery identity and private backup; any public ranking profile disappears immediately and associated ranking records may finish deleting through a bounded background process. Local progress remains on this device.</li>
+              <li>After backup deletion, a technical record keyed by the private user ID retains only the revision number and deletion time; full recovery-account deletion also records an account-deleted flag. It contains no gameplay payload, email address, or password, but remains identifier-linked rather than anonymous. It prevents delayed requests from recreating deleted data and is not used for advertising or public rankings. For a deleted recovery account, the record becomes eligible for automatic cleanup after 30 days; the server periodically confirms that the authentication account no longer exists before removing the record. Temporary service failures are retried. If only the backup is deleted and the recovery account remains active, the revision marker remains until a new backup replaces it or the recovery account is deleted.</li>
               <li>Ranking data remains until you delete the ranking account or it is removed under our safety, legal, or operational retention rules.</li>
-              <li>You can permanently delete your ranking profile, scores, submissions, league entries, hidden-player choices, and associated reports from the in-app ranking account screen. This does not delete the separate local game save.</li>
+              <li>You can permanently delete your ranking profile, scores, submissions, league entries, hidden-player choices, and associated reports from the in-app ranking account screen. If you linked a recovery email, deleting only the ranking profile keeps that recovery identity and its private backup. Neither action deletes the separate local game save.</li>
               <li>You can export a copy of your ranking data from the same in-app account screen.</li>
               <li>If you send information to us by email, follow the steps on our <a href="../data-deletion/">Data Deletion page</a> to request deletion.</li>
             </ul>
@@ -203,7 +230,7 @@
           <article class="section">
             <h2>9) Security</h2>
             <p>
-              Ranking traffic is encrypted in transit, access is authenticated,
+              Ranking and private-backup traffic is encrypted in transit, access is authenticated,
               and submitted results are checked on the server. We also use
               reasonable safeguards for support emails. No method of storage or
               transmission is perfectly secure, so please avoid sending sensitive
