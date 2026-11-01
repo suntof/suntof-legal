@@ -13,7 +13,7 @@
           <div>
             <div class="eyebrow">Prism Mosaic - Privacy</div>
             <h1>Privacy Policy</h1>
-            <p class="muted">Last updated: October 9, 2026</p>
+            <p class="muted">Last updated: November 1, 2026</p>
           </div>
         </header>
 
@@ -25,11 +25,11 @@
         <div class="summary">
           <div class="summary-card">
             <strong>Local-first gameplay</strong>
-            <span>Progress stays on your device unless you verify a recovery email and explicitly start an optional private cloud backup. Android system backup and device transfer remain disabled.</span>
+            <span>Progress stays on your device unless you sign in to a recovery account and explicitly start an optional private cloud backup. Supported releases offer Google on Android and Google or Apple on iOS, alongside email/password. Android system backup and device transfer remain disabled.</span>
           </div>
           <div class="summary-card">
             <strong>Optional rankings</strong>
-            <span>No login is required for gameplay. If you choose to join online rankings, the app starts with an anonymous ranking identity and public game profile; you may later link a recovery email.</span>
+            <span>No login is required for gameplay. If you choose to join online rankings, the app starts with an anonymous ranking identity and public game profile; you may later link an available recovery account.</span>
           </div>
           <div class="summary-card">
             <strong>Ads and privacy choices</strong>
@@ -78,10 +78,19 @@
               </li>
               <li>
                 <strong>Optional recovery account and private game backup:</strong>
-                if you choose to link an email and password to your game identity,
+                if you choose to link a recovery account to your game identity,
                 Firebase Authentication processes your email address, private user
-                ID, and authentication/security data. You must verify the email and
-                explicitly start the first backup. The private backup contains
+                ID, provider account identifiers, and authentication/security data.
+                Releases with these buttons offer Google on Android and Google or
+                Apple on iOS, without a new game password. Providers may supply a
+                display name and profile photo URL; Apple may supply a private relay
+                email address. The game does not request photo-library access or
+                upload an extra social avatar. Provider profile fields are not
+                published as your ranking profile. Your Google or Apple password
+                is not sent to the game. Email/password recovery remains available
+                and requires email verification. You explicitly choose the first
+                backup or which existing progress to restore; linking alone does
+                not silently merge different game identities. The private backup contains
                 completed campaign progress, earned stars and records, coins,
                 tools, daily progress, and studio state. It excludes the unfinished
                 puzzle board, local QA events, and advertising identifiers. The
@@ -151,7 +160,7 @@
               <li>Banner and interstitial ads may appear during normal mobile gameplay at configured placements.</li>
               <li>Rewarded ads are optional and are requested only after the player chooses an ad-labelled reward.</li>
               <li>Some releases offer an optional one-time Remove Automatic Ads purchase through Apple App Store or Google Play. Releases without the purchase control do not offer this purchase in the app.</li>
-              <li>No first-party remote gameplay analytics is active. Private game progress is uploaded only after you verify a recovery email and opt in to cloud backup; ranking results are separate.</li>
+              <li>No first-party remote gameplay analytics is active. Private game progress is uploaded only after you sign in to a recovery account and opt in to cloud backup; ranking results are separate.</li>
               <li>No precise location permission, contacts, camera, microphone, or files access is required for core gameplay.</li>
               <li>The Android release denies cleartext HTTP traffic.</li>
             </ul>
@@ -252,10 +261,10 @@
               <li>Local game data remains on your device until you clear browser/app data or uninstall the app. Android backup and device-to-device transfer are disabled for the Android release.</li>
               <li>Clearing local data can permanently remove progress unless an optional private cloud backup was completed and is still available. Cloud backup is not continuous or guaranteed real-time sync.</li>
               <li>In Settings you can delete only the cloud backup. This removes its gameplay payload, leaves local progress, and retains a minimal revision marker so an older delayed upload cannot recreate the backup. Starting another backup requires a new choice.</li>
-              <li>Settings also offers full recovery-account deletion after password confirmation. This removes the recovery identity and private backup; any public ranking profile disappears immediately and associated ranking records may finish deleting through a bounded background process. Local progress remains on this device.</li>
+              <li>Settings also offers full recovery-account deletion after recent authentication with the linked provider, or password confirmation for email/password accounts. Supported Apple account deletion also revokes Apple authorization. This removes the recovery identity and private backup; any public ranking profile disappears immediately and associated ranking records may finish deleting through a bounded background process. Local progress remains on this device.</li>
               <li>After backup deletion, a technical record keyed by the private user ID retains only the revision number and deletion time; full recovery-account deletion also records an account-deleted flag. It contains no gameplay payload, email address, or password, but remains identifier-linked rather than anonymous. It prevents delayed requests from recreating deleted data and is not used for advertising or public rankings. For a deleted recovery account, the record becomes eligible for automatic cleanup after 30 days; the server periodically confirms that the authentication account no longer exists before removing the record. Temporary service failures are retried. If only the backup is deleted and the recovery account remains active, the revision marker remains until a new backup replaces it or the recovery account is deleted.</li>
               <li>Ranking data remains until you delete the ranking account or it is removed under our safety, legal, or operational retention rules.</li>
-              <li>You can permanently delete your ranking profile, scores, submissions, league entries, hidden-player choices, and associated reports from the in-app ranking account screen. If you linked a recovery email, deleting only the ranking profile keeps that recovery identity and its private backup. Neither action deletes the separate local game save.</li>
+              <li>You can permanently delete your ranking profile, scores, submissions, league entries, hidden-player choices, and associated reports from the in-app ranking account screen. If you linked a recovery account, deleting only the ranking profile keeps that recovery identity and its private backup. Neither action deletes the separate local game save.</li>
               <li>You can export a copy of your ranking data from the same in-app account screen.</li>
               <li>If you send information to us by email, follow the steps on our <a href="../data-deletion/">Data Deletion page</a> to request deletion.</li>
             </ul>
